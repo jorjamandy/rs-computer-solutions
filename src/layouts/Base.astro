@@ -1,18 +1,15 @@
 ---
-import "@fontsource-variable/fraunces/full.css";
-import "@fontsource-variable/fraunces/full-italic.css";
-import "@fontsource-variable/jetbrains-mono";
 import "@fontsource-variable/inter";
 import "../styles/global.css";
 import { site, services, phoneHref } from "../data/site";
 
 interface Props { title?: string; description?: string }
 const { title, description = site.description } = Astro.props;
-const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Boutique IT, Security Cameras & Phone Systems`;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Boutique Business Technology`;
 const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
-<html lang="en" data-palette={site.palette}>
+<html lang="en" data-look={site.look}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,7 +32,7 @@ const base = import.meta.env.BASE_URL;
           <a href={`${base}#services`}>Services</a>
           <a href={`${base}#industries`}>Industries</a>
           <a href={`${base}#about`}>Why RS</a>
-          <a href={`${base}#projects`}>Projects</a>
+          <a href={`${base}#process`}>Process</a>
           <a href={`${base}#contact`}>Contact</a>
         </nav>
         <a class="btn btn-primary call" href={phoneHref}>{site.phone}</a>
@@ -51,7 +48,7 @@ const base = import.meta.env.BASE_URL;
             <span class="mark" aria-hidden="true">RS</span>
             <span class="brand-text">Computer Solutions</span>
           </div>
-          <p>Boutique IT, security cameras, phone systems, and dental office technology. Owner-operated.</p>
+          <p>A boutique technology firm. Owner-operated.</p>
           <p><a href={phoneHref}>{site.phone}</a><br />{site.location}</p>
         </div>
         <div>

@@ -9,11 +9,11 @@
   <svg viewBox="0 0 560 500" role="img" aria-label="Floor plan of a business showing the server, phones, workstations, Wi-Fi, and security cameras all connected.">
     <defs>
       <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-        <path d="M20 0H0V20" fill="none" stroke="rgba(245,245,240,.06)" stroke-width="1" />
+        <path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1" />
       </pattern>
       <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="var(--red)" stop-opacity=".55" />
-        <stop offset="1" stop-color="var(--red)" stop-opacity="0" />
+        <stop offset="0" stop-color="#6BACE4" stop-opacity=".5" />
+        <stop offset="1" stop-color="#6BACE4" stop-opacity="0" />
       </linearGradient>
     </defs>
     <rect width="560" height="500" fill="url(#grid)" />
@@ -108,31 +108,29 @@
 </figure>
 
 <style>
-  .blueprint { margin: 0; border: 1px solid rgba(245,245,240,.18); border-radius: 10px; background: rgba(245,245,240,.03); overflow: hidden; }
+  .blueprint { margin: 0; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: var(--bp-bg); color: #fff; overflow: hidden; box-shadow: 0 24px 48px -28px rgba(0,0,0,.5); }
   figcaption {
     display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px;
-    font: 500 0.7rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--on-navy-muted); border-bottom: 1px solid rgba(245,245,240,.14);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,.7); border-bottom: 1px solid rgba(255,255,255,.14);
   }
-  figcaption span:first-child { color: var(--red-light); }
+  figcaption span:first-child { color: var(--powder); }
   svg { display: block; width: 100%; height: auto; }
-  text { font: 500 8.5px var(--mono); letter-spacing: 0.06em; }
-  .walls path { fill: none; stroke: #F5F5F0; stroke-width: 2; stroke-linecap: square; }
-  .rooms text { fill: #6B7280; }
-  .lot rect { fill: none; stroke: #6B7280; stroke-dasharray: 5 5; }
-  .lot path { stroke: #6B7280; stroke-opacity: .6; }
-  .lot text { fill: #6B7280; }
-  .cables path { fill: none; stroke: #e04a4a; stroke-width: 1.5; stroke-dasharray: 3 5; animation: flow 1.6s linear infinite; }
-  .dev rect { fill: var(--navy); stroke: #F5F5F0; stroke-width: 1.4; }
-  .dev .desk { fill: none; stroke: #6B7280; stroke-width: 1.2; }
-  .dev .ink, .dev .stand { stroke: #F5F5F0; stroke-width: 1.2; fill: none; }
-  .led { fill: #5fe39a; animation: blink 2s ease-in-out infinite; }
-  .wifi circle { fill: #F5F5F0; }
-  .wifi path { fill: none; stroke: #F5F5F0; stroke-width: 1.3; stroke-linecap: round; animation: pulse 2.4s ease-in-out infinite; }
-  .cam circle { fill: var(--red); stroke: #F5F5F0; stroke-width: 1.5; }
+  text { font: 600 8px var(--font); letter-spacing: 0.08em; }
+  .walls path { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: square; }
+  .rooms text, .lot text { fill: rgba(255,255,255,.45); }
+  .lot rect { fill: none; stroke: rgba(255,255,255,.4); stroke-dasharray: 5 5; }
+  .lot path { stroke: rgba(255,255,255,.25); }
+  .cables path { fill: none; stroke: var(--powder); stroke-width: 1.5; stroke-dasharray: 3 5; animation: flow 1.6s linear infinite; }
+  .dev rect { fill: var(--bp-bg); stroke: #fff; stroke-width: 1.4; }
+  .dev .desk { fill: none; stroke: rgba(255,255,255,.45); stroke-width: 1.2; }
+  .dev .ink, .dev .stand { stroke: #fff; stroke-width: 1.2; fill: none; }
+  .led { fill: var(--powder); animation: blink 2s ease-in-out infinite; }
+  .wifi circle { fill: #fff; }
+  .wifi path { fill: none; stroke: #fff; stroke-width: 1.3; stroke-linecap: round; animation: pulse 2.4s ease-in-out infinite; }
+  .cam circle { fill: var(--powder); stroke: #fff; stroke-width: 1.5; }
   .cones path { animation: sweep 5s ease-in-out infinite; }
-  .labels text { fill: #F5F5F0; }
-  .labels path { stroke: #6B7280; }
+  .labels text { fill: #fff; }
   @keyframes flow { to { stroke-dashoffset: -16; } }
   @keyframes blink { 50% { opacity: .25; } }
   @keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }

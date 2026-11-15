@@ -17,7 +17,6 @@ const base = import.meta.env.BASE_URL;
       <p class="label"><a href={`${base}#services`}>Services</a> / {service.title}</p>
       <h1>{service.title}</h1>
       <p class="lede">{service.intro}</p>
-      <ul class="tags">{service.tags.map((t) => <li>{t}</li>)}</ul>
       <div class="actions">
         <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
         <a class="btn btn-ghost" href="#contact">Get a quote</a>
@@ -34,6 +33,12 @@ const base = import.meta.env.BASE_URL;
             <li><Icon name="check" size={18} />{item}</li>
           ))}
         </ul>
+        {service.familiar.length > 0 && (
+          <div class="familiar">
+            <h3>Experience includes</h3>
+            <ul class="tags">{service.familiar.map((f) => <li>{f}</li>)}</ul>
+          </div>
+        )}
       </div>
       <aside class="aside">
         <h2>Best suited to</h2>

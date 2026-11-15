@@ -37,13 +37,8 @@ const { topic } = Astro.props;
       </form>
     ) : (
       <div class="form">
-        <h3>When you call, it helps to know</h3>
-        <ul class="ticks">
-          <li>The type of business and its address</li>
-          <li>How many computers, phones, or cameras are involved</li>
-          <li>Whether this is a new install or a problem with an existing system</li>
-          <li>Your timeline, such as an opening or move date</li>
-        </ul>
+        <h3>The fastest way to get started</h3>
+        <p class="form-note" style="font-size:1rem">Call and describe what you need. Most conversations end with a time for a site visit.</p>
         <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
       </div>
     )}

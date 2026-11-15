@@ -5,12 +5,12 @@
 export const site = {
   name: "RS Computer Solutions",
   legalName: "RS Computer Solutions, LLC",
-  tagline: "Boutique IT, security cameras, and phone systems. Owner-operated.",
+  tagline: "Boutique technology firm. Owner-operated.",
   description:
-    "RS Computer Solutions installs and supports servers, networks, security cameras, phone systems, and dental practice software for businesses in southeastern Pennsylvania.",
+    "RS Computer Solutions is an owner-operated technology firm providing IT, networking, security cameras, phone systems, and dental practice technology to businesses in southeastern Pennsylvania.",
 
-  // Color palette: "" (navy, red, steel, off-white) or "philly" (red, royal blue, powder blue).
-  palette: "",
+  // Color layout: "1" charcoal, "2" cream, "3" maroon, "4" powder blue.
+  look: "1",
 
   // TODO: CONFIRM before going live. Phone and town came from a public
   // business directory listing, not from the owner.
@@ -28,9 +28,10 @@ export type Service = {
   icon: string;
   title: string;
   short: string;
-  tags: string[];
   intro: string;
   includes: string[];
+  // Optional product names, shown only on the service's own page. Use [] to hide.
+  familiar: string[];
   goodFor: string;
 };
 
@@ -39,172 +40,103 @@ export const services: Service[] = [
     slug: "it-consulting",
     icon: "compass",
     title: "IT Consulting & Support",
-    short: "Ongoing support for your staff and equipment, on-site and remote, plus planning for what to replace and when.",
-    tags: ["On-site support", "Remote support", "New-hire setup", "Purchasing advice"],
+    short: "A dedicated technology partner for your business: guidance, day-to-day support, and someone accountable when it matters.",
     intro:
-      "I act as the IT department for businesses that don't have one. I support your staff, maintain your equipment, deal with your internet and software vendors, and plan upgrades before old hardware fails.",
+      "I act as the technology department for businesses that don't have one. That means keeping your systems running, supporting your staff, and helping you make sound decisions about what to buy, replace, and protect.",
     includes: [
-      "On-site and remote support for staff",
-      "Technology planning and budgeting",
-      "New employee setup: accounts, email, workstation",
-      "Dealing with internet, software, and equipment vendors",
-      "Software installation, licensing, and updates",
-      "Advice on what to buy and what to skip",
+      "Ongoing support, on-site and remote",
+      "Technology planning and purchasing guidance",
+      "Security and data protection",
+      "Setup for new employees and new equipment",
+      "Coordination with your other technology vendors",
     ],
-    goodFor: "Businesses with 3 to 50 computers and no in-house IT staff.",
+    familiar: [],
+    goodFor: "Businesses that want one trusted person responsible for their technology.",
   },
   {
-    slug: "servers-and-networks",
+    slug: "networking-and-infrastructure",
     icon: "server",
-    title: "Servers, Domains & Networks",
-    short: "Windows servers and domains installed, migrated, and maintained. Firewalls, switches, cabling, and Wi-Fi.",
-    tags: ["Windows Server", "Active Directory domains", "Firewalls", "Wi-Fi", "Remote access"],
+    title: "Networking & Infrastructure",
+    short: "The foundation your business runs on: networks, servers, and cabling, designed and installed properly.",
     intro:
-      "I build the complete server and network environment for an office: the server, the domain, user accounts and permissions, shared drives, the firewall, the switches, and the Wi-Fi. I also replace and migrate aging servers without losing data.",
+      "Everything else depends on the network and the server behind it. I design and install the complete infrastructure for an office, from the cabling in the walls to the systems that manage your users and files.",
     includes: [
-      "Server installation, migration, and replacement",
-      "Domain setup: user accounts, permissions, shared drives",
-      "Routers, switches, and firewalls",
-      "Wi-Fi coverage for the whole building",
-      "Secure remote access for owners and staff",
-      "Monitoring and maintenance",
+      "Wired and wireless networks",
+      "Structured cabling",
+      "Servers and user management",
+      "Secure remote access",
+      "Upgrades and replacements for aging systems",
     ],
-    goodFor: "Offices opening, moving, expanding, or running on an old server.",
+    familiar: ["Active Directory"],
+    goodFor: "Offices that are opening, moving, expanding, or outgrowing what they have.",
   },
   {
     slug: "security-cameras",
     icon: "camera",
     title: "Security Camera Systems",
-    short: "Camera systems designed, cabled, and installed by a Panasonic certified technician. Live and recorded video on your phone.",
-    tags: ["Panasonic certified", "Indoor & outdoor", "Recorders & storage", "Phone viewing"],
+    short: "Professional surveillance for your property, from a single storefront to a multi-level garage.",
     intro:
-      "I design and install complete camera systems: placement, cabling, cameras, recorder, and remote viewing. Systems range from a few cameras over a counter and register to full coverage of a multi-level parking garage.",
+      "I design and install complete camera systems that cover what matters, record reliably, and let you check in from anywhere.",
     includes: [
-      "Site walk-through and camera placement plan",
-      "Indoor and outdoor cameras, mounted and cabled",
-      "Recorders with storage sized to how many days you need to keep",
-      "Live and recorded viewing on phones and computers",
-      "Coverage of entrances, registers, lots, and garage levels",
-      "Repair and expansion of existing systems",
+      "System design and camera placement",
+      "Professional installation and cabling",
+      "Recording and storage",
+      "Remote viewing from your phone or computer",
+      "Service and expansion of existing systems",
     ],
-    goodFor: "Restaurants, retail stores, parking lots and garages, offices, and warehouses.",
+    familiar: [],
+    goodFor: "Restaurants, retail, parking lots and garages, offices, and warehouses.",
   },
   {
     slug: "phone-systems",
     icon: "phone",
     title: "Business Phone Systems",
-    short: "Multi-line phone systems installed and programmed: extensions, auto attendant, call routing, and voicemail.",
-    tags: ["Multi-line systems", "Auto attendant", "Voicemail to email", "Moves & changes"],
+    short: "Complete phone systems, installed, programmed, and supported by a Panasonic authorized dealer and technician.",
     intro:
-      "I install and program complete business phone systems, including the handsets, extensions, auto attendant, after-hours greetings, and call routing. I also service and reprogram systems that are already in place.",
+      "I install and support complete business phone systems, so every call reaches the right person and your callers always hear a professional greeting.",
     includes: [
-      "New phone system design and installation",
-      "Auto attendant, call routing, and ring groups",
-      "Voicemail, including voicemail to email",
-      "Desk phones, cordless phones, and conference phones",
-      "Adding, moving, and changing extensions",
-      "Repair and reprogramming of existing systems",
+      "New phone system installation",
+      "Call handling and greetings set up for how you work",
+      "Voicemail",
+      "Changes as your staff and offices change",
+      "Service for existing systems",
     ],
-    goodFor: "Front desks, multi-line offices, and restaurants that take orders by phone.",
+    familiar: ["Panasonic PBX"],
+    goodFor: "Front desks, multi-line offices, and any business that depends on the phone.",
   },
   {
-    slug: "dental-office-it",
+    slug: "dental-practice-technology",
     icon: "tooth",
-    title: "Dental Office Technology",
-    short: "Practice management software, imaging, operatory computers, and the server and domain they all run on.",
-    tags: ["Practice software", "X-ray & imaging", "Operatory PCs", "Server & domain"],
+    title: "Dental Practice Technology",
+    short: "The complete technology environment for a dental office, including installation and support of practice software.",
     intro:
-      "I install dental practice management software and build the full server and domain environment behind it. That includes the computer in every operatory, the front desk, the imaging and X-ray software, and the backups that protect patient records.",
+      "A dental practice runs on specialized software that has to work in every operatory, every day. I install and support that software and build the entire technology environment around it.",
     includes: [
-      "Practice management software installation and upgrades",
-      "Server and domain setup for the whole practice",
-      "Operatory and front-desk workstations",
-      "Imaging and X-ray software integration",
-      "Backup of patient records",
-      "New office build-outs and practice relocations",
+      "Practice management software installation and support",
+      "Imaging software integration",
+      "Operatory and front-desk systems",
+      "Servers and networks for the practice",
+      "New office build-outs and relocations",
     ],
-    goodFor: "New practices, practice purchases, software conversions, and expansions.",
+    familiar: ["Dentrix", "Eaglesoft", "Carestream"],
+    goodFor: "New practices, practice transitions, software changes, and expansions.",
   },
   {
-    slug: "cybersecurity",
-    icon: "shield",
-    title: "Security & Virus Removal",
-    short: "Virus and ransomware removal, managed antivirus, firewalls, and patching for every computer in the office.",
-    tags: ["Virus removal", "Managed antivirus", "Firewalls", "Patching"],
-    intro:
-      "I remove viruses, malware, and ransomware, then put protection in place so it doesn't happen again: antivirus on every machine, a properly configured firewall, current security updates, and safer email and passwords.",
-    includes: [
-      "Virus, malware, and ransomware removal",
-      "Managed antivirus on every computer",
-      "Firewall setup and configuration",
-      "Email and password security",
-      "Security updates and patching",
-      "Security review of an existing network",
-    ],
-    goodFor: "Any business holding client records, patient records, or payment data.",
-  },
-  {
-    slug: "backup-and-recovery",
-    icon: "backup",
-    title: "Backup & Data Recovery",
-    short: "Automatic on-site and off-site backups for servers and workstations, tested so they can be restored.",
-    tags: ["On-site backup", "Off-site backup", "Restore testing", "Data transfer"],
-    intro:
-      "I set up automatic backups of servers and workstations, keep a copy off-site, and test that the backups can be restored. When a drive fails or a file is deleted, I recover it.",
-    includes: [
-      "Automatic on-site and off-site backups",
-      "Server and workstation coverage",
-      "Regular restore tests",
-      "File and full-system recovery",
-      "Data transfer to new computers and servers",
-      "Recovery planning for outages",
-    ],
-    goodFor: "Dental practices, law firms, and any office whose records can't be recreated.",
-  },
-  {
-    slug: "hardware-and-setup",
+    slug: "business-software",
     icon: "desktop",
-    title: "Hardware & Office Setups",
-    short: "Computers, printers, cabling, and point-of-sale stations supplied, installed, and repaired.",
-    tags: ["Computers", "Printers", "Network cabling", "Point of sale"],
+    title: "Business Software & Email",
+    short: "The everyday software your team relies on, set up correctly and kept running.",
     intro:
-      "I supply and install the equipment for a new or relocating business: computers, printers, network cabling, and register stations. I also repair and upgrade the equipment you already own.",
+      "I set up and support the software your business uses every day, including email, office applications, and accounting, so your team can simply get to work.",
     includes: [
-      "Computer and laptop sales, setup, and repair",
-      "Printers, scanners, and shared devices",
-      "Network and low-voltage cabling",
-      "Register and point-of-sale stations",
-      "Office moves and new location build-outs",
-      "Upgrades for existing equipment",
+      "Email and office applications",
+      "Accounting software setup and support",
+      "User accounts and access",
+      "Moving to new software or new computers",
+      "Troubleshooting when something stops working",
     ],
-    goodFor: "New locations, office moves, and equipment replacement.",
-  },
-];
-
-export const pillars = [
-  {
-    icon: "server",
-    title: "IT & Servers",
-    href: "servers-and-networks",
-    points: ["Windows servers and domains", "Networks, firewalls, Wi-Fi", "Staff support, on-site and remote"],
-  },
-  {
-    icon: "camera",
-    title: "Security Cameras",
-    href: "security-cameras",
-    points: ["Panasonic certified installer", "Indoor, outdoor, lots, garages", "View live video on your phone"],
-  },
-  {
-    icon: "phone",
-    title: "Phone Systems",
-    href: "phone-systems",
-    points: ["Multi-line systems installed", "Auto attendant and call routing", "Voicemail and extensions"],
-  },
-  {
-    icon: "tooth",
-    title: "Dental Software",
-    href: "dental-office-it",
-    points: ["Practice software installed", "X-ray and imaging integration", "Operatory and front-desk PCs"],
+    familiar: ["Microsoft 365", "QuickBooks"],
+    goodFor: "Any office that depends on email, shared files, and accounting software.",
   },
 ];
 
@@ -212,107 +144,54 @@ export const industries = [
   {
     icon: "tooth",
     title: "Dental offices",
-    text: "The complete technology build for a practice.",
-    setups: [
-      "Practice management software",
-      "Server and domain",
-      "A computer in every operatory",
-      "X-ray and imaging software",
-      "Patient record backups",
-      "Phones and cameras",
-    ],
+    text: "The complete technology environment for a practice, from the front desk to every operatory.",
   },
   {
     icon: "scale",
     title: "Law offices",
-    text: "Dependable systems for firms that run on documents and deadlines.",
-    setups: [
-      "File server with user permissions",
-      "Secure remote access",
-      "On-site and off-site backup",
-      "Multi-line phone system",
-      "Network security and antivirus",
-      "Printers and scanners",
-    ],
+    text: "Dependable, secure systems for firms that run on documents and deadlines.",
   },
   {
     icon: "pizza",
     title: "Pizza shops & restaurants",
-    text: "Equipment that holds up in a busy kitchen and at a busy counter.",
-    setups: [
-      "Cameras over the counter, register, and kitchen",
-      "Phone lines for takeout orders",
-      "Register and point-of-sale stations",
-      "Network and Wi-Fi",
-      "Video you can check from home",
-    ],
+    text: "Cameras, phones, and networks that hold up through the busiest service.",
   },
   {
     icon: "parking",
     title: "Parking lots & garages",
-    text: "Camera coverage for large and multi-level properties.",
-    setups: [
-      "Cameras at every entrance and exit",
-      "Coverage of each garage level",
-      "Outdoor, weather-rated cameras",
-      "Recorders with long retention",
-      "Remote viewing for owners and managers",
-    ],
-  },
-];
-
-export const projects = [
-  {
-    title: "New dental office build-out",
-    text: "Server and domain, operatory and front-desk computers, practice software, imaging, phone system, and cameras, all installed before opening day.",
+    text: "Surveillance for large and multi-level properties, viewable from anywhere.",
   },
   {
-    title: "Server replacement",
-    text: "A new server installed and every user account, shared drive, and program moved over from the old one, with the office back at work the next business day.",
+    icon: "building",
+    title: "Offices & small businesses",
+    text: "Everything a growing business needs, without hiring an IT department.",
   },
-  {
-    title: "Camera system for a parking garage",
-    text: "Cameras on every level and at each entrance and exit, cabled back to a recorder, with live and recorded video available remotely.",
-  },
-  {
-    title: "Phone system for a multi-line office",
-    text: "Handsets at every desk, an auto attendant, ring groups, after-hours greetings, and voicemail delivered to email.",
-  },
-  {
-    title: "Restaurant cameras and phones",
-    text: "Cameras covering the counter, register, kitchen, and back door, plus phone lines set up to handle takeout orders.",
-  },
-  {
-    title: "Ransomware cleanup",
-    text: "Infected computers cleaned, files restored from backup, and antivirus, firewall, and backups put in place to prevent a repeat.",
-  },
-];
-
-export const steps = [
-  { title: "Call", text: "Tell me what you need installed or what isn't working." },
-  { title: "Site visit", text: "I look at your space and your current equipment." },
-  { title: "Quote", text: "You get a price and a list of exactly what will be installed." },
-  { title: "Installation", text: "I install, configure, and test everything, and show your staff how to use it." },
-  { title: "Support", text: "The same person who installed it is the one you call afterward." },
 ];
 
 export const promises = [
   { title: "One number", text: "The person who answers the phone is the person who does the work." },
-  { title: "One technician", text: "The same specialist installs your system, documents it, and comes back to support it." },
-  { title: "Every system", text: "Servers, cameras, phones, and software are designed together, so they work together." },
+  { title: "One technician", text: "The same specialist designs, installs, and supports your systems." },
+  { title: "Every system", text: "Your technology is planned as a whole, so it works as a whole." },
 ];
 
-// TODO: owner should review. "fit" lists are a starting point, not confirmed policy.
+// TODO: owner should review. These lists are a starting point, not confirmed policy.
 export const fit = {
   yes: [
-    "Offices, practices, and shops with roughly 3 to 50 computers",
-    "Owners who want one person accountable for all their technology",
-    "New locations, moves, and build-outs that need everything installed at once",
-    "Businesses tired of the camera, phone, and IT vendors blaming each other",
+    "Small and mid-sized offices, practices, and shops",
+    "Owners who want one person accountable for their technology",
+    "New locations, moves, and build-outs",
+    "Businesses tired of vendors blaming each other",
   ],
   no: [
     "Companies that need a staffed 24/7 help desk",
-    "Home users looking for one-time personal computer repair",
     "Large enterprises with their own IT department",
   ],
 };
+
+export const steps = [
+  { title: "Call", text: "Tell me what you need or what isn't working." },
+  { title: "Site visit", text: "I look at your space and your current systems." },
+  { title: "Proposal", text: "You get a clear plan and a price." },
+  { title: "Installation", text: "I install and test everything, and walk your staff through it." },
+  { title: "Support", text: "The person who installed it is the person you call afterward." },
+];

@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import Contact from "../components/Contact.astro";
 import Blueprint from "../components/Blueprint.astro";
-import { site, services, industries, projects, steps, promises, fit, phoneHref } from "../data/site";
+import { site, services, industries, steps, promises, fit, phoneHref } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
 <Base>
@@ -11,17 +11,17 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap hero-grid">
       <div>
         <p class="kicker"><span class="pip"></span>Owner-operated · {site.location}</p>
-        <h1>Your servers, cameras, phones, and software, handled by <em>one specialist.</em></h1>
+        <h1>All of your business technology, handled by <em>one specialist.</em></h1>
         <p class="lede">
           RS Computer Solutions is a boutique technology firm. I design, install,
-          and support the complete setup for dental practices, law offices,
-          restaurants, and parking facilities, and I do the work myself.
+          and support the systems your business depends on: IT, networking,
+          security cameras, and phones. One person, accountable for all of it.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
           <a class="btn btn-ghost" href="#services">See what I do <Icon name="arrow" size={18} /></a>
         </div>
-        <p class="cert"><Icon name="shield" size={18} /> Panasonic certified dealer &amp; technician</p>
+        <p class="cert"><Icon name="shield" size={18} /> Panasonic authorized dealer &amp; technician</p>
       </div>
       <Blueprint />
     </div>
@@ -43,18 +43,15 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap">
       <div class="section-head">
         <p class="label">Services</p>
-        <h2>Eight specialties, one point of contact</h2>
-        <p>Most businesses hire a different company for each of these. Here they come from the same person, built to work as one system.</p>
+        <h2>Complete technology services, from one point of contact</h2>
+        <p>Most businesses hire a different company for each of these. Here they come from the same person, planned to work together.</p>
       </div>
       <div class="rows">
         {services.map((s, i) => (
           <a class="row" href={`${base}services/${s.slug}/`}>
             <span class="mono num">{String(i + 1).padStart(2, "0")}</span>
             <h3>{s.title}</h3>
-            <div class="row-body">
-              <p>{s.short}</p>
-              <ul class="tags">{s.tags.map((t) => <li>{t}</li>)}</ul>
-            </div>
+            <p>{s.short}</p>
             <span class="go"><Icon name="arrow" size={20} /></span>
           </a>
         ))}
@@ -66,24 +63,14 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap">
       <div class="section-head">
         <p class="label">Industries</p>
-        <h2>Built around how your business actually runs</h2>
-        <p>A dental practice and a parking garage need very different things. This is what a full setup looks like for each.</p>
+        <h2>Trusted by the businesses that keep a community running</h2>
       </div>
       <div class="industries">
         {industries.map((ind) => (
           <div class="industry">
-            <div class="industry-head">
-              <span class="icon"><Icon name={ind.icon} size={24} /></span>
-              <div>
-                <h3>{ind.title}</h3>
-                <p>{ind.text}</p>
-              </div>
-            </div>
-            <ul class="ticks">
-              {ind.setups.map((x) => (
-                <li><Icon name="check" size={16} />{x}</li>
-              ))}
-            </ul>
+            <span class="icon"><Icon name={ind.icon} size={24} /></span>
+            <h3>{ind.title}</h3>
+            <p>{ind.text}</p>
           </div>
         ))}
       </div>
@@ -96,27 +83,22 @@ const base = import.meta.env.BASE_URL;
         <p class="label">Why a boutique firm</p>
         <h2>You're not hiring a company. You're hiring <em>the technician.</em></h2>
         <p class="about-lede">
-          A large IT provider sends whoever is on shift. With RS, the person who
-          quoted the job is the person who runs the cable, configures the
-          server, programs the phones, and answers when you call a year later.
-          Nothing gets lost between a salesperson, an installer, and a help desk.
-        </p>
-        <p class="about-lede">
-          The business started with computer repair and virus removal, and grew
-          one request at a time: first networks and servers, then phone systems,
-          camera systems, and dental practice software.
+          A large provider sends whoever is on shift. With RS, the person who
+          plans your project is the person who installs it and the person who
+          answers when you call a year later. Nothing gets lost between a
+          salesperson, an installer, and a help desk.
         </p>
       </div>
       <div class="fit">
         <div>
           <h3>A good fit</h3>
-          <ul class="ticks ticks-1">
+          <ul class="ticks">
             {fit.yes.map((x) => <li><Icon name="check" size={16} />{x}</li>)}
           </ul>
         </div>
         <div class="fit-no">
           <h3>Probably not a fit</h3>
-          <ul class="ticks ticks-1">
+          <ul class="ticks">
             {fit.no.map((x) => <li><span class="x">×</span>{x}</li>)}
           </ul>
         </div>
@@ -124,25 +106,7 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <section id="projects" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Typical projects</p>
-        <h2>The jobs I'm called for most</h2>
-      </div>
-      <div class="projects">
-        {projects.map((p, i) => (
-          <div class="project">
-            <span class="mono">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{p.title}</h3>
-            <p>{p.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="section panel">
+  <section id="process" class="section">
     <div class="wrap">
       <div class="section-head">
         <p class="label">How it works</p>
