@@ -1,16 +1,16 @@
 ---
-import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/archivo";
+import "@fontsource-variable/inter";
 import "../styles/global.css";
 import { site, services, phoneHref } from "../data/site";
 
 interface Props { title?: string; description?: string }
 const { title, description = site.description } = Astro.props;
-const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.tagline}`;
+const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | IT, Security Cameras & Phone Systems`;
 const base = import.meta.env.BASE_URL;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme={site.theme}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,29 +19,29 @@ const base = import.meta.env.BASE_URL;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0c2a24" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <div class="topbar">
+      <div class="wrap topbar-row">
+        <span>Panasonic certified dealer &amp; technician</span>
+        <span class="topbar-area">Serving {site.serviceArea}</span>
+      </div>
+    </div>
     <header class="site-header">
       <div class="wrap bar">
         <a class="brand" href={base} aria-label={`${site.name} home`}>
           <span class="mark" aria-hidden="true">RS</span>
-          <span class="brand-text">
-            <strong>RS Computer</strong>
-            <span>Solutions</span>
-          </span>
+          <span class="brand-text">Computer Solutions</span>
         </a>
         <nav aria-label="Main">
           <a href={`${base}#services`}>Services</a>
-          <a href={`${base}#industries`}>Who we serve</a>
-          <a href={`${base}#approach`}>Why RS</a>
+          <a href={`${base}#industries`}>Industries</a>
+          <a href={`${base}#projects`}>Projects</a>
           <a href={`${base}#contact`}>Contact</a>
         </nav>
-        <a class="btn btn-accent call" href={phoneHref}>
-          <span class="call-label">Call</span> {site.phone}
-        </a>
+        <a class="btn btn-primary call" href={phoneHref}>{site.phone}</a>
       </div>
     </header>
 
@@ -52,9 +52,9 @@ const base = import.meta.env.BASE_URL;
         <div>
           <div class="brand brand-foot">
             <span class="mark" aria-hidden="true">RS</span>
-            <span class="brand-text"><strong>RS Computer</strong><span>Solutions</span></span>
+            <span class="brand-text">Computer Solutions</span>
           </div>
-          <p class="foot-tag">{site.tagline}</p>
+          <p>IT support, security cameras, phone systems, and dental office technology.</p>
           <p><a href={phoneHref}>{site.phone}</a><br />{site.location}</p>
         </div>
         <div>
@@ -68,11 +68,10 @@ const base = import.meta.env.BASE_URL;
         <div>
           <h2>Service area</h2>
           <p>{site.serviceArea}</p>
-          <p><a href={`${base}#contact`}>Request a visit</a></p>
         </div>
       </div>
       <div class="wrap legal">
-        © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+        © {new Date().getFullYear()} {site.legalName}
       </div>
     </footer>
   </body>

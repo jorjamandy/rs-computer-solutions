@@ -15,14 +15,12 @@ const base = import.meta.env.BASE_URL;
   <section class="hero hero-sub">
     <div class="wrap">
       <p class="eyebrow"><a href={`${base}#services`}>Services</a> / {service.title}</p>
-      <div class="sub-title">
-        <span class="icon icon-lg"><Icon name={service.icon} size={34} /></span>
-        <h1>{service.title}</h1>
-      </div>
+      <h1>{service.title}</h1>
       <p class="lede">{service.intro}</p>
+      <ul class="tags">{service.tags.map((t) => <li>{t}</li>)}</ul>
       <div class="actions">
-        <a class="btn btn-accent" href={phoneHref}>Call {site.phone}</a>
-        <a class="btn btn-ghost" href="#contact">Request a visit <Icon name="arrow" size={18} /></a>
+        <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
+        <a class="btn btn-outline" href="#contact">Get a quote</a>
       </div>
     </div>
   </section>
@@ -31,16 +29,16 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap detail">
       <div>
         <h2>What's included</h2>
-        <ul class="checks">
+        <ul class="ticks ticks-lg">
           {service.includes.map((item) => (
-            <li><span class="ok"><Icon name="check" size={16} /></span>{item}</li>
+            <li><Icon name="check" size={18} />{item}</li>
           ))}
         </ul>
       </div>
       <aside class="aside">
-        <h2>A good fit for</h2>
+        <h2>Best suited to</h2>
         <p>{service.goodFor}</p>
-        <h2>Also from RS</h2>
+        <h2>Other services</h2>
         <ul class="others">
           {others.map((s) => (
             <li><a href={`${base}services/${s.slug}/`}><Icon name={s.icon} size={18} />{s.title}</a></li>

@@ -2,52 +2,34 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import Contact from "../components/Contact.astro";
-import { site, services, industries, phoneHref } from "../data/site";
+import { site, services, pillars, industries, projects, steps, phoneHref } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
 <Base>
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Business technology · {site.location}</p>
-        <h1>One call for <em>everything</em> that plugs in.</h1>
-        <p class="lede">
-          Servers, networks, security cameras, phone systems, and the software
-          your business runs on. Installed, secured, and supported by one local
-          expert who knows your whole setup.
-        </p>
-        <div class="actions">
-          <a class="btn btn-accent" href={phoneHref}>Call {site.phone}</a>
-          <a class="btn btn-ghost" href="#services">See all services <Icon name="arrow" size={18} /></a>
-        </div>
-      </div>
-
-      <div class="panel" aria-label="What we handle">
-        <div class="panel-head">
-          <span class="dot"></span> Your business, fully covered
-        </div>
-        <ul>
-          {services.map((s) => (
-            <li>
-              <a href={`${base}services/${s.slug}/`}>
-                <Icon name={s.icon} size={20} />
-                <span>{s.title}</span>
-                <span class="ok"><Icon name="check" size={16} /></span>
-              </a>
-            </li>
-          ))}
-        </ul>
+    <div class="wrap">
+      <p class="eyebrow">{site.legalName} · {site.location}</p>
+      <h1>IT support, security cameras, and phone systems for <span class="hl">Pennsylvania businesses.</span></h1>
+      <p class="lede">
+        We install and support the full technology setup for dental offices, law
+        firms, restaurants, and parking facilities: servers, networks, cameras,
+        phones, and the software you run every day. One company does all of it.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
+        <a class="btn btn-outline" href="#services">View services</a>
       </div>
     </div>
-  </section>
-
-  <section class="strip" aria-label="Credentials">
-    <div class="wrap strip-row">
-      <span>Panasonic certified dealer &amp; technician</span>
-      <span>Camera systems</span>
-      <span>Phone systems</span>
-      <span>Servers &amp; domains</span>
-      <span>Dental software</span>
+    <div class="wrap pillars">
+      {pillars.map((p) => (
+        <a class="pillar" href={`${base}services/${p.href}/`}>
+          <span class="icon"><Icon name={p.icon} size={24} /></span>
+          <h2>{p.title}</h2>
+          <ul>
+            {p.points.map((pt) => <li>{pt}</li>)}
+          </ul>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -55,77 +37,86 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Services</p>
-        <h2>If it has a cable, a screen, or a dial tone, we handle it.</h2>
-        <p>
-          Most businesses juggle an IT company, a camera installer, a phone
-          vendor, and a software rep, and each one blames the others. Here it's
-          one person, responsible for all of it.
-        </p>
+        <h2>What we install and support</h2>
       </div>
-      <div class="cards">
+      <div class="rows">
         {services.map((s, i) => (
-          <a class="card" href={`${base}services/${s.slug}/`}>
+          <a class="row" href={`${base}services/${s.slug}/`}>
             <span class="num">{String(i + 1).padStart(2, "0")}</span>
-            <span class="icon"><Icon name={s.icon} size={26} /></span>
             <h3>{s.title}</h3>
-            <p>{s.short}</p>
-            <span class="more">Details <Icon name="arrow" size={16} /></span>
+            <div class="row-body">
+              <p>{s.short}</p>
+              <ul class="tags">{s.tags.map((t) => <li>{t}</li>)}</ul>
+            </div>
+            <span class="go"><Icon name="arrow" size={20} /></span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section id="industries" class="section dark">
+  <section id="industries" class="section alt">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Who we serve</p>
-        <h2>From the operatory to the parking garage.</h2>
-        <p>
-          Every kind of business has its own equipment, software, and bad days.
-          These are a few we know especially well.
-        </p>
+        <p class="eyebrow">Industries</p>
+        <h2>What we set up, by type of business</h2>
       </div>
       <div class="industries">
         {industries.map((ind) => (
           <div class="industry">
-            <span class="icon"><Icon name={ind.icon} size={26} /></span>
-            <h3>{ind.title}</h3>
-            <p>{ind.text}</p>
+            <div class="industry-head">
+              <span class="icon"><Icon name={ind.icon} size={24} /></span>
+              <div>
+                <h3>{ind.title}</h3>
+                <p>{ind.text}</p>
+              </div>
+            </div>
+            <ul class="ticks">
+              {ind.setups.map((x) => (
+                <li><Icon name="check" size={16} />{x}</li>
+              ))}
+            </ul>
           </div>
         ))}
-        <div class="industry industry-cta">
-          <h3>Don't see yours?</h3>
-          <p>If your business runs on technology, odds are we've already worked on something like it.</p>
-          <a class="btn btn-accent" href="#contact">Ask us</a>
-        </div>
+      </div>
+      <p class="note">
+        We also work with medical offices, retail stores, warehouses, and other
+        small businesses. <a href="#contact">Ask about yours.</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Typical projects</p>
+        <h2>The jobs we're called for most</h2>
+      </div>
+      <div class="projects">
+        {projects.map((p) => (
+          <div class="project">
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <section id="approach" class="section">
-    <div class="wrap approach">
+  <section id="process" class="section band">
+    <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Why RS</p>
-        <h2>One person who knows the whole building.</h2>
+        <p class="eyebrow">How it works</p>
+        <h2>From first call to ongoing support</h2>
       </div>
-      <ol class="reasons">
-        <li>
-          <h3>No finger-pointing</h3>
-          <p>When the phones, cameras, network, and software all come from the same place, there's nobody else to blame and no reason to wait for someone else to show up.</p>
-        </li>
-        <li>
-          <h3>Systems built to work together</h3>
-          <p>Cameras share the network with the phones, which share it with the server. Designing them as one system is why they keep working as one.</p>
-        </li>
-        <li>
-          <h3>Local, and on-site when it matters</h3>
-          <p>Remote support handles the quick fixes. For everything else, you get someone who actually comes to your building and knows where the server closet is.</p>
-        </li>
-        <li>
-          <h3>Plain answers</h3>
-          <p>You'll hear what's wrong, what it costs, and whether it's worth fixing, without the jargon or the upsell.</p>
-        </li>
+      <ol class="steps">
+        {steps.map((s, i) => (
+          <li>
+            <span class="step-num">{i + 1}</span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
       </ol>
     </div>
   </section>

@@ -7,15 +7,11 @@ const { topic } = Astro.props;
   <div class="wrap contact-grid">
     <div>
       <p class="eyebrow">Contact</p>
-      <h2>Tell us what's broken, or what you're building.</h2>
-      <p class="lede">
-        New office, new system, or a problem that won't go away. Start with a
-        phone call and get a straight answer.
-      </p>
+      <h2>Get a quote or schedule a site visit</h2>
       <a class="bigphone" href={phoneHref}>{site.phone}</a>
       <dl class="facts">
-        <div><dt>Based in</dt><dd>{site.location}</dd></div>
-        <div><dt>Serving</dt><dd>{site.serviceArea}</dd></div>
+        <div><dt>Office</dt><dd>{site.location}</dd></div>
+        <div><dt>Service area</dt><dd>{site.serviceArea}</dd></div>
         {site.email && (
           <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
         )}
@@ -27,7 +23,7 @@ const { topic } = Astro.props;
         <label>Your name<input name="name" required autocomplete="name" /></label>
         <label>Business<input name="business" autocomplete="organization" /></label>
         <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
-        <label>What do you need help with?
+        <label>Service
           <select name="topic">
             {services.map((s) => (
               <option selected={s.title === topic}>{s.title}</option>
@@ -36,14 +32,19 @@ const { topic } = Astro.props;
           </select>
         </label>
         <label>Details<textarea name="details" rows="4"></textarea></label>
-        <button class="btn btn-accent" type="submit">Send message</button>
+        <button class="btn btn-primary" type="submit">Send message</button>
         <p class="form-note">Opens your email app with the message ready to send.</p>
       </form>
     ) : (
-      <div class="form callcard">
-        <h3>Fastest way to reach us</h3>
-        <p>Call and describe what's going on. Have a rough idea of how many computers, phones, or cameras are involved and we can usually tell you the next step on the spot.</p>
-        <a class="btn btn-accent" href={phoneHref}>Call {site.phone}</a>
+      <div class="form">
+        <h3>When you call, it helps to know</h3>
+        <ul class="ticks">
+          <li>The type of business and its address</li>
+          <li>How many computers, phones, or cameras are involved</li>
+          <li>Whether this is a new install or a problem with an existing system</li>
+          <li>Your timeline, such as an opening or move date</li>
+        </ul>
+        <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
       </div>
     )}
   </div>
