@@ -218,3 +218,25 @@ svg { flex: none; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ───── Alternate palette: Philadelphia red, royal blue, and powder blue ───── */
+[data-palette="philly"] {
+  --navy: #002D72;
+  --navy-deep: #001C4A;
+  --red: #E81828;
+  --red-light: #ff7480;
+  --powder: #6BACE4;
+  --offwhite: #F6FAFE;
+  --line: #d5e0ec;
+  --on-navy-muted: #a9cdee;
+}
+[data-palette="philly"] .promises { background: var(--powder); color: var(--navy-deep); }
+[data-palette="philly"] .promise p { color: #06224f; }
+[data-palette="philly"] .promise + .promise { border-color: rgba(0,28,74,.25); }
+[data-palette="philly"] .hero { background: radial-gradient(700px 420px at 88% 0%, rgba(107,172,228,.28), transparent 70%), linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); }
+[data-palette="philly"] .kicker, [data-palette="philly"] .cert, [data-palette="philly"] .brand-text { color: var(--powder); }
+[data-palette="philly"] .cert svg, [data-palette="philly"] .about .label, [data-palette="philly"] .hero-sub .label { color: var(--powder); }
+[data-palette="philly"] .tags li { background: #dcebf8; }
+[data-palette="philly"] .hero-sub .tags li { background: rgba(107,172,228,.2); }
+[data-palette="philly"] .btn-primary:hover { background: #ff2f3e; }
+[data-palette="philly"] .industry { background: #eef5fc; }
