@@ -14,13 +14,13 @@ const base = import.meta.env.BASE_URL;
 <Base title={service.title} description={service.short}>
   <section class="hero hero-sub">
     <div class="wrap">
-      <p class="eyebrow"><a href={`${base}#services`}>Services</a> / {service.title}</p>
+      <p class="label"><a href={`${base}#services`}>Services</a> / {service.title}</p>
       <h1>{service.title}</h1>
       <p class="lede">{service.intro}</p>
       <ul class="tags">{service.tags.map((t) => <li>{t}</li>)}</ul>
       <div class="actions">
         <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
-        <a class="btn btn-outline" href="#contact">Get a quote</a>
+        <a class="btn btn-ghost" href="#contact">Get a quote</a>
       </div>
     </div>
   </section>

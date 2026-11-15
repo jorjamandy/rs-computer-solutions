@@ -2,33 +2,39 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import Contact from "../components/Contact.astro";
-import { site, services, pillars, industries, projects, steps, phoneHref } from "../data/site";
+import Blueprint from "../components/Blueprint.astro";
+import { site, services, industries, projects, steps, promises, fit, phoneHref } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
 <Base>
   <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">{site.legalName} · {site.location}</p>
-      <h1>IT support, security cameras, and phone systems for <span class="hl">Pennsylvania businesses.</span></h1>
-      <p class="lede">
-        We install and support the full technology setup for dental offices, law
-        firms, restaurants, and parking facilities: servers, networks, cameras,
-        phones, and the software you run every day. One company does all of it.
-      </p>
-      <div class="actions">
-        <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
-        <a class="btn btn-outline" href="#services">View services</a>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker"><span class="pip"></span>Owner-operated · {site.location}</p>
+        <h1>Your servers, cameras, phones, and software, handled by <em>one specialist.</em></h1>
+        <p class="lede">
+          RS Computer Solutions is a boutique technology firm. I design, install,
+          and support the complete setup for dental practices, law offices,
+          restaurants, and parking facilities, and I do the work myself.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
+          <a class="btn btn-ghost" href="#services">See what I do <Icon name="arrow" size={18} /></a>
+        </div>
+        <p class="cert"><Icon name="shield" size={18} /> Panasonic certified dealer &amp; technician</p>
       </div>
+      <Blueprint />
     </div>
-    <div class="wrap pillars">
-      {pillars.map((p) => (
-        <a class="pillar" href={`${base}services/${p.href}/`}>
-          <span class="icon"><Icon name={p.icon} size={24} /></span>
+  </section>
+
+  <section class="promises">
+    <div class="wrap promise-grid">
+      {promises.map((p, i) => (
+        <div class="promise">
+          <span class="mono">{String(i + 1).padStart(2, "0")}</span>
           <h2>{p.title}</h2>
-          <ul>
-            {p.points.map((pt) => <li>{pt}</li>)}
-          </ul>
-        </a>
+          <p>{p.text}</p>
+        </div>
       ))}
     </div>
   </section>
@@ -36,13 +42,14 @@ const base = import.meta.env.BASE_URL;
   <section id="services" class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Services</p>
-        <h2>What we install and support</h2>
+        <p class="label">Services</p>
+        <h2>Eight specialties, one point of contact</h2>
+        <p>Most businesses hire a different company for each of these. Here they come from the same person, built to work as one system.</p>
       </div>
       <div class="rows">
         {services.map((s, i) => (
           <a class="row" href={`${base}services/${s.slug}/`}>
-            <span class="num">{String(i + 1).padStart(2, "0")}</span>
+            <span class="mono num">{String(i + 1).padStart(2, "0")}</span>
             <h3>{s.title}</h3>
             <div class="row-body">
               <p>{s.short}</p>
@@ -55,11 +62,12 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <section id="industries" class="section alt">
+  <section id="industries" class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Industries</p>
-        <h2>What we set up, by type of business</h2>
+        <p class="label">Industries</p>
+        <h2>Built around how your business actually runs</h2>
+        <p>A dental practice and a parking garage need very different things. This is what a full setup looks like for each.</p>
       </div>
       <div class="industries">
         {industries.map((ind) => (
@@ -79,22 +87,53 @@ const base = import.meta.env.BASE_URL;
           </div>
         ))}
       </div>
-      <p class="note">
-        We also work with medical offices, retail stores, warehouses, and other
-        small businesses. <a href="#contact">Ask about yours.</a>
-      </p>
+    </div>
+  </section>
+
+  <section id="about" class="section about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="label">Why a boutique firm</p>
+        <h2>You're not hiring a company. You're hiring <em>the technician.</em></h2>
+        <p class="about-lede">
+          A large IT provider sends whoever is on shift. With RS, the person who
+          quoted the job is the person who runs the cable, configures the
+          server, programs the phones, and answers when you call a year later.
+          Nothing gets lost between a salesperson, an installer, and a help desk.
+        </p>
+        <p class="about-lede">
+          The business started with computer repair and virus removal, and grew
+          one request at a time: first networks and servers, then phone systems,
+          camera systems, and dental practice software.
+        </p>
+      </div>
+      <div class="fit">
+        <div>
+          <h3>A good fit</h3>
+          <ul class="ticks ticks-1">
+            {fit.yes.map((x) => <li><Icon name="check" size={16} />{x}</li>)}
+          </ul>
+        </div>
+        <div class="fit-no">
+          <h3>Probably not a fit</h3>
+          <ul class="ticks ticks-1">
+            {fit.no.map((x) => <li><span class="x">×</span>{x}</li>)}
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="projects" class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Typical projects</p>
-        <h2>The jobs we're called for most</h2>
+        <p class="label">Typical projects</p>
+        <h2>The jobs I'm called for most</h2>
       </div>
       <div class="projects">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <div class="project">
+            <span class="mono">{String(i + 1).padStart(2, "0")}</span>
             <h3>{p.title}</h3>
             <p>{p.text}</p>
           </div>
@@ -103,10 +142,10 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <section id="process" class="section band">
+  <section id="process" class="section panel">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">How it works</p>
+        <p class="label">How it works</p>
         <h2>From first call to ongoing support</h2>
       </div>
       <ol class="steps">

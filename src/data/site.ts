@@ -5,12 +5,9 @@
 export const site = {
   name: "RS Computer Solutions",
   legalName: "RS Computer Solutions, LLC",
-  tagline: "IT support, security cameras, and phone systems for Pennsylvania businesses.",
+  tagline: "Boutique IT, security cameras, and phone systems. Owner-operated.",
   description:
     "RS Computer Solutions installs and supports servers, networks, security cameras, phone systems, and dental practice software for businesses in southeastern Pennsylvania.",
-
-  // Color combination: "" (original), "a", "b", "c", or "d".
-  variant: "",
 
   // TODO: CONFIRM before going live. Phone and town came from a public
   // business directory listing, not from the owner.
@@ -42,7 +39,7 @@ export const services: Service[] = [
     short: "Ongoing support for your staff and equipment, on-site and remote, plus planning for what to replace and when.",
     tags: ["On-site support", "Remote support", "New-hire setup", "Purchasing advice"],
     intro:
-      "RS acts as the IT department for businesses that don't have one. We support your staff, maintain your equipment, deal with your internet and software vendors, and plan upgrades before old hardware fails.",
+      "I act as the IT department for businesses that don't have one. I support your staff, maintain your equipment, deal with your internet and software vendors, and plan upgrades before old hardware fails.",
     includes: [
       "On-site and remote support for staff",
       "Technology planning and budgeting",
@@ -60,7 +57,7 @@ export const services: Service[] = [
     short: "Windows servers and domains installed, migrated, and maintained. Firewalls, switches, cabling, and Wi-Fi.",
     tags: ["Windows Server", "Active Directory domains", "Firewalls", "Wi-Fi", "Remote access"],
     intro:
-      "We build the complete server and network environment for an office: the server, the domain, user accounts and permissions, shared drives, the firewall, the switches, and the Wi-Fi. We also replace and migrate aging servers without losing data.",
+      "I build the complete server and network environment for an office: the server, the domain, user accounts and permissions, shared drives, the firewall, the switches, and the Wi-Fi. I also replace and migrate aging servers without losing data.",
     includes: [
       "Server installation, migration, and replacement",
       "Domain setup: user accounts, permissions, shared drives",
@@ -78,7 +75,7 @@ export const services: Service[] = [
     short: "Camera systems designed, cabled, and installed by a Panasonic certified technician. Live and recorded video on your phone.",
     tags: ["Panasonic certified", "Indoor & outdoor", "Recorders & storage", "Phone viewing"],
     intro:
-      "We design and install complete camera systems: placement, cabling, cameras, recorder, and remote viewing. Systems range from a few cameras over a counter and register to full coverage of a multi-level parking garage.",
+      "I design and install complete camera systems: placement, cabling, cameras, recorder, and remote viewing. Systems range from a few cameras over a counter and register to full coverage of a multi-level parking garage.",
     includes: [
       "Site walk-through and camera placement plan",
       "Indoor and outdoor cameras, mounted and cabled",
@@ -96,7 +93,7 @@ export const services: Service[] = [
     short: "Multi-line phone systems installed and programmed: extensions, auto attendant, call routing, and voicemail.",
     tags: ["Multi-line systems", "Auto attendant", "Voicemail to email", "Moves & changes"],
     intro:
-      "We install and program complete business phone systems, including the handsets, extensions, auto attendant, after-hours greetings, and call routing. We also service and reprogram systems that are already in place.",
+      "I install and program complete business phone systems, including the handsets, extensions, auto attendant, after-hours greetings, and call routing. I also service and reprogram systems that are already in place.",
     includes: [
       "New phone system design and installation",
       "Auto attendant, call routing, and ring groups",
@@ -114,7 +111,7 @@ export const services: Service[] = [
     short: "Practice management software, imaging, operatory computers, and the server and domain they all run on.",
     tags: ["Practice software", "X-ray & imaging", "Operatory PCs", "Server & domain"],
     intro:
-      "We install dental practice management software and build the full server and domain environment behind it. That includes the computer in every operatory, the front desk, the imaging and X-ray software, and the backups that protect patient records.",
+      "I install dental practice management software and build the full server and domain environment behind it. That includes the computer in every operatory, the front desk, the imaging and X-ray software, and the backups that protect patient records.",
     includes: [
       "Practice management software installation and upgrades",
       "Server and domain setup for the whole practice",
@@ -132,7 +129,7 @@ export const services: Service[] = [
     short: "Virus and ransomware removal, managed antivirus, firewalls, and patching for every computer in the office.",
     tags: ["Virus removal", "Managed antivirus", "Firewalls", "Patching"],
     intro:
-      "We remove viruses, malware, and ransomware, then put protection in place so it doesn't happen again: antivirus on every machine, a properly configured firewall, current security updates, and safer email and passwords.",
+      "I remove viruses, malware, and ransomware, then put protection in place so it doesn't happen again: antivirus on every machine, a properly configured firewall, current security updates, and safer email and passwords.",
     includes: [
       "Virus, malware, and ransomware removal",
       "Managed antivirus on every computer",
@@ -150,7 +147,7 @@ export const services: Service[] = [
     short: "Automatic on-site and off-site backups for servers and workstations, tested so they can be restored.",
     tags: ["On-site backup", "Off-site backup", "Restore testing", "Data transfer"],
     intro:
-      "We set up automatic backups of servers and workstations, keep a copy off-site, and test that the backups can be restored. When a drive fails or a file is deleted, we recover it.",
+      "I set up automatic backups of servers and workstations, keep a copy off-site, and test that the backups can be restored. When a drive fails or a file is deleted, I recover it.",
     includes: [
       "Automatic on-site and off-site backups",
       "Server and workstation coverage",
@@ -168,7 +165,7 @@ export const services: Service[] = [
     short: "Computers, printers, cabling, and point-of-sale stations supplied, installed, and repaired.",
     tags: ["Computers", "Printers", "Network cabling", "Point of sale"],
     intro:
-      "We supply and install the equipment for a new or relocating business: computers, printers, network cabling, and register stations. We also repair and upgrade the equipment you already own.",
+      "I supply and install the equipment for a new or relocating business: computers, printers, network cabling, and register stations. I also repair and upgrade the equipment you already own.",
     includes: [
       "Computer and laptop sales, setup, and repair",
       "Printers, scanners, and shared devices",
@@ -289,9 +286,30 @@ export const projects = [
 ];
 
 export const steps = [
-  { title: "Call", text: "Tell us what you need installed or what isn't working." },
-  { title: "Site visit", text: "We look at your space and your current equipment." },
+  { title: "Call", text: "Tell me what you need installed or what isn't working." },
+  { title: "Site visit", text: "I look at your space and your current equipment." },
   { title: "Quote", text: "You get a price and a list of exactly what will be installed." },
-  { title: "Installation", text: "We install, configure, and test everything, and show your staff how to use it." },
+  { title: "Installation", text: "I install, configure, and test everything, and show your staff how to use it." },
   { title: "Support", text: "The same person who installed it is the one you call afterward." },
 ];
+
+export const promises = [
+  { title: "One number", text: "The person who answers the phone is the person who does the work." },
+  { title: "One technician", text: "The same specialist installs your system, documents it, and comes back to support it." },
+  { title: "Every system", text: "Servers, cameras, phones, and software are designed together, so they work together." },
+];
+
+// TODO: owner should review. "fit" lists are a starting point, not confirmed policy.
+export const fit = {
+  yes: [
+    "Offices, practices, and shops with roughly 3 to 50 computers",
+    "Owners who want one person accountable for all their technology",
+    "New locations, moves, and build-outs that need everything installed at once",
+    "Businesses tired of the camera, phone, and IT vendors blaming each other",
+  ],
+  no: [
+    "Companies that need a staffed 24/7 help desk",
+    "Home users looking for one-time personal computer repair",
+    "Large enterprises with their own IT department",
+  ],
+};
