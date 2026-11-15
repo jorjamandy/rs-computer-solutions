@@ -226,3 +226,48 @@ svg { flex: none; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ───────── Color combinations. Pick with `variant` in src/data/site.ts ─────────
+   All use the same four brand colors, weighted differently.              */
+
+/* A: navy hero, red buttons */
+[data-variant="a"] .topbar { background: var(--red); }
+[data-variant="a"] .topbar-area { color: #f3d6d6; }
+[data-variant="a"] .hero { background: var(--navy); color: var(--offwhite); border-color: transparent; }
+[data-variant="a"] .hero .eyebrow, [data-variant="a"] .hero .lede { color: #aab2c0; }
+[data-variant="a"] .hero .hl { color: var(--offwhite); text-decoration: underline var(--red) 0.09em; text-underline-offset: 0.12em; }
+[data-variant="a"] .hero .btn-outline { border-color: var(--offwhite); }
+[data-variant="a"] .hero .btn-outline:hover { background: var(--offwhite); color: var(--navy); }
+[data-variant="a"] .hero .tags li { background: rgba(255,255,255,.1); color: var(--offwhite); }
+[data-variant="a"] .pillar { color: var(--text); }
+
+/* B: navy does the work, red is a small accent */
+[data-variant="b"], [data-variant="d"] { --accent: var(--navy); --accent-hover: #1a3760; }
+[data-variant="b"] .mark, [data-variant="d"] .mark { background: var(--red); }
+[data-variant="b"] .hl { text-decoration: underline var(--red) 0.09em; text-underline-offset: 0.12em; }
+[data-variant="b"] .row .num, [data-variant="b"] .ticks svg,
+[data-variant="d"] .row .num, [data-variant="d"] .ticks svg { color: var(--red); }
+[data-variant="b"] .pillar { border-top-color: var(--red); }
+[data-variant="b"] .topbar { background: var(--steel); }
+[data-variant="b"] .topbar-area { color: #e3e5e9; }
+
+/* C: navy header, navy cards, red buttons */
+[data-variant="c"] .topbar { background: #071528; }
+[data-variant="c"] .site-header { background: var(--navy); color: var(--offwhite); border-color: transparent; }
+[data-variant="c"] .site-header nav a:hover { color: #ef7a7a; }
+[data-variant="c"] .hero { background: #fff; }
+[data-variant="c"] .pillar { background: var(--navy); color: var(--offwhite); border-color: var(--navy); border-top-color: var(--red); }
+[data-variant="c"] .pillar li { color: #c3c9d4; border-color: rgba(255,255,255,.14); }
+[data-variant="c"] .pillar .icon { background: rgba(255,255,255,.1); color: var(--offwhite); }
+[data-variant="c"] .icon { color: var(--navy); }
+[data-variant="c"] .section.alt { background: #e9eaec; }
+
+/* D: red hero, navy everywhere else */
+[data-variant="d"] .hero { background: var(--red); color: var(--offwhite); border-color: transparent; }
+[data-variant="d"] .hero .eyebrow, [data-variant="d"] .hero .lede { color: #f6dede; }
+[data-variant="d"] .hero .hl { color: var(--offwhite); }
+[data-variant="d"] .hero .btn-outline { border-color: var(--offwhite); }
+[data-variant="d"] .hero .btn-outline:hover { background: var(--offwhite); color: var(--red); }
+[data-variant="d"] .hero .tags li { background: rgba(255,255,255,.16); color: var(--offwhite); }
+[data-variant="d"] .pillar { color: var(--text); border-top-color: var(--navy); }
+[data-variant="d"] .site-header .mark { background: var(--red); }
