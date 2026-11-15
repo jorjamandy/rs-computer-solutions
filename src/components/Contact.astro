@@ -1,0 +1,68 @@
+---
+import { site, services, phoneHref } from "../data/site";
+interface Props { topic?: string }
+const { topic } = Astro.props;
+---
+<section id="contact" class="section contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Tell us what's broken, or what you're building.</h2>
+      <p class="lede">
+        New office, new system, or a problem that won't go away. Start with a
+        phone call and get a straight answer.
+      </p>
+      <a class="bigphone" href={phoneHref}>{site.phone}</a>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>{site.location}</dd></div>
+        <div><dt>Serving</dt><dd>{site.serviceArea}</dd></div>
+        {site.email && (
+          <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+        )}
+      </dl>
+    </div>
+
+    {site.email ? (
+      <form class="form" id="contact-form" data-email={site.email}>
+        <label>Your name<input name="name" required autocomplete="name" /></label>
+        <label>Business<input name="business" autocomplete="organization" /></label>
+        <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+        <label>What do you need help with?
+          <select name="topic">
+            {services.map((s) => (
+              <option selected={s.title === topic}>{s.title}</option>
+            ))}
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Details<textarea name="details" rows="4"></textarea></label>
+        <button class="btn btn-accent" type="submit">Send message</button>
+        <p class="form-note">Opens your email app with the message ready to send.</p>
+      </form>
+    ) : (
+      <div class="form callcard">
+        <h3>Fastest way to reach us</h3>
+        <p>Call and describe what's going on. Have a rough idea of how many computers, phones, or cameras are involved and we can usually tell you the next step on the spot.</p>
+        <a class="btn btn-accent" href={phoneHref}>Call {site.phone}</a>
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const body = [
+      `Name: ${d.get("name")}`,
+      `Business: ${d.get("business")}`,
+      `Phone: ${d.get("phone")}`,
+      "",
+      `${d.get("details")}`,
+    ].join("\n");
+    location.href =
+      `mailto:${form.dataset.email}?subject=${encodeURIComponent("Website inquiry: " + d.get("topic"))}` +
+      `&body=${encodeURIComponent(body)}`;
+  });
+</script>

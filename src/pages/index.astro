@@ -1,0 +1,134 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import Contact from "../components/Contact.astro";
+import { site, services, industries, phoneHref } from "../data/site";
+const base = import.meta.env.BASE_URL;
+---
+<Base>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Business technology · {site.location}</p>
+        <h1>One call for <em>everything</em> that plugs in.</h1>
+        <p class="lede">
+          Servers, networks, security cameras, phone systems, and the software
+          your business runs on. Installed, secured, and supported by one local
+          expert who knows your whole setup.
+        </p>
+        <div class="actions">
+          <a class="btn btn-accent" href={phoneHref}>Call {site.phone}</a>
+          <a class="btn btn-ghost" href="#services">See all services <Icon name="arrow" size={18} /></a>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="What we handle">
+        <div class="panel-head">
+          <span class="dot"></span> Your business, fully covered
+        </div>
+        <ul>
+          {services.map((s) => (
+            <li>
+              <a href={`${base}services/${s.slug}/`}>
+                <Icon name={s.icon} size={20} />
+                <span>{s.title}</span>
+                <span class="ok"><Icon name="check" size={16} /></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Credentials">
+    <div class="wrap strip-row">
+      <span>Panasonic certified dealer &amp; technician</span>
+      <span>Camera systems</span>
+      <span>Phone systems</span>
+      <span>Servers &amp; domains</span>
+      <span>Dental software</span>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>If it has a cable, a screen, or a dial tone, we handle it.</h2>
+        <p>
+          Most businesses juggle an IT company, a camera installer, a phone
+          vendor, and a software rep, and each one blames the others. Here it's
+          one person, responsible for all of it.
+        </p>
+      </div>
+      <div class="cards">
+        {services.map((s, i) => (
+          <a class="card" href={`${base}services/${s.slug}/`}>
+            <span class="num">{String(i + 1).padStart(2, "0")}</span>
+            <span class="icon"><Icon name={s.icon} size={26} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.short}</p>
+            <span class="more">Details <Icon name="arrow" size={16} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="section dark">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Who we serve</p>
+        <h2>From the operatory to the parking garage.</h2>
+        <p>
+          Every kind of business has its own equipment, software, and bad days.
+          These are a few we know especially well.
+        </p>
+      </div>
+      <div class="industries">
+        {industries.map((ind) => (
+          <div class="industry">
+            <span class="icon"><Icon name={ind.icon} size={26} /></span>
+            <h3>{ind.title}</h3>
+            <p>{ind.text}</p>
+          </div>
+        ))}
+        <div class="industry industry-cta">
+          <h3>Don't see yours?</h3>
+          <p>If your business runs on technology, odds are we've already worked on something like it.</p>
+          <a class="btn btn-accent" href="#contact">Ask us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" class="section">
+    <div class="wrap approach">
+      <div class="section-head">
+        <p class="eyebrow">Why RS</p>
+        <h2>One person who knows the whole building.</h2>
+      </div>
+      <ol class="reasons">
+        <li>
+          <h3>No finger-pointing</h3>
+          <p>When the phones, cameras, network, and software all come from the same place, there's nobody else to blame and no reason to wait for someone else to show up.</p>
+        </li>
+        <li>
+          <h3>Systems built to work together</h3>
+          <p>Cameras share the network with the phones, which share it with the server. Designing them as one system is why they keep working as one.</p>
+        </li>
+        <li>
+          <h3>Local, and on-site when it matters</h3>
+          <p>Remote support handles the quick fixes. For everything else, you get someone who actually comes to your building and knows where the server closet is.</p>
+        </li>
+        <li>
+          <h3>Plain answers</h3>
+          <p>You'll hear what's wrong, what it costs, and whether it's worth fixing, without the jargon or the upsell.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <Contact />
+</Base>
