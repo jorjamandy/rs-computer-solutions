@@ -9,9 +9,6 @@ export const site = {
   description:
     "RS Computer Solutions installs and supports servers, networks, security cameras, phone systems, and dental practice software for businesses in southeastern Pennsylvania.",
 
-  // Color scheme: "blue", "red", or "dark".
-  theme: "blue",
-
   // TODO: CONFIRM before going live. Phone and town came from a public
   // business directory listing, not from the owner.
   phone: "(267) 625-8011",
