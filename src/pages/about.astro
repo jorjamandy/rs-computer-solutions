@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import PageHero from "../components/PageHero.astro";
 import Cta from "../components/Cta.astro";
+import Stats from "../components/Stats.astro";
 import { about } from "../data/site";
 ---
 <Base current="about/" title="About Us" description="RS Computer Solutions provides reliable business technology solutions with a hands-on, service-focused approach.">
@@ -15,11 +16,12 @@ import { about } from "../data/site";
     <div class="wrap statement">
       <h2>A Technology Partner You Can Count On.</h2>
       <p>
-        RS Computer Solutions works with businesses across a wide range of
-        industries, providing practical solutions for their technology needs.
-        From initial installation and setup to troubleshooting and ongoing
-        support, the company takes a straightforward, service-focused approach
-        to helping customers maintain their essential systems.
+        Established in 2006, RS Computer Solutions supports more than 100
+        businesses across Pennsylvania, New Jersey, and Delaware, from
+        neighborhood pizza shops and dental practices to multi-location parking
+        operations. From initial installation and setup to troubleshooting and
+        ongoing support, the company takes a straightforward, service-focused
+        approach to helping customers maintain their essential systems.
       </p>
     </div>
     <div class="wrap cards cards-4 about-cards">
@@ -34,5 +36,8 @@ import { about } from "../data/site";
     </div>
   </section>
 
+  <Stats />
+
+  <div class="cta-gap"></div>
   <Cta title="Let's Talk About Your Business Technology Needs." />
 </Base>

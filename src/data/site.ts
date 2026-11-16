@@ -20,6 +20,16 @@ export const site = {
   // confirmation email to that address, which must be clicked to activate it.
 };
 
+export const stats = [
+  { value: "2006", label: "Established" },
+  { value: "100+", label: "Businesses supported" },
+  { value: "3", label: "States served: PA, NJ & DE" },
+  { value: "1", label: "Partner for all of your technology" },
+];
+
+// What a business usually has to juggle, versus one provider.
+export const vendors = ["An IT company", "A security camera installer", "A phone system vendor", "A software support contact"];
+
 export const nav = [
   { label: "Home", href: "" },
   { label: "Services", href: "services/" },
@@ -61,8 +71,8 @@ export const services = [
     icon: "desktop",
     image: "software",
     title: "Software & Technical Support",
-    card: "Business software, Microsoft 365, troubleshooting, and IT assistance.",
-    text: "Business software installation, configuration, troubleshooting, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
+    card: "Business software, Microsoft 365, virus removal, and everyday IT assistance.",
+    text: "Business software installation, configuration, troubleshooting, virus and malware removal, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
   },
 ];
 
@@ -90,13 +100,13 @@ export const industries = [
     icon: "store",
     image: "restaurant",
     title: "Retail & Restaurants",
-    text: "Networking, security systems, and everyday technology support for customer-facing businesses.",
+    text: "Networking, phones, security cameras, and everyday technology support for pizza shops, restaurants, and retail stores.",
   },
   {
     icon: "parking",
     image: "commercial",
     title: "Commercial Properties",
-    text: "Technology and surveillance solutions for garages, parking facilities, offices, and commercial buildings.",
+    text: "Surveillance and technology for parking lots, garages, and commercial buildings, including multi-location operations.",
   },
 ];
 
