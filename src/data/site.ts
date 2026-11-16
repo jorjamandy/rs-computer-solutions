@@ -10,8 +10,6 @@ export const site = {
 
   // All inquiries go to this address. There is no public phone number.
   email: "ron@myvirusfreecomputer.com",
-  // TODO: confirm the town (from a public directory listing).
-  location: "Elkins Park, PA",
   serviceArea: "Pennsylvania, New Jersey, and Delaware",
 
   // TODO: confirm the exact current Panasonic designation before publishing.
