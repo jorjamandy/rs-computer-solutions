@@ -258,7 +258,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 /* Quick stats band */
 .stats { background: var(--navy); color: #fff; position: relative; }
 .stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--maroon) 0 50%, var(--powder) 50% 100%); }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stats-grid { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); }
 .stat { padding: 38px 20px 42px; text-align: center; }
 .stat + .stat { border-left: 1px solid rgba(255,255,255,.14); }
 .stat-num { display: block; font: 800 clamp(2rem, 3.8vw, 3rem)/1 var(--head); letter-spacing: -0.03em; color: #fff; white-space: nowrap; }

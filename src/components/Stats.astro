@@ -2,7 +2,7 @@
 import { stats } from "../data/site";
 ---
 <section class="stats">
-  <div class="wrap stats-grid">
+  <div class="wrap stats-grid" style={`--n:${stats.length}`}>
     {stats.map((s) => (
       <div class="stat">
         <span class="stat-num">{s.value}{s.unit && <small>{s.unit}</small>}</span>
