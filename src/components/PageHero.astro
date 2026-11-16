@@ -1,0 +1,13 @@
+---
+import Photo from "./Photo.astro";
+import Wave from "./Wave.astro";
+interface Props { image: string; icon?: string; alt: string; home?: boolean; fill?: string }
+const { image, icon, alt, home = false, fill = "#FFFFFF" } = Astro.props;
+---
+<section class:list={["hero", { "hero-home": home }]}>
+  <div class="hero-media"><Photo name={image} icon={icon} alt={alt} /></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy"><slot /></div>
+  </div>
+  <Wave fill={fill} />
+</section>

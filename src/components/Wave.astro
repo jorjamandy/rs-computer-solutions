@@ -1,0 +1,12 @@
+---
+// The signature maroon and powder-blue stripes. `fill` is the color of the
+// section below, so the wave cuts cleanly into whatever sits above it.
+interface Props { fill?: string; class?: string }
+const { fill = "#FFFFFF", class: cls = "" } = Astro.props;
+---
+<svg class={`wave ${cls}`} viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 140V112C300 150 760 128 1440 14V140Z" fill={fill} />
+  <path d="M560 128C860 122 1140 84 1440 16V21C1140 88 860 125 560 128Z" fill="#0B1F3B" />
+  <path d="M280 133C680 140 1060 100 1440 30V46C1060 112 680 143 280 133Z" fill="#6F263D" />
+  <path d="M520 138C820 134 1120 108 1440 56V67C1120 116 820 139 520 138Z" fill="#6BACE4" />
+</svg>

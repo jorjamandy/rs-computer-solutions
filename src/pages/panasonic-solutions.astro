@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import Photo from "../components/Photo.astro";
+import PageHero from "../components/PageHero.astro";
+import Cta from "../components/Cta.astro";
+import { site, panasonic } from "../data/site";
+---
+<Base current="panasonic-solutions/" title="Panasonic Solutions" description="Panasonic business phone systems and PBX: installation, configuration, maintenance, and support from RS Computer Solutions.">
+  <PageHero image="phone" icon="phone" alt="Business desk telephone system">
+    <h1>Panasonic Business Technology <span class="hl">Expertise.</span></h1>
+    <p class="lede">Professional business communications solutions backed by hands-on installation, configuration, and technical support.</p>
+  </PageHero>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="banner banner-static">
+        <h2>{site.panasonicTitle}</h2>
+        <p>Sales, installation, configuration, and ongoing service for Panasonic business communication solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="wrap rows">
+      {panasonic.map((p) => (
+        <article class="rowcard rowcard-plain">
+          <Photo name={p.image} icon={p.icon} alt={p.title} />
+          <span class="icon"><Icon name={p.icon} size={40} /></span>
+          <div>
+            <h2>{p.title}</h2>
+            <p>{p.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Cta title="Need Help With Your Panasonic System?" button="Contact RS Computer Solutions" />
+</Base>

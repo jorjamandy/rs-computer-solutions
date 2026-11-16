@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import Photo from "../components/Photo.astro";
+import PageHero from "../components/PageHero.astro";
+import Cta from "../components/Cta.astro";
+import { services } from "../data/site";
+const base = import.meta.env.BASE_URL;
+---
+<Base current="services/" title="Business Technology Services" description="IT and networking, security and surveillance, business communications, and software and technical support from RS Computer Solutions.">
+  <PageHero image="network" icon="network" alt="Network equipment with organized blue cabling">
+    <h1>Business Technology <span class="hl">Services.</span></h1>
+    <p class="lede">Comprehensive technology solutions to keep your business connected, secure, and productive.</p>
+  </PageHero>
+
+  <section class="section-sm">
+    <div class="wrap rows">
+      {services.map((s) => (
+        <article class="rowcard" id={s.id}>
+          <Photo name={s.image} icon={s.icon} alt={s.title} />
+          <span class="icon"><Icon name={s.icon} size={40} /></span>
+          <div>
+            <h2>{s.title}</h2>
+            <p>{s.text}</p>
+          </div>
+          <a class="go" href={`${base}contact/`} aria-label={`Ask about ${s.title}`}><Icon name="arrow" size={22} /></a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Cta light title="Need Help Choosing the Right Solution?" text="Tell us about your business and we'll recommend the right approach." />
+</Base>

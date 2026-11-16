@@ -1,197 +1,134 @@
 // ─────────────────────────────────────────────────────────────
 // Everything a non-developer is likely to change lives in this file.
+// Photos go in public/images/ (see the README for the file names).
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
   name: "RS Computer Solutions",
   legalName: "RS Computer Solutions, LLC",
-  tagline: "Boutique technology firm. Owner-operated.",
   description:
-    "RS Computer Solutions is an owner-operated technology firm providing IT, networking, security cameras, phone systems, and dental practice technology to businesses in southeastern Pennsylvania.",
-
-  // Color layout: "1" charcoal, "2" cream, "3" maroon, "4" powder blue.
-  look: "1",
+    "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses in southeastern Pennsylvania.",
 
   // TODO: CONFIRM before going live. Phone and town came from a public
   // business directory listing, not from the owner.
   phone: "(267) 625-8011",
-  // Leave email empty ("") to hide the email link and the message form.
-  email: "",
+  email: "", // shown on the Contact page and footer when filled in
   location: "Elkins Park, PA",
-  serviceArea: "Philadelphia, Montgomery, Bucks, Delaware, and Chester counties",
+  serviceArea: "Greater Philadelphia and southeastern Pennsylvania",
+
+  // TODO: confirm the exact current Panasonic designation before publishing.
+  panasonicTitle: "Panasonic Authorized Dealer & Technician",
+
+  // Contact form delivery. Create a free access key at web3forms.com using the
+  // email address that should receive inquiries, and paste it here.
+  // While empty, the form asks visitors to call instead.
+  formAccessKey: "",
 };
 
 export const phoneHref = "tel:+1" + site.phone.replace(/\D/g, "");
 
-export type Service = {
-  slug: string;
-  icon: string;
-  title: string;
-  short: string;
-  intro: string;
-  includes: string[];
-  // Optional product names, shown only on the service's own page. Use [] to hide.
-  familiar: string[];
-  goodFor: string;
-};
+export const nav = [
+  { label: "Home", href: "" },
+  { label: "Services", href: "services/" },
+  { label: "Industries", href: "industries/" },
+  { label: "Panasonic Solutions", href: "panasonic-solutions/" },
+  { label: "About", href: "about/" },
+  { label: "Contact", href: "contact/" },
+];
 
-export const services: Service[] = [
+export const services = [
   {
-    slug: "it-consulting",
-    icon: "compass",
-    title: "IT Consulting & Support",
-    short: "A dedicated technology partner for your business: guidance, day-to-day support, and someone accountable when it matters.",
-    intro:
-      "I act as the technology department for businesses that don't have one. That means keeping your systems running, supporting your staff, and helping you make sound decisions about what to buy, replace, and protect.",
-    includes: [
-      "Ongoing support, on-site and remote",
-      "Technology planning and purchasing guidance",
-      "Security and data protection",
-      "Setup for new employees and new equipment",
-      "Coordination with your other technology vendors",
-    ],
-    familiar: [],
-    goodFor: "Businesses that want one trusted person responsible for their technology.",
+    id: "it-networking",
+    icon: "network",
+    image: "network",
+    title: "IT & Networking",
+    card: "Reliable infrastructure, networking, cabling, and ongoing support.",
+    text: "Professional network design, infrastructure installation, structured cabling, connectivity, and maintenance for businesses of all sizes.",
   },
   {
-    slug: "networking-and-infrastructure",
-    icon: "server",
-    title: "Networking & Infrastructure",
-    short: "The foundation your business runs on: networks, servers, and cabling, designed and installed properly.",
-    intro:
-      "Everything else depends on the network and the server behind it. I design and install the complete infrastructure for an office, from the cabling in the walls to the systems that manage your users and files.",
-    includes: [
-      "Wired and wireless networks",
-      "Structured cabling",
-      "Servers and user management",
-      "Secure remote access",
-      "Upgrades and replacements for aging systems",
-    ],
-    familiar: ["Active Directory"],
-    goodFor: "Offices that are opening, moving, expanding, or outgrowing what they have.",
-  },
-  {
-    slug: "security-cameras",
+    id: "security-surveillance",
     icon: "camera",
-    title: "Security Camera Systems",
-    short: "Professional surveillance for your property, from a single storefront to a multi-level garage.",
-    intro:
-      "I design and install complete camera systems that cover what matters, record reliably, and let you check in from anywhere.",
-    includes: [
-      "System design and camera placement",
-      "Professional installation and cabling",
-      "Recording and storage",
-      "Remote viewing from your phone or computer",
-      "Service and expansion of existing systems",
-    ],
-    familiar: [],
-    goodFor: "Restaurants, retail, parking lots and garages, offices, and warehouses.",
+    image: "camera",
+    title: "Security & Surveillance",
+    card: "Professional surveillance systems and security camera installation.",
+    text: "Commercial security camera systems, video surveillance, installation, configuration, and ongoing support for offices, retail locations, parking areas, and commercial facilities.",
   },
   {
-    slug: "phone-systems",
+    id: "business-communications",
     icon: "phone",
-    title: "Business Phone Systems",
-    short: "Complete phone systems, installed, programmed, and supported by a Panasonic authorized dealer and technician.",
-    intro:
-      "I install and support complete business phone systems, so every call reaches the right person and your callers always hear a professional greeting.",
-    includes: [
-      "New phone system installation",
-      "Call handling and greetings set up for how you work",
-      "Voicemail",
-      "Changes as your staff and offices change",
-      "Service for existing systems",
-    ],
-    familiar: ["Panasonic PBX"],
-    goodFor: "Front desks, multi-line offices, and any business that depends on the phone.",
+    image: "phone",
+    title: "Business Communications",
+    card: "Business phone systems, PBX solutions, and connectivity.",
+    text: "Business telephone systems, PBX solutions, and communications infrastructure, with specialized experience in Panasonic systems.",
   },
   {
-    slug: "dental-practice-technology",
-    icon: "tooth",
-    title: "Dental Practice Technology",
-    short: "The complete technology environment for a dental office, including installation and support of practice software.",
-    intro:
-      "A dental practice runs on specialized software that has to work in every operatory, every day. I install and support that software and build the entire technology environment around it.",
-    includes: [
-      "Practice management software installation and support",
-      "Imaging software integration",
-      "Operatory and front-desk systems",
-      "Servers and networks for the practice",
-      "New office build-outs and relocations",
-    ],
-    familiar: ["Dentrix", "Eaglesoft", "Carestream"],
-    goodFor: "New practices, practice transitions, software changes, and expansions.",
-  },
-  {
-    slug: "business-software",
+    id: "software-support",
     icon: "desktop",
-    title: "Business Software & Email",
-    short: "The everyday software your team relies on, set up correctly and kept running.",
-    intro:
-      "I set up and support the software your business uses every day, including email, office applications, and accounting, so your team can simply get to work.",
-    includes: [
-      "Email and office applications",
-      "Accounting software setup and support",
-      "User accounts and access",
-      "Moving to new software or new computers",
-      "Troubleshooting when something stops working",
-    ],
-    familiar: ["Microsoft 365", "QuickBooks"],
-    goodFor: "Any office that depends on email, shared files, and accounting software.",
+    image: "software",
+    title: "Software & Technical Support",
+    card: "Business software, Microsoft 365, troubleshooting, and IT assistance.",
+    text: "Business software installation, configuration, troubleshooting, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
   },
+];
+
+export const why = [
+  { icon: "users", title: "Experienced & Knowledgeable", text: "Practical technical expertise across different systems and business environments." },
+  { icon: "shield", title: "Reliable Solutions", text: "Technology designed to support everyday business operations." },
+  { icon: "bolt", title: "Business Focused", text: "Solutions based on how each customer operates." },
+  { icon: "pin", title: "Local & Responsive", text: "Accessible, hands-on technical assistance." },
 ];
 
 export const industries = [
   {
     icon: "tooth",
-    title: "Dental offices",
-    text: "The complete technology environment for a practice, from the front desk to every operatory.",
-  },
-  {
-    icon: "scale",
-    title: "Law offices",
-    text: "Dependable, secure systems for firms that run on documents and deadlines.",
-  },
-  {
-    icon: "pizza",
-    title: "Pizza shops & restaurants",
-    text: "Cameras, phones, and networks that hold up through the busiest service.",
-  },
-  {
-    icon: "parking",
-    title: "Parking lots & garages",
-    text: "Surveillance for large and multi-level properties, viewable from anywhere.",
+    image: "dental",
+    title: "Dental & Healthcare Practices",
+    text: "Dependable practice technology, networking, communications, and specialized software support.",
   },
   {
     icon: "building",
-    title: "Offices & small businesses",
-    text: "Everything a growing business needs, without hiring an IT department.",
+    image: "office",
+    title: "Professional Offices",
+    text: "IT infrastructure, business communications, and technical support for law firms and professional services.",
+  },
+  {
+    icon: "store",
+    image: "restaurant",
+    title: "Retail & Restaurants",
+    text: "Networking, security systems, and everyday technology support for customer-facing businesses.",
+  },
+  {
+    icon: "parking",
+    image: "commercial",
+    title: "Commercial Properties",
+    text: "Technology and surveillance solutions for garages, parking facilities, offices, and commercial buildings.",
   },
 ];
 
-export const promises = [
-  { title: "One number", text: "The person who answers the phone is the person who does the work." },
-  { title: "One technician", text: "The same specialist designs, installs, and supports your systems." },
-  { title: "Every system", text: "Your technology is planned as a whole, so it works as a whole." },
+export const panasonic = [
+  {
+    icon: "phone",
+    image: "phone",
+    title: "Business Phone Systems & PBX",
+    text: "Professional telephone system solutions designed to support everyday business communications.",
+  },
+  {
+    icon: "wrench",
+    image: "tech-rack",
+    title: "Installation, Configuration & Maintenance",
+    text: "Setup, installation, configuration, troubleshooting, and ongoing service for supported Panasonic systems.",
+  },
+  {
+    icon: "network",
+    image: "network",
+    title: "Business Technology Integration",
+    text: "Assistance with integrating communications technology into the wider business environment.",
+  },
 ];
 
-// TODO: owner should review. These lists are a starting point, not confirmed policy.
-export const fit = {
-  yes: [
-    "Small and mid-sized offices, practices, and shops",
-    "Owners who want one person accountable for their technology",
-    "New locations, moves, and build-outs",
-    "Businesses tired of vendors blaming each other",
-  ],
-  no: [
-    "Companies that need a staffed 24/7 help desk",
-    "Large enterprises with their own IT department",
-  ],
-};
-
-export const steps = [
-  { title: "Call", text: "Tell me what you need or what isn't working." },
-  { title: "Site visit", text: "I look at your space and your current systems." },
-  { title: "Proposal", text: "You get a clear plan and a price." },
-  { title: "Installation", text: "I install and test everything, and walk your staff through it." },
-  { title: "Support", text: "The person who installed it is the person you call afterward." },
+export const about = [
+  { icon: "users", title: "Relationship-Driven Service", text: "Building lasting working relationships with customers." },
+  { icon: "wrench", title: "Hands-On Expertise", text: "Practical knowledge across networking, communications, security, and business technology." },
+  { icon: "shield", title: "Reliable Support", text: "Helping businesses resolve problems and keep their systems running." },
+  { icon: "compass", title: "Solutions That Fit", text: "Recommending technology based on operational needs rather than unnecessary complexity." },
 ];

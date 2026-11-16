@@ -1,128 +1,65 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Contact from "../components/Contact.astro";
-import Blueprint from "../components/Blueprint.astro";
-import { site, services, industries, steps, promises, fit, phoneHref } from "../data/site";
+import PageHero from "../components/PageHero.astro";
+import Cta from "../components/Cta.astro";
+import { site, services, why } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
-<Base>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="kicker"><span class="pip"></span>Owner-operated · {site.location}</p>
-        <h1>All of your business technology, handled by <em>one specialist.</em></h1>
-        <p class="lede">
-          RS Computer Solutions is a boutique technology firm. I design, install,
-          and support the systems your business depends on: IT, networking,
-          security cameras, and phones. One person, accountable for all of it.
-        </p>
-        <div class="actions">
-          <a class="btn btn-primary" href={phoneHref}>Call {site.phone}</a>
-          <a class="btn btn-ghost" href="#services">See what I do <Icon name="arrow" size={18} /></a>
-        </div>
-        <p class="cert"><Icon name="shield" size={18} /> Panasonic authorized dealer &amp; technician</p>
-      </div>
-      <Blueprint />
+<Base current="">
+  <PageHero home image="tech-rack" icon="network" alt="IT technician working on a server rack with organized blue network cables">
+    <h1>Complete Technology Solutions for <span class="hl">Your Business.</span></h1>
+    <p class="lede">
+      From IT infrastructure and networking to security systems, business
+      communications, and ongoing technical support, RS Computer Solutions keeps
+      your business connected, secure, and running smoothly.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
+      <a class="btn btn-outline" href={`${base}services/`}>Our Services</a>
+    </div>
+  </PageHero>
+
+  <section class="tight">
+    <div class="wrap">
+      <a class="banner" href={`${base}panasonic-solutions/`}>
+        <h2>{site.panasonicTitle}</h2>
+        <p>Professional Panasonic business communications solutions, installation, configuration, and ongoing technical support.</p>
+        <span class="banner-link">Panasonic Solutions <Icon name="arrow" size={16} /></span>
+      </a>
     </div>
   </section>
 
-  <section class="promises">
-    <div class="wrap promise-grid">
-      {promises.map((p, i) => (
-        <div class="promise">
-          <span class="mono">{String(i + 1).padStart(2, "0")}</span>
-          <h2>{p.title}</h2>
-          <p>{p.text}</p>
-        </div>
+  <section class="section-sm">
+    <div class="wrap cards cards-4">
+      {services.map((s) => (
+        <a class="card card-center" href={`${base}services/#${s.id}`}>
+          <span class="icon"><Icon name={s.icon} size={40} /></span>
+          <h3>{s.title}</h3>
+          <p>{s.card}</p>
+          <span class="rule"></span>
+        </a>
       ))}
     </div>
   </section>
 
-  <section id="services" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Services</p>
-        <h2>Complete technology services, from one point of contact</h2>
-        <p>Most businesses hire a different company for each of these. Here they come from the same person, planned to work together.</p>
+  <section class="section tint">
+    <div class="wrap why">
+      <div>
+        <h2>Why Choose <span class="hl">RS Computer Solutions?</span></h2>
+        <p class="muted">We deliver practical technology solutions, personalized service, and dependable long-term support for businesses of all sizes.</p>
       </div>
-      <div class="rows">
-        {services.map((s, i) => (
-          <a class="row" href={`${base}services/${s.slug}/`}>
-            <span class="mono num">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{s.title}</h3>
-            <p>{s.short}</p>
-            <span class="go"><Icon name="arrow" size={20} /></span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section id="industries" class="section panel">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Industries</p>
-        <h2>Trusted by the businesses that keep a community running</h2>
-      </div>
-      <div class="industries">
-        {industries.map((ind) => (
-          <div class="industry">
-            <span class="icon"><Icon name={ind.icon} size={24} /></span>
-            <h3>{ind.title}</h3>
-            <p>{ind.text}</p>
+      <div class="why-grid">
+        {why.map((w) => (
+          <div class="why-item">
+            <span class="icon"><Icon name={w.icon} size={34} /></span>
+            <h3>{w.title}</h3>
+            <p>{w.text}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section id="about" class="section about">
-    <div class="wrap about-grid">
-      <div>
-        <p class="label">Why a boutique firm</p>
-        <h2>You're not hiring a company. You're hiring <em>the technician.</em></h2>
-        <p class="about-lede">
-          A large provider sends whoever is on shift. With RS, the person who
-          plans your project is the person who installs it and the person who
-          answers when you call a year later. Nothing gets lost between a
-          salesperson, an installer, and a help desk.
-        </p>
-      </div>
-      <div class="fit">
-        <div>
-          <h3>A good fit</h3>
-          <ul class="ticks">
-            {fit.yes.map((x) => <li><Icon name="check" size={16} />{x}</li>)}
-          </ul>
-        </div>
-        <div class="fit-no">
-          <h3>Probably not a fit</h3>
-          <ul class="ticks">
-            {fit.no.map((x) => <li><span class="x">×</span>{x}</li>)}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">How it works</p>
-        <h2>From first call to ongoing support</h2>
-      </div>
-      <ol class="steps">
-        {steps.map((s, i) => (
-          <li>
-            <span class="step-num">{i + 1}</span>
-            <h3>{s.title}</h3>
-            <p>{s.text}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <Contact />
+  <Cta title="Let's Keep Your Business Running Smoothly." />
 </Base>
