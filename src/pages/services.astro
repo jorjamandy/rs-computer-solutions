@@ -14,9 +14,8 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section-sm">
     <div class="wrap rows">
-      {services.map((s, i) => (
+      {services.map((s) => (
         <article class="rowcard" id={s.id}>
-          <span class="num">{String(i + 1).padStart(2, "0")}</span>
           <span class="tile"><Icon name={s.icon} size={40} /></span>
           <div>
             <h2>{s.title}</h2>
