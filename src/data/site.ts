@@ -72,8 +72,16 @@ export const services = [
     icon: "desktop",
     image: "software",
     title: "Software & Technical Support",
-    card: "Business software, Microsoft 365, virus removal, and everyday IT assistance.",
-    text: "Business software installation, configuration, troubleshooting, virus and malware removal, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
+    card: "Business software, Microsoft 365, troubleshooting, and everyday IT assistance.",
+    text: "Business software installation, configuration, troubleshooting, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
+  },
+  {
+    id: "virus-removal",
+    icon: "shield",
+    image: "software",
+    title: "Virus Removal & Protection",
+    card: "Virus and malware cleanup, and the protection to keep it from coming back.",
+    text: "Removal of viruses, malware, and ransomware from business computers, followed by the antivirus protection, updates, and safeguards that keep your systems clean and your data safe.",
   },
 ];
 
