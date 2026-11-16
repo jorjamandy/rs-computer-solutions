@@ -255,13 +255,14 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 .rowcard .inline-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-weight: 600; color: var(--maroon); text-decoration: none; }
 .rowcard .inline-link:hover { text-decoration: underline; }
 
-/* Promises band */
-.promises { background: var(--navy); color: #c6d0de; position: relative; }
-.promises::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--maroon) 0 50%, var(--powder) 50% 100%); }
-.promises-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; padding: 52px 0 56px; }
-.promise-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 14px; background: rgba(91,179,239,.16); color: var(--powder); margin-bottom: 18px; }
-.promise h3 { color: #fff; font-size: 1.2rem; margin-bottom: 8px; }
-.promise p { font-size: 0.97rem; }
+/* Quick stats band */
+.stats { background: var(--navy); color: #fff; position: relative; }
+.stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--maroon) 0 50%, var(--powder) 50% 100%); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 38px 20px 42px; text-align: center; }
+.stat + .stat { border-left: 1px solid rgba(255,255,255,.14); }
+.stat-num { display: block; font: 800 clamp(2rem, 3.8vw, 3rem)/1 var(--head); letter-spacing: -0.03em; color: #fff; white-space: nowrap; }
+.stat-label { display: block; margin-top: 10px; font: 700 0.8rem var(--head); letter-spacing: 0.12em; text-transform: uppercase; color: var(--powder); }
 .cta-gap { height: 56px; }
 
 /* One-stop comparison */
@@ -277,11 +278,13 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 .compare-big { font: 800 clamp(2rem, 3.4vw, 2.8rem)/1.05 var(--head); color: #fff; letter-spacing: -0.03em; margin-bottom: 12px; }
 
 @media (max-width: 960px) {
-  .promises-grid { grid-template-columns: 1fr 1fr; }
   .onestop { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 640px) {
-  .promises-grid { grid-template-columns: 1fr; gap: 28px; padding: 40px 0 44px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat { padding: 26px 12px; }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.14); }
   .compare { grid-template-columns: 1fr; }
   .compare-arrow { transform: rotate(90deg); }
 }

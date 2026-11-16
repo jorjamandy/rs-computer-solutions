@@ -20,12 +20,12 @@ export const site = {
   // confirmation email to that address, which must be clicked to activate it.
 };
 
-// The promises band on the Home and About pages.
-export const promises = [
-  { icon: "clock", title: "Same-Day Response", text: "When something goes down, you hear back the same day." },
-  { icon: "chat", title: "Free Consultation", text: "Tell us what you need and get a straight recommendation at no charge." },
-  { icon: "desktop", title: "Remote & On-Site Support", text: "Many problems are fixed remotely. When it needs hands, we come to you." },
-  { icon: "users", title: "Long-Term Relationships", text: "Supporting more than 100 businesses since 2006, many of them for years." },
+// The quick-stats band on the Home and About pages.
+export const stats = [
+  { value: "2006", label: "Established" },
+  { value: "100+", label: "Businesses supported" },
+  { value: "Same-Day", label: "Response" },
+  { value: "Free", label: "Consultation" },
 ];
 
 // What a business usually has to juggle, versus one provider.
