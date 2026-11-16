@@ -31,7 +31,7 @@ export const nav = [
 ];
 
 // Extra links shown only in the footer.
-export const footerNav = [...nav, { label: "Panasonic Solutions", href: "panasonic-solutions/" }];
+export const footerNav = [...nav, { label: "Panasonic Service & Support", href: "panasonic-solutions/" }];
 
 export const services = [
   {
@@ -104,22 +104,19 @@ export const industries = [
 
 export const panasonic = [
   {
-    icon: "phone",
-    image: "phone",
-    title: "Business Phone Systems & PBX",
-    text: "Professional telephone system solutions designed to support everyday business communications.",
-  },
-  {
     icon: "wrench",
-    image: "technician",
-    title: "Installation, Configuration & Maintenance",
-    text: "Setup, installation, configuration, troubleshooting, and ongoing service for supported Panasonic systems.",
+    title: "Service & Repair",
+    text: "Troubleshooting and repair for Panasonic business phone systems and PBX equipment, to keep your existing system working.",
   },
   {
-    icon: "network",
-    image: "network",
-    title: "Business Technology Integration",
-    text: "Assistance with integrating communications technology into the wider business environment.",
+    icon: "phone",
+    title: "Programming & Changes",
+    text: "Extensions, call routing, greetings, and voicemail updated as your staff and your business change.",
+  },
+  {
+    icon: "shield",
+    title: "Ongoing Support",
+    text: "A technician who knows Panasonic systems and is available when you need help.",
   },
 ];
 
