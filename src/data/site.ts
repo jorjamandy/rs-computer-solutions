@@ -6,13 +6,13 @@ export const site = {
   name: "RS Computer Solutions",
   legalName: "RS Computer Solutions, LLC",
   description:
-    "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses in Greater Philadelphia, New Jersey, and Delaware.",
+    "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses across Pennsylvania, New Jersey, and Delaware.",
 
   // All inquiries go to this address. There is no public phone number.
   email: "ron@myvirusfreecomputer.com",
   // TODO: confirm the town (from a public directory listing).
   location: "Elkins Park, PA",
-  serviceArea: "Greater Philadelphia, New Jersey, and Delaware",
+  serviceArea: "Pennsylvania, New Jersey, and Delaware",
 
   // TODO: confirm the exact current Panasonic designation before publishing.
   panasonicTitle: "Panasonic Authorized Dealer & Technician",
@@ -31,7 +31,7 @@ export const nav = [
 ];
 
 // Extra links shown only in the footer.
-export const footerNav = [...nav, { label: "Panasonic Service & Support", href: "panasonic-solutions/" }];
+export const footerNav = [...nav, { label: "Panasonic Phone Systems", href: "panasonic-solutions/" }];
 
 export const services = [
   {
@@ -104,19 +104,19 @@ export const industries = [
 
 export const panasonic = [
   {
-    icon: "wrench",
-    title: "Service & Repair",
-    text: "Troubleshooting and repair for Panasonic business phone systems and PBX equipment, to keep your existing system working.",
+    icon: "phone",
+    title: "New Systems & Installation",
+    text: "New Panasonic business phone systems, supplied, installed, and programmed for the way your business takes calls.",
   },
   {
-    icon: "phone",
-    title: "Programming & Changes",
-    text: "Extensions, call routing, greetings, and voicemail updated as your staff and your business change.",
+    icon: "wrench",
+    title: "Service & Repair",
+    text: "Troubleshooting and repair for Panasonic phone systems and PBX equipment, to keep your existing system working.",
   },
   {
     icon: "shield",
-    title: "Ongoing Support",
-    text: "A technician who knows Panasonic systems and is available when you need help.",
+    title: "Programming & Ongoing Support",
+    text: "Extensions, call routing, greetings, and voicemail updated as your business changes, with a technician available when you need help.",
   },
 ];
 
