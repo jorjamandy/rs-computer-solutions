@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import PageHero from "../components/PageHero.astro";
-import { site, phoneHref } from "../data/site";
+import { site } from "../data/site";
 ---
 <Base current="contact/" title="Contact" description="Contact RS Computer Solutions about technical support or a technology project for your business.">
   <PageHero eyebrow="Contact">
@@ -13,16 +13,15 @@ import { site, phoneHref } from "../data/site";
   <section class="section-sm">
     <div class="wrap contact-grid">
       <aside class="contact-card">
-        <h2>Talk to Us Directly</h2>
-        <p>Call to discuss a project or get help with an existing system.</p>
-        <a class="contact-phone" href={phoneHref}>{site.phone}</a>
+        <h2>Email Us Directly</h2>
+        <p>Send a message about a project or an existing system and we'll reply by email.</p>
+        <a class="contact-phone contact-email" href={`mailto:${site.email}`}>{site.email}</a>
         <dl>
-          {site.email && <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>}
           <div><dt>Location</dt><dd>{site.location}</dd></div>
           <div><dt>Service Area</dt><dd>{site.serviceArea}</dd></div>
         </dl>
       </aside>
-      <form class="form" id="contact-form" data-key={site.formAccessKey} data-email={site.email} data-phone={site.phone}>
+      <form class="form" id="contact-form" data-email={site.email}>
         <div class="form-row">
           <label>Name <span class="req">*</span><input name="name" required autocomplete="name" /></label>
           <label>Business Name <span class="req">*</span><input name="business" required autocomplete="organization" /></label>
@@ -32,7 +31,7 @@ import { site, phoneHref } from "../data/site";
           <label>Phone Number<input name="phone" type="tel" autocomplete="tel" /></label>
         </div>
         <label>How Can We Help? <span class="req">*</span><textarea name="message" rows="5" required></textarea></label>
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
         <button class="btn btn-primary btn-full" type="submit">Send Message <Icon name="arrow" size={18} /></button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -53,35 +52,31 @@ import { site, phoneHref } from "../data/site";
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const d = new FormData(form);
-    const { key, email, phone } = form.dataset;
-
-    if (key) {
-      const button = form.querySelector("button");
-      button?.setAttribute("disabled", "");
-      try {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            access_key: key,
-            subject: `Website inquiry from ${d.get("business")}`,
-            from_name: "RS Computer Solutions website",
-            ...Object.fromEntries(d),
-          }),
-        });
-        const out = await res.json();
-        if (!out.success) throw new Error();
-        form.reset();
-        say("Thank you. Your message has been sent, and we'll be in touch shortly.", true);
-      } catch {
-        say(`Sorry, your message could not be sent. Please call ${phone}.`, false);
-      }
-      button?.removeAttribute("disabled");
-    } else if (email) {
-      const body = `Name: ${d.get("name")}\nBusiness: ${d.get("business")}\nEmail: ${d.get("email")}\nPhone: ${d.get("phone")}\n\n${d.get("message")}`;
-      location.href = `mailto:${email}?subject=${encodeURIComponent("Website inquiry")}&body=${encodeURIComponent(body)}`;
-    } else {
-      say(`Online messages aren't available yet. Please call ${phone}.`, false);
+    const email = form.dataset.email;
+    if (d.get("_honey")) return; // spam bots fill hidden fields
+    const button = form.querySelector("button");
+    button?.setAttribute("disabled", "");
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `Website inquiry from ${d.get("business")}`,
+          _template: "table",
+          Name: d.get("name"),
+          Business: d.get("business"),
+          Email: d.get("email"),
+          Phone: d.get("phone") || "Not provided",
+          Message: d.get("message"),
+        }),
+      });
+      const out = await res.json();
+      if (!res.ok || String(out.success) !== "true") throw new Error();
+      form.reset();
+      say("Thank you. Your message has been sent, and we'll reply by email shortly.", true);
+    } catch {
+      say(`Sorry, your message could not be sent. Please email ${email} directly.`, false);
     }
+    button?.removeAttribute("disabled");
   });
 </script>

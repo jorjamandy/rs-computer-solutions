@@ -8,23 +8,19 @@ export const site = {
   description:
     "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses in southeastern Pennsylvania.",
 
-  // TODO: CONFIRM before going live. Phone and town came from a public
-  // business directory listing, not from the owner.
-  phone: "(267) 625-8011",
-  email: "", // shown on the Contact page and footer when filled in
+  // All inquiries go to this address. There is no public phone number.
+  email: "ron@myvirusfreecomputer.com",
+  // TODO: confirm the town and service area (from a public directory listing).
   location: "Elkins Park, PA",
   serviceArea: "Greater Philadelphia and southeastern Pennsylvania",
 
   // TODO: confirm the exact current Panasonic designation before publishing.
   panasonicTitle: "Panasonic Authorized Dealer & Technician",
 
-  // Contact form delivery. Create a free access key at web3forms.com using the
-  // email address that should receive inquiries, and paste it here.
-  // While empty, the form asks visitors to call instead.
-  formAccessKey: "",
+  // Contact form delivery: messages are relayed to the email above by
+  // formsubmit.co. The first message ever sent triggers a one-time
+  // confirmation email to that address, which must be clicked to activate it.
 };
-
-export const phoneHref = "tel:+1" + site.phone.replace(/\D/g, "");
 
 export const nav = [
   { label: "Home", href: "" },
