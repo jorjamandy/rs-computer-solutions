@@ -16,13 +16,14 @@ const base = import.meta.env.BASE_URL;
     <div class="wrap">
       <div class="cards cards-2">
         {industries.map((ind) => (
-          <article class="card ind-card">
+          <a class="card ind-card" href={`${base}industries/${ind.id}/`}>
             <span class="tile"><Icon name={ind.icon} size={38} /></span>
             <div>
               <h2>{ind.title}</h2>
               <p>{ind.text}</p>
+              <span class="inline-link">Learn more <Icon name="arrow" size={16} /></span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
       <a class="more" href={`${base}contact/`}>

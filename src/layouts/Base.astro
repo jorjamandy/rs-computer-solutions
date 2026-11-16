@@ -4,12 +4,21 @@ import "@fontsource-variable/inter";
 import "../styles/global.css";
 import Logo from "../components/Logo.astro";
 import Icon from "../components/Icon.astro";
-import { site, nav, footerNav, services } from "../data/site";
+import { site, nav, footerNav, services, industries } from "../data/site";
 
 interface Props { title?: string; description?: string; current: string }
 const { title, description = site.description, current } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Complete Technology Solutions for Your Business`;
 const base = import.meta.env.BASE_URL;
+
+type MenuItem = { label: string; href: string; icon: string; sep?: boolean };
+const menus: Record<string, MenuItem[]> = {
+  "services/": [
+    ...services.map((s) => ({ label: s.title, href: `services/${s.id}/`, icon: s.icon })),
+    { label: "Panasonic Phone Systems", href: "panasonic-solutions/", icon: "shield", sep: true },
+  ],
+  "industries/": industries.map((i) => ({ label: i.title, href: `industries/${i.id}/`, icon: i.icon })),
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -31,14 +40,13 @@ const base = import.meta.env.BASE_URL;
         <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu" />
         <label for="nav-toggle" class="nav-button" aria-hidden="true"><Icon name="menu" size={26} /></label>
         <nav aria-label="Main">
-          {nav.map((n) => n.href === "services/" ? (
+          {nav.map((n) => menus[n.href] ? (
             <div class="has-menu">
               <a href={`${base}${n.href}`} aria-current={n.href === current ? "page" : undefined} aria-haspopup="true">{n.label}<svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></a>
               <ul class="submenu">
-                {services.map((s) => (
-                  <li><a href={`${base}services/${s.id}/`}><Icon name={s.icon} size={20} />{s.title}</a></li>
+                {menus[n.href].map((m) => (
+                  <li class:list={{ "submenu-sep": m.sep }}><a href={`${base}${m.href}`}><Icon name={m.icon} size={20} />{m.label}</a></li>
                 ))}
-                <li class="submenu-sep"><a href={`${base}panasonic-solutions/`}><Icon name="shield" size={20} />Panasonic Phone Systems</a></li>
               </ul>
             </div>
           ) : (

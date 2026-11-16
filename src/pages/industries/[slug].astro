@@ -1,0 +1,71 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import PageHero from "../../components/PageHero.astro";
+import Cta from "../../components/Cta.astro";
+import { industries, industryDetails, services } from "../../data/site";
+
+export function getStaticPaths() {
+  return industries.map((industry) => ({ params: { slug: industry.id }, props: { industry } }));
+}
+const { industry } = Astro.props;
+const detail = industryDetails[industry.id];
+const base = import.meta.env.BASE_URL;
+---
+<Base current="industries/" title={industry.title} description={industry.text}>
+  <PageHero eyebrow="Industries">
+    <h1>{detail.headline} <span class="hl">{detail.highlight}</span></h1>
+    <p class="lede">{detail.lede}</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
+      <a class="btn btn-outline" href={`${base}industries/`}>All Industries</a>
+    </div>
+  </PageHero>
+
+  <section class="section-sm">
+    <div class="wrap detail">
+      <div>
+        <h2>What We Handle</h2>
+        <ul class="checklist">
+          {detail.includes.map((item) => (
+            <li>
+              <span class="check"><Icon name="check" size={18} /></span>
+              <div><h3>{item.title}</h3><p>{item.text}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <aside class="detail-side">
+        <div class="side-card">
+          <span class="tile"><Icon name={industry.icon} size={38} /></span>
+          <h2>Common Projects</h2>
+          <ul>
+            {detail.projects.map((p) => <li>{p}</li>)}
+          </ul>
+          <a class="btn btn-white btn-full" href={`${base}contact/`}>Request a Free Consultation</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">One Partner for All of It</p>
+        <h2>Every Service, From One Provider</h2>
+      </div>
+      <div class="cards cards-5">
+        {services.map((s) => (
+          <a class="card card-center" href={`${base}services/${s.id}/`}>
+            <span class="icon"><Icon name={s.icon} size={36} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.card}</p>
+            <span class="rule"></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta title={detail.cta} text="Start with a free consultation." />
+</Base>

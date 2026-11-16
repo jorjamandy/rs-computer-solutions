@@ -96,24 +96,28 @@ export const industries = [
   {
     icon: "tooth",
     image: "dental",
+    id: "dental-healthcare",
     title: "Dental & Healthcare Practices",
     text: "Dependable practice technology, networking, communications, and specialized software support.",
   },
   {
     icon: "building",
     image: "office",
+    id: "professional-offices",
     title: "Professional Offices",
     text: "IT infrastructure, business communications, and technical support for law firms and professional services.",
   },
   {
     icon: "store",
     image: "restaurant",
+    id: "retail-restaurants",
     title: "Retail & Restaurants",
     text: "Networking, phones, security cameras, and everyday technology support for pizza shops, restaurants, and retail stores.",
   },
   {
     icon: "parking",
     image: "commercial",
+    id: "commercial-properties",
     title: "Commercial Properties",
     text: "Surveillance and technology for parking lots, garages, and commercial buildings, including multi-location operations.",
   },
@@ -231,5 +235,78 @@ export const serviceDetails: Record<string, Detail> = {
     ],
     when: ["A computer is slow or full of pop-ups", "Someone clicked a suspicious link or attachment", "You see a ransom or warning message", "You want protection before something happens"],
     cta: "Let's Get Your Computers Clean and Protected.",
+  },
+};
+
+// ─── Individual industry pages (/industries/<id>/) ────────────────────────────
+type IndustryDetail = {
+  headline: string;
+  highlight: string;
+  lede: string;
+  includes: { title: string; text: string }[];
+  projects: string[];
+  cta: string;
+};
+
+export const industryDetails: Record<string, IndustryDetail> = {
+  "dental-healthcare": {
+    headline: "Technology for Dental &",
+    highlight: "Healthcare Practices.",
+    lede: "A practice can't see patients when its systems are down. We set up and support the technology behind the front desk and every operatory, so your team can focus on care.",
+    includes: [
+      { title: "Practice Software", text: "Installation and support for practice software including Dentrix, Eaglesoft, and Carestream." },
+      { title: "Servers & Networks", text: "The server, network, and user accounts your practice software depends on, set up properly." },
+      { title: "Operatory & Front-Desk Computers", text: "Workstations in every room, configured to work with your software and equipment." },
+      { title: "Phone Systems", text: "Phones that route patients to the right person and handle after-hours calls professionally." },
+      { title: "Security Cameras", text: "Coverage for entrances, reception, and parking areas, viewable from anywhere." },
+      { title: "Virus Protection & Support", text: "Protection for the computers that hold your records, and fast help when something goes wrong." },
+    ],
+    projects: ["Opening a new practice", "Buying or merging a practice", "Switching practice software", "Adding operatories or a second location"],
+    cta: "Let's Keep Your Practice Running Smoothly.",
+  },
+  "professional-offices": {
+    headline: "Technology for",
+    highlight: "Professional Offices.",
+    lede: "Law firms and professional offices run on documents, deadlines, and the phone. We keep the systems behind all three dependable and secure.",
+    includes: [
+      { title: "Networks & Servers", text: "A reliable foundation for your files, your software, and everyone who needs access to them." },
+      { title: "User Accounts & File Access", text: "The right people get access to the right files, in the office or working remotely." },
+      { title: "Business Phone Systems", text: "Multi-line systems with extensions, call routing, and voicemail that reflect well on your firm." },
+      { title: "Microsoft 365 & Email", text: "Email and office applications set up and supported for your whole team." },
+      { title: "Business Software", text: "QuickBooks and the other programs your office relies on, installed and kept working." },
+      { title: "Virus Protection & Support", text: "Protection for sensitive client information, with a technician available when you need one." },
+    ],
+    projects: ["Moving or expanding an office", "Setting up new staff", "Replacing an aging server", "Upgrading the phone system"],
+    cta: "Let's Build Technology Your Office Can Depend On.",
+  },
+  "retail-restaurants": {
+    headline: "Technology for Retail &",
+    highlight: "Restaurants.",
+    lede: "From neighborhood pizza shops to retail stores, customer-facing businesses can't afford downtime. We install and support the cameras, phones, and networks that keep you open and protected.",
+    includes: [
+      { title: "Security Cameras", text: "Coverage for the counter, register, kitchen, and entrances, installed neatly and built to last." },
+      { title: "Watch From Anywhere", text: "Check on your shop from your phone, whether you're at home or at another location." },
+      { title: "Phone Systems", text: "Phone lines and systems that keep up with takeout orders and a busy counter." },
+      { title: "Network & Wi-Fi", text: "A dependable network for your registers, your staff, and your customers." },
+      { title: "Computers & Office Systems", text: "Setup and support for the computers and software that run the back office." },
+      { title: "Fast, Local Support", text: "Help from a technician who knows your setup when something stops working." },
+    ],
+    projects: ["Opening a new shop or location", "Adding or upgrading cameras", "Fixing phones that miss orders", "Replacing an unreliable network"],
+    cta: "Let's Keep Your Business Open and Protected.",
+  },
+  "commercial-properties": {
+    headline: "Technology for",
+    highlight: "Commercial Properties.",
+    lede: "Parking lots, garages, and commercial buildings need eyes on every entrance and systems that hold up outdoors. We design and support surveillance and technology for single sites and multi-location operations.",
+    includes: [
+      { title: "Camera Systems for Lots & Garages", text: "Coverage for entrances, exits, pay areas, and every level, with equipment suited to the conditions." },
+      { title: "Multi-Location Operations", text: "Consistent systems across all of your sites, managed by one provider." },
+      { title: "Remote Viewing", text: "Owners and managers can check any property from a phone or computer." },
+      { title: "Networks & Cabling", text: "The cabling and network equipment that connect cameras and systems across a large property." },
+      { title: "Phones & Communications", text: "Phone systems for offices, booths, and management." },
+      { title: "Service & Expansion", text: "Repairs, upgrades, and added coverage as your properties change." },
+    ],
+    projects: ["Bringing a new lot or garage online", "Replacing an outdated camera system", "Adding coverage to existing sites", "Viewing multiple properties in one place"],
+    cta: "Let's Protect Your Property.",
   },
 };
