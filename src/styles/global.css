@@ -89,15 +89,16 @@ img { max-width: 100%; display: block; }
 .tint { background: var(--powder-soft); }
 
 .banner {
-  margin-top: 24px;
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px 32px;
-  background: var(--powder-soft); border-radius: var(--radius); padding: 26px 34px; text-decoration: none;
-  border-left: 6px solid var(--maroon);
+  margin-top: 24px; display: flex; align-items: center; gap: 22px;
+  background: var(--powder-soft); border-radius: var(--radius); padding: 24px 30px; text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
 }
-.banner h2 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
-.banner p { font-size: 0.98rem; }
+a.banner:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.banner .tile { width: 68px; height: 68px; background: #fff; }
+.banner > div { flex: 1; }
+.banner h2 { font-size: clamp(1.25rem, 2.1vw, 1.6rem); }
+.banner p { font-size: 0.98rem; margin-top: 4px; }
 .banner-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--maroon); white-space: nowrap; }
-.banner-static { grid-template-columns: auto 1fr; }
 a.banner:hover .banner-link { text-decoration: underline; }
 
 .icon { display: inline-flex; color: var(--maroon); }
@@ -225,7 +226,8 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
   .hero-inner, .hero-home .hero-inner { padding: 32px 0 96px; }
   .feats { gap: 16px 24px; margin-top: 32px; }
   .feats li { flex: 1 1 42%; }
-  .banner, .banner-static { grid-template-columns: 1fr; padding: 22px 24px; }
+  .banner { flex-wrap: wrap; padding: 22px 24px; }
+  .banner > div { flex: 1 1 60%; }
   .cards-2, .split, .contact-grid { grid-template-columns: 1fr; }
   .rowcard { grid-template-columns: 64px 1fr; padding: 24px 20px; gap: 14px 18px; align-items: start; }
   .rowcard .num, .rowcard .go { display: none; }
@@ -250,3 +252,6 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 }
 
 .contact-email { font-size: clamp(1.1rem, 1.9vw, 1.45rem); word-break: break-word; }
+
+.rowcard .inline-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-weight: 600; color: var(--maroon); text-decoration: none; }
+.rowcard .inline-link:hover { text-decoration: underline; }

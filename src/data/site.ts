@@ -6,13 +6,13 @@ export const site = {
   name: "RS Computer Solutions",
   legalName: "RS Computer Solutions, LLC",
   description:
-    "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses in southeastern Pennsylvania.",
+    "RS Computer Solutions provides IT and networking, security and surveillance, business communications, and software and technical support for businesses in Greater Philadelphia, New Jersey, and Delaware.",
 
   // All inquiries go to this address. There is no public phone number.
   email: "ron@myvirusfreecomputer.com",
-  // TODO: confirm the town and service area (from a public directory listing).
+  // TODO: confirm the town (from a public directory listing).
   location: "Elkins Park, PA",
-  serviceArea: "Greater Philadelphia and southeastern Pennsylvania",
+  serviceArea: "Greater Philadelphia, New Jersey, and Delaware",
 
   // TODO: confirm the exact current Panasonic designation before publishing.
   panasonicTitle: "Panasonic Authorized Dealer & Technician",
@@ -26,10 +26,12 @@ export const nav = [
   { label: "Home", href: "" },
   { label: "Services", href: "services/" },
   { label: "Industries", href: "industries/" },
-  { label: "Panasonic Solutions", href: "panasonic-solutions/" },
   { label: "About", href: "about/" },
   { label: "Contact", href: "contact/" },
 ];
+
+// Extra links shown only in the footer.
+export const footerNav = [...nav, { label: "Panasonic Solutions", href: "panasonic-solutions/" }];
 
 export const services = [
   {

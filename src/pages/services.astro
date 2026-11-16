@@ -21,6 +21,9 @@ const base = import.meta.env.BASE_URL;
           <div>
             <h2>{s.title}</h2>
             <p>{s.text}</p>
+            {s.id === "business-communications" && (
+              <a class="inline-link" href={`${base}panasonic-solutions/`}>Panasonic phone systems <Icon name="arrow" size={16} /></a>
+            )}
           </div>
           <a class="go" href={`${base}contact/`} aria-label={`Ask about ${s.title}`}><Icon name="arrow" size={22} /></a>
         </article>
