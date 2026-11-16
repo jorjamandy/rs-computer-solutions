@@ -114,7 +114,7 @@ export const panasonic = [
   },
   {
     icon: "wrench",
-    image: "tech-rack",
+    image: "technician",
     title: "Installation, Configuration & Maintenance",
     text: "Setup, installation, configuration, troubleshooting, and ongoing service for supported Panasonic systems.",
   },

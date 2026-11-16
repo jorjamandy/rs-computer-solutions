@@ -13,7 +13,8 @@ Until a file exists, the site shows an illustrated placeholder in its place.
 
 | File name    | Where it appears                                  |
 |--------------|---------------------------------------------------|
-| `tech-rack`  | Home hero, About hero, Panasonic installation row |
+| `tech-rack`  | Home hero                                         |
+| `technician` | About hero, Panasonic installation row            |
 | `network`    | Services hero, IT & Networking                    |
 | `camera`     | Security & Surveillance                           |
 | `phone`      | Panasonic hero, Business Communications           |
