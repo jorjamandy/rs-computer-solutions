@@ -22,10 +22,10 @@ export const site = {
 
 // The quick-stats band on the Home and About pages.
 export const stats = [
-  { value: "2006", label: "Established" },
-  { value: "100+", label: "Businesses supported" },
-  { value: "Same-Day", label: "Response" },
-  { value: "Free", label: "Consultation" },
+  { value: `${new Date().getFullYear() - 2006}`, unit: "Years", label: "In business since 2006" },
+  { value: "100+", unit: "", label: "Businesses supported" },
+  { value: "24", unit: "Hr", label: "Response time or less" },
+  { value: "4-in-1", unit: "", label: "IT, security, phones & software" },
 ];
 
 // What a business usually has to juggle, versus one provider.
