@@ -1,6 +1,5 @@
 // ─────────────────────────────────────────────────────────────
 // Everything a non-developer is likely to change lives in this file.
-// Photos go in public/images/ (see the README for the file names).
 // ─────────────────────────────────────────────────────────────
 
 export const site = {

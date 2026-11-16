@@ -1,30 +1,26 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Photo from "../components/Photo.astro";
 import PageHero from "../components/PageHero.astro";
 import Cta from "../components/Cta.astro";
 import { about } from "../data/site";
 ---
 <Base current="about/" title="About Us" description="RS Computer Solutions provides reliable business technology solutions with a hands-on, service-focused approach.">
-  <PageHero image="technician" icon="users" alt="IT technician working with networking equipment">
+  <PageHero eyebrow="About Us">
     <h1>Practical Technology. <span class="hl">Personal Service.</span></h1>
     <p class="lede">RS Computer Solutions provides reliable business technology solutions with a hands-on approach, helping organizations stay connected, secure, and productive.</p>
   </PageHero>
 
   <section class="section-sm">
-    <div class="wrap split">
-      <Photo name="office" icon="building" alt="Professional office environment" class="split-photo" />
-      <div>
-        <h2>A Technology Partner You Can Count On.</h2>
-        <p class="muted">
-          RS Computer Solutions works with businesses across a wide range of
-          industries, providing practical solutions for their technology needs.
-          From initial installation and setup to troubleshooting and ongoing
-          support, the company takes a straightforward, service-focused approach
-          to helping customers maintain their essential systems.
-        </p>
-      </div>
+    <div class="wrap statement">
+      <h2>A Technology Partner You Can Count On.</h2>
+      <p>
+        RS Computer Solutions works with businesses across a wide range of
+        industries, providing practical solutions for their technology needs.
+        From initial installation and setup to troubleshooting and ongoing
+        support, the company takes a straightforward, service-focused approach
+        to helping customers maintain their essential systems.
+      </p>
     </div>
     <div class="wrap cards cards-4 about-cards">
       {about.map((a) => (
@@ -32,6 +28,7 @@ import { about } from "../data/site";
           <span class="icon"><Icon name={a.icon} size={36} /></span>
           <h3>{a.title}</h3>
           <p>{a.text}</p>
+          <span class="rule"></span>
         </div>
       ))}
     </div>

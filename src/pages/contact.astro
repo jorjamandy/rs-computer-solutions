@@ -1,19 +1,27 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import Photo from "../components/Photo.astro";
 import PageHero from "../components/PageHero.astro";
 import { site, phoneHref } from "../data/site";
 ---
 <Base current="contact/" title="Contact" description="Contact RS Computer Solutions about technical support or a technology project for your business.">
-  <PageHero image="workspace" icon="desktop" alt="Professional business workspace">
+  <PageHero eyebrow="Contact">
     <h1>Let's Get Your Business <span class="hl">Connected.</span></h1>
     <p class="lede">Have a question, need technical support, or want to discuss a project? Get in touch with RS Computer Solutions.</p>
   </PageHero>
 
   <section class="section-sm">
     <div class="wrap contact-grid">
-      <Photo name="workspace" icon="desktop" alt="Professional business workspace" class="contact-photo" />
+      <aside class="contact-card">
+        <h2>Talk to Us Directly</h2>
+        <p>Call to discuss a project or get help with an existing system.</p>
+        <a class="contact-phone" href={phoneHref}>{site.phone}</a>
+        <dl>
+          {site.email && <div><dt>Email</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div>}
+          <div><dt>Location</dt><dd>{site.location}</dd></div>
+          <div><dt>Service Area</dt><dd>{site.serviceArea}</dd></div>
+        </dl>
+      </aside>
       <form class="form" id="contact-form" data-key={site.formAccessKey} data-email={site.email} data-phone={site.phone}>
         <div class="form-row">
           <label>Name <span class="req">*</span><input name="name" required autocomplete="name" /></label>
@@ -30,25 +38,6 @@ import { site, phoneHref } from "../data/site";
       </form>
     </div>
 
-    <div class="wrap facts">
-      <div>
-        <span class="icon"><Icon name="phone" size={30} /></span>
-        <h3>Phone</h3>
-        <p><a href={phoneHref}>{site.phone}</a></p>
-      </div>
-      {site.email && (
-        <div>
-          <span class="icon"><Icon name="desktop" size={30} /></span>
-          <h3>Email</h3>
-          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
-        </div>
-      )}
-      <div>
-        <span class="icon"><Icon name="pin" size={30} /></span>
-        <h3>Service Area</h3>
-        <p>{site.serviceArea}</p>
-      </div>
-    </div>
   </section>
 </Base>
 

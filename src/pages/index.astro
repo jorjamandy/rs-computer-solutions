@@ -5,41 +5,50 @@ import PageHero from "../components/PageHero.astro";
 import Cta from "../components/Cta.astro";
 import { site, services, why } from "../data/site";
 const base = import.meta.env.BASE_URL;
+const feats = [
+  { icon: "shield", a: "Panasonic", b: "Authorized Dealer", href: "panasonic-solutions/" },
+  { icon: "desktop", a: "Business IT", b: "& Network Support", href: "services/#it-networking" },
+  { icon: "camera", a: "Security &", b: "Surveillance", href: "services/#security-surveillance" },
+  { icon: "phone", a: "Business", b: "Communications", href: "services/#business-communications" },
+];
 ---
 <Base current="">
-  <PageHero home image="tech-rack" icon="network" alt="IT technician working on a server rack with organized blue network cables">
-    <h1>Complete Technology Solutions for <span class="hl">Your Business.</span></h1>
-    <p class="lede">
-      From IT infrastructure and networking to security systems, business
-      communications, and ongoing technical support, RS Computer Solutions keeps
-      your business connected, secure, and running smoothly.
-    </p>
+  <PageHero home eyebrow="RS Computer Solutions">
+    <h1>Technology You Can Count On. <span class="hl">People You Can Trust.</span></h1>
+    <p class="lede">Reliable IT, security, communications, and technology solutions for businesses that need things done right.</p>
     <div class="actions">
       <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
       <a class="btn btn-outline" href={`${base}services/`}>Our Services</a>
     </div>
+    <ul class="feats">
+      {feats.map((f) => (
+        <li><a href={`${base}${f.href}`}><Icon name={f.icon} size={30} /><span>{f.a}<br />{f.b}</span></a></li>
+      ))}
+    </ul>
   </PageHero>
 
-  <section class="tight">
+  <section class="section-sm">
     <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What We Do</p>
+        <h2>Complete Technology Solutions for <span class="hl">Your Business.</span></h2>
+        <p>From IT infrastructure and networking to security systems, business communications, and ongoing technical support, RS Computer Solutions keeps your business connected, secure, and running smoothly.</p>
+      </div>
+      <div class="cards cards-4">
+        {services.map((s) => (
+          <a class="card card-center" href={`${base}services/#${s.id}`}>
+            <span class="icon"><Icon name={s.icon} size={40} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.card}</p>
+            <span class="rule"></span>
+          </a>
+        ))}
+      </div>
       <a class="banner" href={`${base}panasonic-solutions/`}>
         <h2>{site.panasonicTitle}</h2>
         <p>Professional Panasonic business communications solutions, installation, configuration, and ongoing technical support.</p>
         <span class="banner-link">Panasonic Solutions <Icon name="arrow" size={16} /></span>
       </a>
-    </div>
-  </section>
-
-  <section class="section-sm">
-    <div class="wrap cards cards-4">
-      {services.map((s) => (
-        <a class="card card-center" href={`${base}services/#${s.id}`}>
-          <span class="icon"><Icon name={s.icon} size={40} /></span>
-          <h3>{s.title}</h3>
-          <p>{s.card}</p>
-          <span class="rule"></span>
-        </a>
-      ))}
     </div>
   </section>
 
