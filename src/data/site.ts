@@ -143,3 +143,93 @@ export const about = [
   { icon: "shield", title: "Reliable Support", text: "Helping businesses resolve problems and keep their systems running." },
   { icon: "compass", title: "Solutions That Fit", text: "Recommending technology based on operational needs rather than unnecessary complexity." },
 ];
+
+// ─── Individual service pages (/services/<id>/) ───────────────────────────────
+type Detail = {
+  headline: string;
+  highlight: string;
+  lede: string;
+  includes: { title: string; text: string }[];
+  when: string[];
+  cta: string;
+  link?: { title: string; text: string; href: string };
+};
+
+export const serviceDetails: Record<string, Detail> = {
+  "it-networking": {
+    headline: "IT & Networking Built to",
+    highlight: "Keep You Running.",
+    lede: "Your network is the foundation everything else in your business depends on. We design it, install it, and keep it working, so your team can simply get on with the day.",
+    includes: [
+      { title: "Network Design & Installation", text: "Wired and wireless networks planned around your space, your staff, and the way you work." },
+      { title: "Structured Cabling", text: "Clean, labeled, professionally installed cabling for offices, shops, and commercial buildings." },
+      { title: "Servers & User Accounts", text: "Servers, domains, shared files, and user access set up properly and kept organized." },
+      { title: "Wi-Fi That Reaches Everywhere", text: "Reliable wireless coverage across the whole building, for staff and for guests." },
+      { title: "Secure Remote Access", text: "Safe ways for owners and staff to reach what they need from home or another location." },
+      { title: "Ongoing Maintenance & Support", text: "Monitoring, updates, and a technician who already knows your setup when something comes up." },
+    ],
+    when: ["You're opening or moving into a new location", "The network is slow or keeps dropping", "Your server is aging or out of space", "You're adding staff, offices, or locations"],
+    cta: "Let's Build a Network You Can Rely On.",
+  },
+  "security-surveillance": {
+    headline: "Security Cameras That",
+    highlight: "Protect Your Business.",
+    lede: "A camera system only helps if it covers the right places, records reliably, and lets you find what you need. We handle the design, installation, and support from start to finish.",
+    includes: [
+      { title: "System Design & Camera Placement", text: "A walk-through of your property and a plan that covers what matters, without blind spots." },
+      { title: "Professional Installation", text: "Cameras mounted and cabled neatly, indoors and outdoors, by an experienced technician." },
+      { title: "Recording & Storage", text: "Recording equipment sized for how much footage you need to keep and for how long." },
+      { title: "View From Anywhere", text: "Live and recorded video on your phone, tablet, or computer, wherever you are." },
+      { title: "Lots, Garages & Large Properties", text: "Coverage for entrances, exits, parking areas, and multi-level or multi-location sites." },
+      { title: "Service & Expansion", text: "Repairs, upgrades, and additional cameras for systems that are already in place." },
+    ],
+    when: ["You're opening a new location", "Your current system has blind spots", "Footage is unreliable or hard to find", "You manage a parking lot, garage, or multiple sites"],
+    cta: "Let's Design the Right Camera System for Your Property.",
+  },
+  "business-communications": {
+    headline: "Phone Systems That",
+    highlight: "Never Miss a Call.",
+    lede: "Every missed call is missed business. We install, program, and support business phone systems so calls reach the right person and your customers always hear a professional greeting.",
+    includes: [
+      { title: "New Phone Systems & PBX", text: "Complete business phone systems supplied and installed for offices of every size." },
+      { title: "Programming & Call Routing", text: "Extensions, ring groups, auto attendants, and after-hours greetings set up for how you take calls." },
+      { title: "Voicemail", text: "Voicemail configured for each person and department, so messages reach the right place." },
+      { title: "Moves, Adds & Changes", text: "New extensions and updates whenever your staff, offices, or hours change." },
+      { title: "Service & Repair", text: "Troubleshooting and repair for the phone system you already have." },
+      { title: "Panasonic Authorized", text: "Authorized dealer and technician for Panasonic business phone systems." },
+    ],
+    when: ["Customers say they can't get through", "You've outgrown your current system", "You're moving or opening an office", "Your existing system needs service"],
+    cta: "Let's Get Your Phones Working the Way They Should.",
+    link: { title: "Panasonic Phone Systems", text: "New systems, service, and support from an authorized dealer.", href: "panasonic-solutions/" },
+  },
+  "software-support": {
+    headline: "Software & Support for",
+    highlight: "Everyday Business.",
+    lede: "The software your team uses every day should simply work. We install it, set it up correctly, and stay available when someone needs help.",
+    includes: [
+      { title: "Business Software Setup", text: "Installation and configuration of the programs your business depends on." },
+      { title: "Microsoft 365 & Email", text: "Email, office applications, and accounts set up and supported for your whole team." },
+      { title: "QuickBooks & Accounting Software", text: "Installation, upgrades, and troubleshooting for your accounting software." },
+      { title: "Dental Practice Software", text: "Installation and support for practice software including Dentrix, Eaglesoft, and Carestream." },
+      { title: "User Accounts & Access", text: "Logins, permissions, and Microsoft Active Directory managed so the right people have the right access." },
+      { title: "Everyday Technical Support", text: "Remote and on-site help when a program, a computer, or a printer stops cooperating." },
+    ],
+    when: ["You're adding staff or new computers", "A program stopped working or runs slowly", "You're switching to new software", "Your dental practice needs software support"],
+    cta: "Let's Keep Your Team Working.",
+  },
+  "virus-removal": {
+    headline: "Virus Removal &",
+    highlight: "Lasting Protection.",
+    lede: "One bad click can slow a computer to a crawl or put your whole business at risk. We clean it up properly, then put protection in place so it doesn't happen again.",
+    includes: [
+      { title: "Virus & Malware Removal", text: "Thorough cleanup of infected computers, not a quick scan that leaves problems behind." },
+      { title: "Ransomware Response", text: "Help containing the damage and getting your business back to work." },
+      { title: "Antivirus Protection", text: "Reliable protection installed and kept current on every computer." },
+      { title: "Security Updates", text: "Systems and software kept up to date to close the gaps attackers look for." },
+      { title: "Safer Email & Passwords", text: "Practical guidance for your staff on avoiding the most common threats." },
+      { title: "Security Checkups", text: "A review of your computers and network to find problems before they find you." },
+    ],
+    when: ["A computer is slow or full of pop-ups", "Someone clicked a suspicious link or attachment", "You see a ransom or warning message", "You want protection before something happens"],
+    cta: "Let's Get Your Computers Clean and Protected.",
+  },
+};

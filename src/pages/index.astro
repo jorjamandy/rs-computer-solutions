@@ -8,9 +8,9 @@ import { site, services, why, vendors } from "../data/site";
 const base = import.meta.env.BASE_URL;
 const feats = [
   { icon: "shield", a: "Panasonic", b: "Authorized Dealer", href: "panasonic-solutions/" },
-  { icon: "desktop", a: "Business IT", b: "& Network Support", href: "services/#it-networking" },
-  { icon: "camera", a: "Security &", b: "Surveillance", href: "services/#security-surveillance" },
-  { icon: "phone", a: "Business", b: "Communications", href: "services/#business-communications" },
+  { icon: "desktop", a: "Business IT", b: "& Network Support", href: "services/it-networking/" },
+  { icon: "camera", a: "Security &", b: "Surveillance", href: "services/security-surveillance/" },
+  { icon: "phone", a: "Business", b: "Communications", href: "services/business-communications/" },
 ];
 ---
 <Base current="">
@@ -37,7 +37,7 @@ const feats = [
       </div>
       <div class="cards cards-5">
         {services.map((s) => (
-          <a class="card card-center" href={`${base}services/#${s.id}`}>
+          <a class="card card-center" href={`${base}services/${s.id}/`}>
             <span class="icon"><Icon name={s.icon} size={40} /></span>
             <h3>{s.title}</h3>
             <p>{s.card}</p>

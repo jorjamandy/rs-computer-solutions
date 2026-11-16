@@ -1,0 +1,78 @@
+---
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import PageHero from "../../components/PageHero.astro";
+import Cta from "../../components/Cta.astro";
+import { services, serviceDetails } from "../../data/site";
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.id }, props: { service } }));
+}
+const { service } = Astro.props;
+const detail = serviceDetails[service.id];
+const others = services.filter((s) => s.id !== service.id);
+const base = import.meta.env.BASE_URL;
+---
+<Base current="services/" title={service.title} description={service.text}>
+  <PageHero eyebrow="Services">
+    <h1>{detail.headline} <span class="hl">{detail.highlight}</span></h1>
+    <p class="lede">{detail.lede}</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
+      <a class="btn btn-outline" href={`${base}services/`}>All Services</a>
+    </div>
+  </PageHero>
+
+  <section class="section-sm">
+    <div class="wrap detail">
+      <div>
+        <h2>What's Included</h2>
+        <ul class="checklist">
+          {detail.includes.map((item) => (
+            <li>
+              <span class="check"><Icon name="check" size={18} /></span>
+              <div><h3>{item.title}</h3><p>{item.text}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <aside class="detail-side">
+        <div class="side-card">
+          <span class="tile"><Icon name={service.icon} size={38} /></span>
+          <h2>When to Call Us</h2>
+          <ul>
+            {detail.when.map((w) => <li>{w}</li>)}
+          </ul>
+          <a class="btn btn-white btn-full" href={`${base}contact/`}>Request a Free Consultation</a>
+        </div>
+        {detail.link && (
+          <a class="side-link" href={`${base}${detail.link.href}`}>
+            <div><h3>{detail.link.title}</h3><p>{detail.link.text}</p></div>
+            <Icon name="arrow" size={22} />
+          </a>
+        )}
+      </aside>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">One Partner for All of It</p>
+        <h2>Other Services</h2>
+      </div>
+      <div class="cards cards-4">
+        {others.map((s) => (
+          <a class="card card-center" href={`${base}services/${s.id}/`}>
+            <span class="icon"><Icon name={s.icon} size={36} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.card}</p>
+            <span class="rule"></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta title={detail.cta} text="Start with a free consultation." />
+</Base>
