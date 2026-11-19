@@ -507,8 +507,8 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 /* Home: What We Do service cards */
 .wwd { position: relative; overflow: hidden; }
 .wwd > .wrap { position: relative; z-index: 1; }
-/* Curved powder-blue wave along the bottom of the section; it fades out
-   toward the bottom so there's no hard line where the next section starts. */
+/* Maroon and powder-blue "wire" swooshes along the bottom of the section,
+   echoing the logo, hero, and footer. They fade in from the left. */
 .wwd { padding-bottom: 150px; }
 .wwd + .section { padding-top: 0; }
 .wwd-wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 200px; pointer-events: none; }
