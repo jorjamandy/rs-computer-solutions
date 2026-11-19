@@ -87,7 +87,7 @@ export const services = [
     photo: "business-communications-reception",
     image: "phone",
     title: "Business Communications",
-    card: "Business phone systems, PBX solutions, and connectivity.",
+    card: "Business phone systems and PBX solutions, including Panasonic systems.",
     text: "Business telephone systems, PBX solutions, and communications infrastructure, with specialized experience in Panasonic systems.",
   },
   {

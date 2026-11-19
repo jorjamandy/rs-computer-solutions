@@ -4,37 +4,33 @@ import Icon from "../components/Icon.astro";
 import HomeHero from "../components/HomeHero.astro";
 import IndustriesReel from "../components/IndustriesReel.astro";
 import Cta from "../components/Cta.astro";
-import { site, services, why } from "../data/site";
+import { services, why } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
 <Base current="">
   <HomeHero />
 
-  <section class="section section-flush">
+  <section class="section section-flush wwd" data-reveal>
+    <svg class="wwd-wave" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M600 0H120C250 40 330 120 600 150Z" fill="#E6F1FB" />
+      <path d="M600 160C390 140 300 70 190 0" fill="none" stroke="#5BB3EF" stroke-opacity=".28" stroke-width="2" />
+    </svg>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head wwd-head">
         <p class="eyebrow">What We Do</p>
         <h2>Complete Technology Solutions for <span class="hl">Your Business.</span></h2>
         <p>From IT infrastructure and networking to security systems, business communications, and ongoing technical support, RS Computer Solutions keeps your business connected, secure, and running smoothly.</p>
       </div>
-      <div class="cards cards-5">
-        {services.map((s) => (
-          <a class="card card-center" href={`${base}services/${s.id}/`}>
-            <span class="icon"><Icon name={s.icon} size={40} /></span>
+      <div class="wwd-cards">
+        {services.map((s, i) => (
+          <a class="wwd-card" href={`${base}services/${s.id}/`} style={`--i:${i}`}>
+            <span class="wwd-icon"><Icon name={s.icon} size={28} /></span>
             <h3>{s.title}</h3>
             <p>{s.card}</p>
-            <span class="rule"></span>
+            <span class="wwd-more">Learn more <Icon name="arrow" size={16} /></span>
           </a>
         ))}
       </div>
-      <a class="banner" href={`${base}panasonic-solutions/`}>
-        <span class="tile"><Icon name="shield" size={36} /></span>
-        <div>
-          <h2>{site.panasonicTitle}</h2>
-          <p>New Panasonic business phone systems, plus service, repair, and ongoing support.</p>
-        </div>
-        <span class="banner-link">Learn more <Icon name="arrow" size={16} /></span>
-      </a>
     </div>
   </section>
 
@@ -57,6 +53,21 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
   </section>
+
+  <script>
+    // Fade sections in once as they scroll into view (skipped for reduced motion).
+    const els = document.querySelectorAll("[data-reveal]");
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      }), { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+      els.forEach((el) => io.observe(el));
+      // Safety net: never leave content hidden if the observer doesn't fire.
+      setTimeout(() => els.forEach((el) => el.classList.add("is-in")), 4000);
+    }
+  </script>
 
   <Cta title="Let's Keep Your Business Running Smoothly." text="Start with a free consultation." />
 </Base>
