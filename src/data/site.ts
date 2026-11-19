@@ -110,11 +110,11 @@ export const services = [
   },
 ];
 
-// "Beyond Traditional IT Support" differentiators on the Home page.
+// "The RS Difference" points on the Home page.
 export const beyond = [
-  { icon: "wrench", title: "On-Site Expertise", text: "Professional installation, configuration, troubleshooting, and maintenance." },
-  { icon: "grid", title: "Specialized Business Technology", text: "Experience supporting industry-specific software, business communications, and commercial security systems." },
-  { icon: "users", title: "One Reliable Partner", text: "A single point of contact for your networking, security, communications, and ongoing technical needs." },
+  { icon: "medal", title: "Experience That Matters", text: "Decades of hands-on experience installing, maintaining, and troubleshooting the systems businesses depend on." },
+  { icon: "monitor-gear", title: "Practical Solutions, Not Sales Pitches", text: "We recommend technology based on what your business actually needs, with a focus on reliability, performance, and long-term value." },
+  { icon: "handshake", title: "Service You Can Count On", text: "Personal attention, straightforward communication, and dependable support from people who know your business." },
 ];
 
 export const why = [

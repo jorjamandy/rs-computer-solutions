@@ -33,30 +33,25 @@ const base = import.meta.env.BASE_URL;
 
   <IndustriesReel />
 
-  <section class="section tint beyond" data-reveal>
-    <div class="beyond-glow" aria-hidden="true"></div>
-    <div class="wrap beyond-grid">
-      <div class="beyond-copy rv" style="--i:0">
-        <p class="eyebrow">Beyond Traditional IT Support</p>
-        <h2>One Company. <span class="hl">Complete Technology Support.</span></h2>
-        <p class="muted">Your business relies on more than computers. From the network behind your operations to the cameras protecting your property and the phones connecting your customers, RS Computer Solutions brings everything together.</p>
-        <ul class="beyond-tags" aria-label="What we handle">
-          <li>Networks</li><li>Security Cameras</li><li>Phone Systems</li><li>Software</li><li>Ongoing Support</li>
-        </ul>
-        <a class="btn btn-primary" href={`${base}contact/`}>Talk to Our Team <Icon name="arrow" size={18} /></a>
+  <section class="section tint diff" data-reveal>
+    <div class="diff-glow" aria-hidden="true"></div>
+    <div class="wrap diff-grid">
+      <div class="diff-intro rv" style="--i:0">
+        <p class="eyebrow">The RS Difference</p>
+        <h2>Experienced People. <span class="hl">Dependable Solutions.</span></h2>
+        <p>Technology is only as good as the people behind it. At RS Computer Solutions, we believe in doing the job right, understanding our customers' businesses, and being there when they need us.</p>
       </div>
-      <ol class="beyond-list">
+      <ul class="diff-list">
         {beyond.map((d, i) => (
-          <li class="beyond-item rv" style={`--i:${i + 1}`}>
-            <span class="beyond-num">{String(i + 1).padStart(2, "0")}</span>
-            <span class="beyond-icon"><Icon name={d.icon} size={26} /></span>
+          <li class="diff-item rv" style={`--i:${i + 1}`}>
+            <span class="diff-icon"><Icon name={d.icon} size={46} /></span>
             <div>
               <h3>{d.title}</h3>
               <p>{d.text}</p>
             </div>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </section>
 
@@ -75,5 +70,5 @@ const base = import.meta.env.BASE_URL;
     }
   </script>
 
-  <Cta title="Let's Keep Your Business Running Smoothly." text="Start with a free consultation." />
+  <Cta title="Let's Keep Your Business Running Smoothly." text="Tell us what your business needs. We'll help you find the right solution." />
 </Base>
