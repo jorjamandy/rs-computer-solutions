@@ -41,7 +41,13 @@ const base = import.meta.env.BASE_URL;
 <script>
   document.querySelectorAll<HTMLElement>("[data-reel]").forEach((reel) => {
     const items = [...reel.querySelectorAll<HTMLElement>(".reel-item")];
-    const open = (el: HTMLElement) => items.forEach((i) => i.classList.toggle("is-open", i === el));
+    // The panel the visitor last clicked; only a second click on it navigates.
+    // Opening any other panel clears it.
+    let armed: HTMLElement | null = null;
+    const open = (el: HTMLElement) => {
+      if (el !== armed) armed = null;
+      items.forEach((i) => i.classList.toggle("is-open", i === el));
+    };
 
     // Width the open panel will settle at, so its caption can be laid out at
     // that width from the start instead of rewrapping as the panel grows.
@@ -62,9 +68,17 @@ const base = import.meta.env.BASE_URL;
       item.addEventListener("mouseenter", () => { timer = window.setTimeout(() => open(item), 140); });
       item.addEventListener("mouseleave", () => clearTimeout(timer));
       item.addEventListener("focusin", () => open(item));
-      // On touch screens the first tap opens a panel; a second tap follows its link.
+      // The first click (or tap) on a panel only opens it; clicking the same
+      // panel again goes to its page. The round arrow button and the keyboard
+      // (Enter) always go straight to the page.
       item.querySelector("a")!.addEventListener("click", (e) => {
-        if (!item.classList.contains("is-open")) { e.preventDefault(); open(item); }
+        const direct = e.detail === 0 || (e.target as HTMLElement).closest(".reel-go");
+        if (!direct && armed !== item) {
+          e.preventDefault();
+          clearTimeout(timer);
+          open(item);
+          armed = item;
+        }
       });
     });
   });
