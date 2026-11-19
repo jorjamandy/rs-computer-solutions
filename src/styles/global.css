@@ -593,25 +593,3 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
   [data-reveal] .rv { opacity: 1; transform: none; transition: none; }
 }
 
-/* Contact banner: cables that plug into the button, with travelling light pulses */
-.cta { position: relative; overflow: hidden; }
-.cta > .cta-copy, .cta > .btn { position: relative; z-index: 1; }
-.cta-cables { position: absolute; top: 0; right: 0; width: 700px; height: 100%; pointer-events: none; }
-.cta-cables path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
-.cta-cables .cable { stroke: rgba(255,255,255,.2); stroke-width: 2.5; transition: stroke .4s ease; }
-.cta-cables .pulse { stroke: #9fd3f7; stroke-width: 2.5; stroke-dasharray: 9 100; stroke-dashoffset: 109; opacity: .9;
-  animation: cta-pulse var(--d, 3s) linear var(--delay, 0s) infinite; }
-.cta-cables .cable-tie { fill: #6c0c27; stroke: rgba(255,255,255,.28); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.cta-cables .plug { stroke: rgba(255,255,255,.4); stroke-width: 7; }
-.cta:not(.cta-light) .btn-white { animation: cta-port 2.4s ease-out infinite; }
-.cta:hover .cta-cables .cable { stroke: rgba(255,255,255,.3); }
-.cta:hover .btn-white { animation-duration: 1.2s; }
-@keyframes cta-pulse { to { stroke-dashoffset: 0; } }
-@keyframes cta-port { 0% { box-shadow: 0 0 0 0 rgba(159,211,247,.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(159,211,247,0); } }
-@media (max-width: 700px) {
-  .cta-cables { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .cta-cables .pulse { animation: none; opacity: 0; }
-  .cta:not(.cta-light) .btn-white { animation: none; }
-}
