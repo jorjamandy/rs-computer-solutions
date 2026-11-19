@@ -507,11 +507,6 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 /* Home: What We Do service cards */
 .wwd { position: relative; overflow: hidden; }
 .wwd > .wrap { position: relative; z-index: 1; }
-/* Maroon and powder-blue "wire" swooshes along the bottom of the section,
-   echoing the logo, hero, and footer. They fade in from the left. */
-.wwd { padding-bottom: 150px; }
-.wwd + .section { padding-top: 0; }
-.wwd-wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 200px; pointer-events: none; }
 .wwd-head h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; }
 .wwd-head { max-width: 900px; }
 .wwd-head p:last-child { font-size: 1.1rem; max-width: 76ch; }
@@ -548,8 +543,6 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 @media (max-width: 1100px) { .wwd-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .wwd-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) {
-  .wwd { padding-bottom: 100px; }
-  .wwd-wave { height: 130px; }
   .wwd-cards { grid-template-columns: 1fr; gap: 12px; }
   /* Phone: compact cards, icon on the left and text beside it */
   .wwd-card { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; row-gap: 4px; align-items: start; padding: 18px 18px 16px; }
@@ -591,4 +584,27 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 [data-reveal].is-in .rv { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i, 0) * 120ms), transform .6s ease calc(var(--i, 0) * 120ms); }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] .rv { opacity: 1; transform: none; transition: none; }
+}
+
+/* Contact banner: cables that plug into the button, with travelling light pulses */
+.cta { position: relative; overflow: hidden; }
+.cta > .cta-copy, .cta > .btn { position: relative; z-index: 1; }
+.cta-cables { position: absolute; top: 0; right: 0; width: 700px; height: 100%; pointer-events: none; }
+.cta-cables path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.cta-cables .cable { stroke: rgba(255,255,255,.2); stroke-width: 2.5; transition: stroke .4s ease; }
+.cta-cables .pulse { stroke: #9fd3f7; stroke-width: 2.5; stroke-dasharray: 9 100; stroke-dashoffset: 109; opacity: .9;
+  animation: cta-pulse var(--d, 3s) linear var(--delay, 0s) infinite; }
+.cta-cables .cable-tie { fill: #6c0c27; stroke: rgba(255,255,255,.28); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.cta-cables .plug { stroke: rgba(255,255,255,.4); stroke-width: 7; }
+.cta:not(.cta-light) .btn-white { animation: cta-port 2.4s ease-out infinite; }
+.cta:hover .cta-cables .cable { stroke: rgba(255,255,255,.3); }
+.cta:hover .btn-white { animation-duration: 1.2s; }
+@keyframes cta-pulse { to { stroke-dashoffset: 0; } }
+@keyframes cta-port { 0% { box-shadow: 0 0 0 0 rgba(159,211,247,.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(159,211,247,0); } }
+@media (max-width: 700px) {
+  .cta-cables { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-cables .pulse { animation: none; opacity: 0; }
+  .cta:not(.cta-light) .btn-white { animation: none; }
 }

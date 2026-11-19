@@ -1,13 +1,42 @@
 ---
+// Closing call-to-action banner. The maroon version has animated "cables"
+// that run across the banner and plug into the button, with light pulses
+// travelling along them toward it.
 import Icon from "./Icon.astro";
 interface Props { title: string; text?: string; button?: string; light?: boolean }
 const { title, text, button = "Get in Touch", light = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const cables = [
+  "M0 28C180 28 300 96 452 100",
+  "M0 172C200 172 300 104 452 100",
+  "M110 0C240 58 330 94 452 100",
+  "M150 200C260 142 340 106 452 100",
+  "M0 100C150 88 300 110 452 100",
+];
 ---
 <section class="cta-wrap">
   <div class="wrap">
     <div class:list={["cta", { "cta-light": light }]}>
-      <div>
+      {!light && (
+        <svg class="cta-cables" viewBox="0 0 700 200" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="ctaFade" gradientUnits="userSpaceOnUse" x1="170" y1="0" x2="360" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity="0" />
+              <stop offset="1" stop-color="#fff" />
+            </linearGradient>
+            <mask id="ctaMask" maskUnits="userSpaceOnUse" x="0" y="0" width="700" height="200">
+              <rect width="700" height="200" fill="url(#ctaFade)" />
+            </mask>
+          </defs>
+          <g mask="url(#ctaMask)">
+            {cables.map((d) => <path class="cable" d={d} pathLength="100" />)}
+            {cables.map((d, i) => <path class="pulse" d={d} pathLength="100" style={`--d:${2.4 + i * 0.45}s;--delay:${i * -0.9}s`} />)}
+          </g>
+          <ellipse class="cable-tie" cx="404" cy="100" rx="5" ry="15" />
+          <path class="plug" d="M452 100H470" />
+        </svg>
+      )}
+      <div class="cta-copy">
         <h2>{title}</h2>
         {text && <p>{text}</p>}
       </div>
