@@ -1,32 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import PageHero from "../components/PageHero.astro";
+import HomeHero from "../components/HomeHero.astro";
 import Cta from "../components/Cta.astro";
-import Stats from "../components/Stats.astro";
 import { site, services, why, vendors } from "../data/site";
 const base = import.meta.env.BASE_URL;
-const feats = [
-  { icon: "shield", a: "Panasonic", b: "Authorized Dealer", href: "panasonic-solutions/" },
-  { icon: "desktop", a: "Business IT", b: "& Network Support", href: "services/it-networking/" },
-  { icon: "camera", a: "Security &", b: "Surveillance", href: "services/security-surveillance/" },
-  { icon: "phone", a: "Business", b: "Communications", href: "services/business-communications/" },
-];
 ---
 <Base current="">
-  <PageHero home eyebrow="RS Computer Solutions">
-    <h1>Technology You Can Count On. <span class="hl">People You Can Trust.</span></h1>
-    <p class="lede">Reliable IT, security, communications, and technology solutions for businesses that need things done right.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
-      <a class="btn btn-outline" href={`${base}services/`}>Our Services</a>
-    </div>
-    <ul class="feats">
-      {feats.map((f) => (
-        <li><a href={`${base}${f.href}`}><Icon name={f.icon} size={30} /><span>{f.a}<br />{f.b}</span></a></li>
-      ))}
-    </ul>
-  </PageHero>
+  <HomeHero />
 
   <section class="section-sm">
     <div class="wrap">
@@ -55,8 +36,6 @@ const feats = [
       </a>
     </div>
   </section>
-
-  <Stats />
 
   <section class="section">
     <div class="wrap onestop">

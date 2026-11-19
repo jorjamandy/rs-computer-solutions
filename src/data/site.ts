@@ -28,6 +28,15 @@ export const stats = [
   { value: "500+", unit: "", label: "Systems installed" },
 ];
 
+// The navy band directly under the Home page hero. An entry with no value
+// shows its label as a single bold line (used for the Panasonic badge).
+export const heroStats = [
+  { icon: "calendar", value: `${new Date().getFullYear() - 2006}+`, unit: "Years", label: "In business since 2006" },
+  { icon: "users", value: "100+", unit: "", label: "Businesses supported" },
+  { icon: "clock", value: "24", unit: "Hr", label: "Response time or less" },
+  { icon: "award", value: "", unit: "", label: "Panasonic Authorized Dealer" },
+];
+
 // What a business usually has to juggle, versus one provider.
 export const vendors = ["An IT company", "A security camera installer", "A phone system vendor", "A software support contact"];
 

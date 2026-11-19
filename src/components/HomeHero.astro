@@ -1,0 +1,44 @@
+---
+// Home page hero: headline on the left, cable photo fading in from the right,
+// the maroon and powder-blue swoosh, then the navy quick-stats band.
+import Icon from "./Icon.astro";
+import { heroStats } from "../data/site";
+const base = import.meta.env.BASE_URL;
+---
+<section class="hh">
+  <div class="hh-photo" style={`background-image:url(${base}images/hero-cables.webp)`} aria-hidden="true"></div>
+  <div class="wrap hh-inner">
+    <p class="eyebrow">A Trusted Technology Partner</p>
+    <h1>Technology You Can <br class="hh-br" />Count On. <span class="hl">People You Can Trust.</span></h1>
+    <p class="lede">Reliable IT, security, communications, and technology solutions for businesses that need things done right.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`${base}contact/`}>Get in Touch <Icon name="arrow" size={18} /></a>
+      <a class="btn btn-outline" href={`${base}services/`}>Our Services</a>
+    </div>
+  </div>
+  <svg class="hh-wave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M380 160C857 158 1228 56 1440 0V160Z" fill="#FFFFFF" />
+    <path d="M440 160C890 158 1240 72 1440 24V160Z" fill="#5BB3EF" />
+    <path d="M480 160C912 158 1248 82 1440 40V160Z" fill="#FFFFFF" />
+    <path d="M500 160C923 158 1252 86 1440 46V160Z" fill="#8C1235" />
+    <path d="M620 160C989 158 1276 113 1440 88V160Z" fill="#0B1F3B" />
+  </svg>
+</section>
+
+<section class="hh-stats">
+  <ul class="wrap hh-stats-grid">
+    {heroStats.map((s) => (
+      <li class="hh-stat">
+        <Icon name={s.icon} size={56} />
+        {s.value ? (
+          <span>
+            <span class="hh-num">{s.value}{s.unit && <small>{s.unit}</small>}</span>
+            <span class="hh-label">{s.label}</span>
+          </span>
+        ) : (
+          <span class="hh-title">{s.label}</span>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>
