@@ -102,6 +102,7 @@ export const services = [
   {
     id: "virus-removal",
     icon: "shield",
+    photo: "virus-protection-laptop",
     image: "software",
     title: "Virus Removal & Protection",
     card: "Virus and malware cleanup, and the protection to keep it from coming back.",
