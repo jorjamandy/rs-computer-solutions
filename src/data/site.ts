@@ -105,6 +105,7 @@ export const services = [
     photo: "virus-protection-laptop",
     image: "software",
     title: "Virus Removal & Protection",
+    homeTitle: "Cybersecurity & Protection",
     card: "Malware removal, antivirus protection, system recovery, and preventive security solutions.",
     text: "Removal of viruses, malware, and ransomware from business computers, followed by the antivirus protection, updates, and safeguards that keep your systems clean and your data safe.",
   },

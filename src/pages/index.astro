@@ -14,17 +14,17 @@ const base = import.meta.env.BASE_URL;
     <div class="wwd-wave" aria-hidden="true"></div>
     <div class="wrap">
       <div class="section-head wwd-head">
-        <p class="eyebrow">What We Do</p>
-        <h2>Complete Technology Solutions for <span class="hl">Your Business.</span></h2>
-        <p>From IT infrastructure and networking to security systems, business communications, and ongoing technical support, RS Computer Solutions keeps your business connected, secure, and running smoothly.</p>
+        <p class="eyebrow">Our Services</p>
+        <h2>Technology Problems? <span class="hl">Consider Them Handled.</span></h2>
+        <p>From networks and security cameras to phone systems, software, and ongoing IT support, RS Computer Solutions provides practical, reliable solutions that keep your business running.</p>
       </div>
       <div class="wwd-cards">
         {services.map((s, i) => (
           <a class="wwd-card" href={`${base}services/${s.id}/`} style={`--i:${i}`}>
-            <span class="wwd-icon"><Icon name={s.icon} size={28} /></span>
-            <h3>{s.title}</h3>
+            <span class="wwd-icon"><Icon name={s.icon} size={40} /></span>
+            <h3>{s.homeTitle ?? s.title}</h3>
             <p>{s.card}</p>
-            <span class="wwd-more">Learn more <Icon name="arrow" size={16} /></span>
+            <span class="wwd-more">Learn More <Icon name="arrow" size={17} /></span>
           </a>
         ))}
       </div>
