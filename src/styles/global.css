@@ -329,7 +329,7 @@ a.rowcard:hover .inline-link { text-decoration: underline; }
 .check { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--powder-soft); color: var(--maroon); flex: none; margin-top: 2px; }
 .checklist h3 { font-size: 1.14rem; margin-bottom: 4px; }
 .checklist p { font-size: 0.99rem; }
-.detail-side { display: grid; gap: 18px; position: sticky; top: 124px; }
+.detail-side { display: grid; gap: 18px; }
 .side-card { background: var(--navy); color: #c6d0de; border-radius: var(--radius); padding: 30px; border-bottom: 6px solid var(--maroon); box-shadow: var(--shadow); }
 .side-card .tile { background: rgba(91,179,239,.16); color: var(--powder); width: 68px; height: 68px; margin-bottom: 18px; }
 .side-card h2 { color: #fff; font-size: 1.4rem; margin-bottom: 6px; }
