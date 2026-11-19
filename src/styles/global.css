@@ -161,7 +161,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 
 /* CTA */
 .cta-wrap { padding: 0 0 56px; }
-.tint + .cta-wrap { padding-top: 56px; }
+.tint + .cta-wrap, .tint + script + .cta-wrap { padding-top: 72px; }
 .cta { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-radius: 18px; background: linear-gradient(100deg, var(--maroon-dark), var(--maroon) 60%, #a31a43); color: #fff; border-radius: var(--radius); padding: 38px 46px; box-shadow: var(--shadow); }
 .cta h2 { color: #fff; font-size: clamp(1.5rem, 2.9vw, 2.3rem); max-width: 18ch; }
 .cta-light h2 { max-width: none; }
