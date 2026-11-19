@@ -40,12 +40,12 @@ export const heroStats = [
 // The "Industries We Serve" photo reel on the Home page. Photos live in
 // public/images/industries/. The first entry starts open.
 export const reel = [
-  { image: "dental-healthcare", icon: "tooth", title: "Dental & Healthcare", href: "industries/dental-healthcare/", text: "Reliable IT, networking, and phone systems for practices that can't afford downtime." },
-  { image: "law-firms", focus: "82% center", icon: "gavel", title: "Law Firms", href: "industries/professional-offices/", text: "Secure file access, dependable phones, and support that protects sensitive client information." },
-  { image: "restaurants-retail", icon: "utensils", title: "Restaurants & Retail", href: "industries/retail-restaurants/", text: "Cameras, phones, and networks that keep a busy counter running and protected." },
-  { image: "garages-parking", icon: "car", title: "Garages & Parking", href: "industries/commercial-properties/", text: "Surveillance for lots, garages, and every entrance, viewable from anywhere." },
-  { image: "professional-offices", icon: "desktop", title: "Professional Offices", href: "industries/professional-offices/", text: "Networks, Microsoft 365, and everyday support for offices that run on deadlines." },
-  { image: "other-businesses", icon: "building", title: "Other Businesses", href: "contact/", text: "Whatever your business does, we'll plan the technology around how you work." },
+  { image: "dental-healthcare", focus: "55% center", icon: "tooth", title: "Dental & Healthcare", href: "industries/dental-healthcare/", text: "Reliable IT, networking, and phone systems for practices that can't afford downtime." },
+  { image: "law-firms", focus: "80% center", icon: "gavel", title: "Law Firms", href: "industries/professional-offices/", text: "Secure file access, dependable phones, and support that protects sensitive client information." },
+  { image: "restaurants-retail", focus: "45% center", icon: "utensils", title: "Restaurants & Retail", href: "industries/retail-restaurants/", text: "Cameras, phones, and networks that keep a busy counter running and protected." },
+  { image: "garages-parking", focus: "38% center", icon: "car", title: "Garages & Parking", href: "industries/commercial-properties/", text: "Surveillance for lots, garages, and every entrance, viewable from anywhere." },
+  { image: "professional-offices", focus: "62% center", icon: "desktop", title: "Professional Offices", href: "industries/professional-offices/", text: "Networks, Microsoft 365, and everyday support for offices that run on deadlines." },
+  { image: "other-businesses", focus: "45% center", icon: "building", title: "Other Businesses", href: "contact/", text: "Whatever your business does, we'll plan the technology around how you work." },
 ];
 
 // What a business usually has to juggle, versus one provider.
