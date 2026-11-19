@@ -40,12 +40,12 @@ export const heroStats = [
 // The "Industries We Serve" photo reel on the Home page. Photos live in
 // public/images/industries/. The first entry starts open.
 export const reel = [
-  { image: "dental-healthcare", focus: "55% center", icon: "tooth", title: "Dental & Healthcare", href: "industries/dental-healthcare/", text: "Reliable IT, networking, and phone systems for practices that can't afford downtime." },
-  { image: "law-firms", focus: "80% center", icon: "gavel", title: "Law Firms", href: "industries/professional-offices/", text: "Secure file access, dependable phones, and support that protects sensitive client information." },
-  { image: "restaurants-retail", focus: "45% center", icon: "utensils", title: "Restaurants & Retail", href: "industries/retail-restaurants/", text: "Cameras, phones, and networks that keep a busy counter running and protected." },
-  { image: "garages-parking", focus: "38% center", icon: "car", title: "Garages & Parking", href: "industries/commercial-properties/", text: "Surveillance for lots, garages, and every entrance, viewable from anywhere." },
-  { image: "professional-offices", focus: "62% center", icon: "desktop", title: "Professional Offices", href: "industries/professional-offices/", text: "Networks, Microsoft 365, and everyday support for offices that run on deadlines." },
-  { image: "other-businesses", focus: "45% center", icon: "building", title: "Other Businesses", href: "contact/", text: "Whatever your business does, we'll plan the technology around how you work." },
+  { image: "dental-healthcare", focus: "55% center", icon: "tooth", title: "Dental & Healthcare", href: "industries/dental-healthcare/", text: "Practice networks, phones, and cameras, plus hands-on support for dental software like Carestream and Eaglesoft." },
+  { image: "law-firms", focus: "80% center", icon: "gavel", title: "Law Firms", href: "industries/professional-offices/", text: "Secure file access, reliable phones, and protection for sensitive client information, with support when deadlines can't wait." },
+  { image: "restaurants-retail", focus: "45% center", icon: "utensils", title: "Restaurants & Retail", href: "industries/retail-restaurants/", text: "Security cameras, phone lines, and networks that keep a busy counter running, from pizza shops to retail stores." },
+  { image: "garages-parking", focus: "38% center", icon: "car", title: "Garages & Parking", href: "industries/commercial-properties/", text: "Camera systems for lots, garages, and commercial buildings, including multi-location operations, viewable from anywhere." },
+  { image: "professional-offices", focus: "62% center", icon: "desktop", title: "Professional Offices", href: "industries/professional-offices/", text: "Networks, Microsoft 365, user accounts, and everyday IT support for offices of every size." },
+  { image: "other-businesses", focus: "45% center", icon: "building", title: "Small & Growing Businesses", href: "contact/", text: "Whatever your business does, we install, connect, and support the technology it runs on, and grow it with you." },
 ];
 
 // What a business usually has to juggle, versus one provider.
@@ -69,7 +69,7 @@ export const services = [
     photo: "networking-cabinet",
     image: "network",
     title: "IT & Networking",
-    card: "Reliable infrastructure, networking, cabling, and ongoing support.",
+    card: "Network design, installation, structured cabling, Wi-Fi, servers, and ongoing infrastructure support.",
     text: "Professional network design, infrastructure installation, structured cabling, connectivity, and maintenance for businesses of all sizes.",
   },
   {
@@ -78,7 +78,7 @@ export const services = [
     photo: "security-surveillance-camera",
     image: "camera",
     title: "Security & Surveillance",
-    card: "Professional surveillance systems and security camera installation.",
+    card: "Commercial security camera systems, professional installation, and ongoing maintenance.",
     text: "Commercial security camera systems, video surveillance, installation, configuration, and ongoing support for offices, retail locations, parking areas, and commercial facilities.",
   },
   {
@@ -87,7 +87,7 @@ export const services = [
     photo: "business-communications-reception",
     image: "phone",
     title: "Business Communications",
-    card: "Business phone systems and PBX solutions, including Panasonic systems.",
+    card: "Business phone systems, PBX installation, programming, and authorized Panasonic sales and service.",
     text: "Business telephone systems, PBX solutions, and communications infrastructure, with specialized experience in Panasonic systems.",
   },
   {
@@ -96,7 +96,7 @@ export const services = [
     photo: "technical-support-workbench",
     image: "software",
     title: "Software & Technical Support",
-    card: "Business software, Microsoft 365, troubleshooting, and everyday IT assistance.",
+    card: "Microsoft 365, business software, system troubleshooting, and hands-on IT support.",
     text: "Business software installation, configuration, troubleshooting, and everyday technical support, including Microsoft 365, QuickBooks, Microsoft Active Directory, and specialized practice-management applications.",
   },
   {
@@ -105,9 +105,16 @@ export const services = [
     photo: "virus-protection-laptop",
     image: "software",
     title: "Virus Removal & Protection",
-    card: "Virus and malware cleanup, and the protection to keep it from coming back.",
+    card: "Malware removal, antivirus protection, system recovery, and preventive security solutions.",
     text: "Removal of viruses, malware, and ransomware from business computers, followed by the antivirus protection, updates, and safeguards that keep your systems clean and your data safe.",
   },
+];
+
+// "Beyond Traditional IT Support" differentiators on the Home page.
+export const beyond = [
+  { icon: "wrench", title: "On-Site Expertise", text: "Professional installation, configuration, troubleshooting, and maintenance." },
+  { icon: "grid", title: "Specialized Business Technology", text: "Experience supporting industry-specific software, business communications, and commercial security systems." },
+  { icon: "users", title: "One Reliable Partner", text: "A single point of contact for your networking, security, communications, and ongoing technical needs." },
 ];
 
 export const why = [
