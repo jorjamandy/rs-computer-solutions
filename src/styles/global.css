@@ -507,6 +507,10 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 /* Home: What We Do service cards */
 .wwd { position: relative; overflow: hidden; }
 .wwd > .wrap { position: relative; z-index: 1; }
+/* Maroon and powder-blue swoosh in the bottom-right corner, echoing the hero */
+.wwd { padding-bottom: 96px; }
+.wwd + .section { padding-top: 40px; }
+.wwd-swoosh { position: absolute; right: 0; bottom: 0; width: min(46%, 640px); height: 170px; pointer-events: none; }
 .wwd-head h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; }
 .wwd-head { max-width: 900px; }
 .wwd-head p:last-child { font-size: 1.1rem; max-width: 76ch; }
@@ -543,6 +547,8 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 @media (max-width: 1100px) { .wwd-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .wwd-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) {
+  .wwd { padding-bottom: 72px; }
+  .wwd-swoosh { width: 75%; height: 100px; }
   .wwd-cards { grid-template-columns: 1fr; gap: 12px; }
   /* Phone: compact cards, icon on the left and text beside it */
   .wwd-card { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; row-gap: 4px; align-items: start; padding: 18px 18px 16px; }
