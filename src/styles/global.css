@@ -592,3 +592,9 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
   [data-reveal] .rv { opacity: 1; transform: none; transition: none; }
 }
 
+
+/* Industries: mirrored swoosh in the bottom-left corner (sweeps up to the left) */
+.ind-sec { position: relative; overflow: hidden; padding-bottom: 120px; }
+.ind-sec > .wrap { position: relative; z-index: 1; }
+.ind-swoosh { position: absolute; left: 0; bottom: 0; width: min(46%, 640px); height: 170px; transform: scaleX(-1); pointer-events: none; }
+@media (max-width: 520px) { .ind-sec { padding-bottom: 88px; } .ind-swoosh { width: 75%; height: 100px; } }

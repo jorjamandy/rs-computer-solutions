@@ -8,7 +8,11 @@ import Icon from "./Icon.astro";
 import { reel } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
-<section class="section">
+<section class="section ind-sec">
+  <svg class="ind-swoosh" viewBox="0 0 600 170" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 170C330 164 500 112 600 24V58C500 132 330 170 70 170Z" fill="#8C1235" />
+    <path d="M150 170C390 166 515 134 600 74V124C525 154 390 170 300 170Z" fill="#9CCDF1" />
+  </svg>
   <div class="wrap reel-card">
     <div class="section-head">
       <p class="eyebrow">Industries We Serve</p>
