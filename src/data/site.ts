@@ -66,6 +66,7 @@ export const services = [
   {
     id: "it-networking",
     icon: "network",
+    photo: "networking-cabinet",
     image: "network",
     title: "IT & Networking",
     card: "Reliable infrastructure, networking, cabling, and ongoing support.",
@@ -74,6 +75,7 @@ export const services = [
   {
     id: "security-surveillance",
     icon: "camera",
+    photo: "security-surveillance-camera",
     image: "camera",
     title: "Security & Surveillance",
     card: "Professional surveillance systems and security camera installation.",
@@ -82,6 +84,7 @@ export const services = [
   {
     id: "business-communications",
     icon: "phone",
+    photo: "business-communications-reception",
     image: "phone",
     title: "Business Communications",
     card: "Business phone systems, PBX solutions, and connectivity.",
@@ -90,6 +93,7 @@ export const services = [
   {
     id: "software-support",
     icon: "desktop",
+    photo: "technical-support-workbench",
     image: "software",
     title: "Software & Technical Support",
     card: "Business software, Microsoft 365, troubleshooting, and everyday IT assistance.",

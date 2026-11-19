@@ -453,3 +453,30 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
    drops its bottom padding and every section gap on the page is 72px. */
 .section-flush { padding-bottom: 0; }
 @media (max-width: 560px) { .hh .eyebrow::after { display: none; } }
+
+/* Services page: alternating photo and text sections */
+.svc-list { display: grid; gap: 72px; }
+.svc { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+.svc-flip .svc-photo { order: 2; }
+.svc-photo { display: block; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 16 / 10; }
+.svc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.svc-photo:hover img { transform: scale(1.03); }
+.svc-text .tile { width: 64px; height: 64px; border-radius: 14px; margin-bottom: 18px; }
+.svc-text h2 { margin-bottom: 12px; }
+.svc-points { display: grid; gap: 10px; margin: 20px 0 26px; }
+.svc-points li { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--navy); }
+.svc-points svg { color: var(--maroon); }
+.svc-list .rowcard h2 { font-size: 1.5rem; }
+
+/* About page: storefront photo beside the statement */
+.about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.about-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4 / 3; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-copy h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.about-copy p { margin-top: 18px; font-size: 1.08rem; }
+
+@media (max-width: 860px) {
+  .svc, .about-split { grid-template-columns: 1fr; gap: 28px; }
+  .svc-flip .svc-photo { order: 0; }
+  .svc-list { gap: 56px; }
+}

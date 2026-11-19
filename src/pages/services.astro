@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import PageHero from "../components/PageHero.astro";
 import Cta from "../components/Cta.astro";
-import { services } from "../data/site";
+import { services, serviceDetails } from "../data/site";
 const base = import.meta.env.BASE_URL;
 ---
 <Base current="services/" title="Business Technology Services" description="IT and networking, security and surveillance, business communications, and software and technical support from RS Computer Solutions.">
@@ -13,8 +13,23 @@ const base = import.meta.env.BASE_URL;
   </PageHero>
 
   <section class="section-sm">
-    <div class="wrap rows">
-      {services.map((s) => (
+    <div class="wrap svc-list">
+      {services.map((s, i) => s.photo ? (
+        <article class:list={["svc", { "svc-flip": i % 2 === 1 }]} id={s.id}>
+          <a class="svc-photo" href={`${base}services/${s.id}/`} tabindex="-1" aria-hidden="true">
+            <img src={`${base}images/services/${s.photo}.jpg`} alt="" loading={i === 0 ? "eager" : "lazy"} />
+          </a>
+          <div class="svc-text">
+            <span class="tile"><Icon name={s.icon} size={34} /></span>
+            <h2>{s.title}</h2>
+            <p>{s.text}</p>
+            <ul class="svc-points">
+              {serviceDetails[s.id].includes.slice(0, 3).map((x) => <li><Icon name="check" size={18} />{x.title}</li>)}
+            </ul>
+            <a class="btn btn-outline" href={`${base}services/${s.id}/`}>Learn more <Icon name="arrow" size={16} /></a>
+          </div>
+        </article>
+      ) : (
         <a class="rowcard" id={s.id} href={`${base}services/${s.id}/`}>
           <span class="tile"><Icon name={s.icon} size={40} /></span>
           <div>
