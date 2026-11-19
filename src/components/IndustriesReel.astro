@@ -1,0 +1,48 @@
+---
+// "Industries We Serve" photo reel on the Home page. Slim photo panels
+// stretch open with an elastic ease when hovered, focused, or tapped.
+// On phones the panels stack vertically and open the same way.
+import Icon from "./Icon.astro";
+import { reel } from "../data/site";
+const base = import.meta.env.BASE_URL;
+---
+<section class="section">
+  <div class="wrap reel-card">
+    <div class="section-head">
+      <p class="eyebrow">Industries We Serve</p>
+      <h2>Your Business. <span class="hl">Our Expertise.</span></h2>
+      <p>From dental practices and law firms to restaurants and commercial properties, RS Computer Solutions provides dependable technology solutions for businesses of all kinds.</p>
+    </div>
+    <ul class="reel" data-reel>
+      {reel.map((r, i) => (
+        <li class:list={["reel-item", { "is-open": i === 0 }]}>
+          <a href={`${base}${r.href}`} class="reel-link">
+            <img src={`${base}images/industries/${r.image}.jpg`} alt="" loading="lazy" style={`object-position:${r.focus ?? "center"}`} />
+            <span class="reel-body">
+              <Icon name={r.icon} size={28} />
+              <span class="reel-title">{r.title}</span>
+              <span class="reel-text">{r.text}</span>
+              <span class="reel-rule"></span>
+            </span>
+            <span class="reel-go" aria-hidden="true"><Icon name="arrow" size={20} /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-reel]").forEach((reel) => {
+    const items = [...reel.querySelectorAll<HTMLElement>(".reel-item")];
+    const open = (el: HTMLElement) => items.forEach((i) => i.classList.toggle("is-open", i === el));
+    items.forEach((item) => {
+      item.addEventListener("mouseenter", () => open(item));
+      item.addEventListener("focusin", () => open(item));
+      // On touch screens the first tap opens a panel; a second tap follows its link.
+      item.querySelector("a")!.addEventListener("click", (e) => {
+        if (!item.classList.contains("is-open")) { e.preventDefault(); open(item); }
+      });
+    });
+  });
+</script>
