@@ -168,7 +168,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 .cta .btn { padding: 15px 28px; font-size: 1.05rem; border-radius: 12px; }
 .cta p { margin-top: 6px; color: #f3dfe6; }
 .cta-light { background: var(--tint); border: 1px solid var(--line); color: var(--text); }
-.cta-light h2 { color: var(--navy); }
+.cta-light h2 { color: var(--navy); font-size: clamp(1.3rem, 2.1vw, 1.7rem); }
 .cta-light p { color: var(--text); }
 
 /* Contact */
