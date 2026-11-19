@@ -480,3 +480,9 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
   .svc-flip .svc-photo { order: 0; }
   .svc-list { gap: 56px; }
 }
+
+/* Panasonic page: featured phone photo */
+.pana-feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; margin-bottom: 64px; }
+.pana-photo { aspect-ratio: 16 / 10; }
+.pana-feature .btn { margin-top: 26px; }
+@media (max-width: 860px) { .pana-feature { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; } }

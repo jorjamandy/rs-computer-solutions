@@ -12,6 +12,16 @@ import { site, panasonic } from "../data/site";
   </PageHero>
 
   <section class="section-sm">
+    <div class="wrap pana-feature">
+      <div class="about-photo pana-photo">
+        <img src={`${import.meta.env.BASE_URL}images/services/panasonic-phone.jpg`} alt="Business desk phone on an office desk" loading="eager" />
+      </div>
+      <div class="about-copy">
+        <h2>Business Phones Your Team <span class="hl">Already Knows.</span></h2>
+        <p>From a single front desk to a multi-office practice, we supply, install, and program Panasonic business phone systems, then stay on call to service and support them for years to come.</p>
+        <a class="btn btn-primary" href={`${import.meta.env.BASE_URL}contact/`}>Ask About a System <Icon name="arrow" size={18} /></a>
+      </div>
+    </div>
     <div class="wrap">
       <div class="cards cards-3">
         {panasonic.map((p) => (
