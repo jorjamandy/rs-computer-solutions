@@ -56,7 +56,11 @@ const base = import.meta.env.BASE_URL;
     new ResizeObserver(size).observe(reel);
 
     items.forEach((item) => {
-      item.addEventListener("mouseenter", () => open(item));
+      // Short hover delay, so sweeping the mouse across the row glides to
+      // where it stops instead of flicking open every panel on the way.
+      let timer = 0;
+      item.addEventListener("mouseenter", () => { timer = window.setTimeout(() => open(item), 140); });
+      item.addEventListener("mouseleave", () => clearTimeout(timer));
       item.addEventListener("focusin", () => open(item));
       // On touch screens the first tap opens a panel; a second tap follows its link.
       item.querySelector("a")!.addEventListener("click", (e) => {
