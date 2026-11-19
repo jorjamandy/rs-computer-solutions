@@ -507,9 +507,14 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 /* Home: What We Do service cards */
 .wwd { position: relative; overflow: hidden; }
 .wwd > .wrap { position: relative; z-index: 1; }
-/* Soft powder-blue swell along the bottom of the section: no hard edges */
-.wwd-wave { position: absolute; left: -10%; right: -10%; bottom: -150px; height: 300px; pointer-events: none;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(91,179,239,.16), rgba(91,179,239,.06) 55%, rgba(91,179,239,0) 100%); }
+/* Curved powder-blue wave along the bottom of the section; it fades out
+   toward the bottom so there's no hard line where the next section starts. */
+.wwd { padding-bottom: 150px; }
+.wwd + .section { padding-top: 0; }
+.wwd-wave { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 200px; pointer-events: none; }
+.wwd-head h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; }
+.wwd-head { max-width: 900px; }
+.wwd-head p:last-child { font-size: 1.1rem; max-width: 76ch; }
 .wwd-head h2 .hl { display: block; }
 .wwd-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
 .wwd-card {
@@ -521,9 +526,9 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 }
 .wwd-card:hover { transform: translateY(-4px); box-shadow: 0 18px 34px -16px rgba(11,31,59,.3); border-color: #d3e1ee; }
 .wwd-icon { color: var(--maroon); margin-bottom: 14px; transition: color .3s var(--ease); }
-.wwd-icon svg { stroke-width: 1.4; }
-.wwd-card h3 { font-size: 1.12rem; line-height: 1.2; min-height: calc(2.4em + 14px); display: flex; align-items: flex-end; width: 100%; padding-bottom: 12px; border-bottom: 2px solid #cfe5f8; margin-bottom: 14px; }
-.wwd-card p { font-size: 0.9rem; line-height: 1.55; }
+.wwd-icon svg { stroke-width: 1.3; }
+.wwd-card h3 { font-size: 1.22rem; line-height: 1.18; min-height: calc(2.4em + 14px); display: flex; align-items: flex-end; width: 100%; padding-bottom: 12px; border-bottom: 2px solid #cfe5f8; margin-bottom: 14px; }
+.wwd-card p { font-size: 0.93rem; line-height: 1.55; }
 .wwd-more { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 16px; font-weight: 700; font-size: 0.93rem; color: var(--maroon); }
 .wwd-more svg { transition: transform .3s var(--ease); }
 .wwd-card:hover .wwd-more svg { transform: translateX(4px); }
@@ -543,11 +548,13 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 @media (max-width: 1100px) { .wwd-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .wwd-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) {
+  .wwd { padding-bottom: 100px; }
+  .wwd-wave { height: 130px; }
   .wwd-cards { grid-template-columns: 1fr; gap: 12px; }
   /* Phone: compact cards, icon on the left and text beside it */
   .wwd-card { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; row-gap: 4px; align-items: start; padding: 18px 18px 16px; }
   .wwd-icon { grid-row: 1 / span 3; margin: 2px 0 0; }
-  .wwd-icon svg { width: 34px; height: 34px; }
+  .wwd-icon svg { width: 36px; height: 36px; }
   .wwd-card h3 { min-height: 0; border: 0; padding: 0; margin: 0 0 2px; font-size: 1.05rem; }
   .wwd-card p { font-size: 0.93rem; }
   .wwd-more { padding-top: 8px; min-height: 32px; }

@@ -11,7 +11,20 @@ const base = import.meta.env.BASE_URL;
   <HomeHero />
 
   <section class="section section-flush wwd" data-reveal>
-    <div class="wwd-wave" aria-hidden="true"></div>
+    <svg class="wwd-wave" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="wwdFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dcebf9" />
+          <stop offset="1" stop-color="#dcebf9" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="wwdFill2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#eef6fd" stop-opacity=".6" />
+          <stop offset="1" stop-color="#cfe4f7" stop-opacity=".9" />
+        </linearGradient>
+      </defs>
+      <path d="M0 86C230 60 470 70 760 104C1050 138 1250 70 1440 20V200H0Z" fill="url(#wwdFill2)" />
+      <path d="M0 86C230 60 470 70 760 104C1050 138 1250 70 1440 20V200H0Z" fill="url(#wwdFill)" />
+    </svg>
     <div class="wrap">
       <div class="section-head wwd-head">
         <p class="eyebrow">Our Services</p>
@@ -21,7 +34,7 @@ const base = import.meta.env.BASE_URL;
       <div class="wwd-cards">
         {services.map((s, i) => (
           <a class="wwd-card" href={`${base}services/${s.id}/`} style={`--i:${i}`}>
-            <span class="wwd-icon"><Icon name={s.icon} size={40} /></span>
+            <span class="wwd-icon"><Icon name={s.icon} size={50} /></span>
             <h3>{s.homeTitle ?? s.title}</h3>
             <p>{s.card}</p>
             <span class="wwd-more">Learn More <Icon name="arrow" size={17} /></span>
