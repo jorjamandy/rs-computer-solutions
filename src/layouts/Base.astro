@@ -10,6 +10,7 @@ interface Props { title?: string; description?: string; current: string }
 const { title, description = site.description, current } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | Complete Technology Solutions for Your Business`;
 const base = import.meta.env.BASE_URL;
+const path = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
 
 type MenuItem = { label: string; href: string; icon: string; sep?: boolean };
 const menus: Record<string, MenuItem[]> = {
@@ -39,10 +40,11 @@ const menus: Record<string, MenuItem[]> = {
         <nav aria-label="Main">
           {nav.map((n) => menus[n.href] ? (
             <div class="has-menu">
-              <a href={`${base}${n.href}`} aria-current={n.href === current ? "page" : undefined} aria-haspopup="true">{n.label}<svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></a>
+              <a href={`${base}${n.href}`} aria-current={n.href === current ? "page" : undefined}>{n.label}<svg class="chev" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></a>
+              <button class="sub-toggle" type="button" aria-expanded="false" aria-label={`Show ${n.label} pages`}><svg class="chev" width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button>
               <ul class="submenu">
                 {menus[n.href].map((m) => (
-                  <li class:list={{ "submenu-sep": m.sep }}><a href={`${base}${m.href}`}><Icon name={m.icon} size={20} />{m.label}</a></li>
+                  <li class:list={{ "submenu-sep": m.sep }}><a href={`${base}${m.href}`} aria-current={path === `${base}${m.href}` ? "page" : undefined}><Icon name={m.icon} size={20} />{m.label}</a></li>
                 ))}
               </ul>
             </div>
@@ -55,6 +57,15 @@ const menus: Record<string, MenuItem[]> = {
     </header>
 
     <main id="main"><slot /></main>
+    <script>
+      // Phone menu: the arrow beside Services and Industries shows or hides their pages.
+      document.querySelectorAll<HTMLButtonElement>(".sub-toggle").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const open = btn.parentElement!.classList.toggle("open");
+          btn.setAttribute("aria-expanded", String(open));
+        });
+      });
+    </script>
 
     <footer class="site-footer">
       <div class="wrap foot-grid">
