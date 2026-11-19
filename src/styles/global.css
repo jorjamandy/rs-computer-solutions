@@ -448,3 +448,8 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .reel-item, .reel-mini, .reel-full, .reel-go { transition: none !important; }
 }
+
+/* Home: the services block runs straight into the industries section, so it
+   drops its bottom padding and every section gap on the page is 72px. */
+.section-flush { padding-bottom: 0; }
+@media (max-width: 560px) { .hh .eyebrow::after { display: none; } }
