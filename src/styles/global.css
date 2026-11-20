@@ -208,7 +208,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 .site-footer a:hover { color: #fff; text-decoration: underline; }
 .site-footer li { padding: 3px 0; }
 .legal { position: relative; z-index: 1; margin-top: 40px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); font-size: 0.85rem; }
-.foot-wave { position: absolute; right: 0; bottom: 0; width: min(46%, 560px); height: 110px; opacity: .95; }
+.foot-wave { position: absolute; right: 0; bottom: 0; width: min(46%, 600px); height: 150px; pointer-events: none; }
 
 @media (max-width: 1060px) {
   .site-header nav { gap: 18px; }
