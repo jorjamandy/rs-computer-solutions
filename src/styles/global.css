@@ -616,3 +616,12 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .btn:hover .ha-tip, .btn:focus-visible .ha-tip { transform: translateX(3px); }
 .cta .btn-white:hover, .cta .btn-white:focus-visible { background: #fff; color: var(--navy); }
 .cta .btn-primary:hover, .cta .btn-primary:focus-visible { background: var(--maroon-dark); color: #fff; }
+
+/* When the cursor moves from one dropdown to the other, close the first one
+   instantly so the two menus never overlap. (The short close delay still
+   applies when leaving the menus altogether.) */
+@media (min-width: 861px) {
+  .site-header nav:has(.has-menu:hover) .has-menu:not(:hover) .submenu,
+  .site-header nav:has(.has-menu:focus-within) .has-menu:not(:focus-within):not(:hover) .submenu { opacity: 0; visibility: hidden; transition: none; }
+  .site-header nav:has(.has-menu:hover) .has-menu:not(:hover) .chev { transform: none; }
+}
