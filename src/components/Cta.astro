@@ -1,4 +1,5 @@
 ---
+import HoverArrow from "./HoverArrow.astro";
 interface Props { title: string; text?: string; button?: string; light?: boolean }
 const { title, text, button = "Get in Touch", light = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -10,7 +11,7 @@ const base = import.meta.env.BASE_URL;
         <h2>{title}</h2>
         {text && <p>{text}</p>}
       </div>
-      <a class:list={["btn", light ? "btn-primary" : "btn-white"]} href={`${base}contact/`}>{button} <svg class="hover-arrow" width="11" height="11" viewBox="0 0 10 10" aria-hidden="true"><path class="ha-line" d="M0 5h7" /><path class="ha-tip" d="M1 1l4 4-4 4" /></svg></a>
+      <a class:list={["btn", light ? "btn-primary" : "btn-white"]} href={`${base}contact/`}>{button} <HoverArrow /></a>
     </div>
   </div>
 </section>

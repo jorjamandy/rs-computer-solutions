@@ -1,4 +1,5 @@
 ---
+import HoverArrow from "../components/HoverArrow.astro";
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
 import PageHero from "../components/PageHero.astro";
@@ -31,7 +32,7 @@ import { site } from "../data/site";
         </div>
         <label>How Can We Help? <span class="req">*</span><textarea name="message" rows="5" required></textarea></label>
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
-        <button class="btn btn-primary btn-full" type="submit">Send Message <Icon name="arrow" size={18} /></button>
+        <button class="btn btn-primary btn-full" type="submit">Send Message <HoverArrow /></button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>

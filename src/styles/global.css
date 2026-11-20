@@ -529,8 +529,6 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .wwd-card h3 { font-size: 1.22rem; line-height: 1.18; min-height: calc(2.4em + 14px); display: flex; align-items: flex-end; width: 100%; padding-bottom: 12px; border-bottom: 2px solid #cfe5f8; margin-bottom: 14px; }
 .wwd-card p { font-size: 0.93rem; line-height: 1.55; }
 .wwd-more { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 16px; font-weight: 700; font-size: 0.93rem; color: var(--maroon); }
-.wwd-more svg { transition: transform .3s var(--ease); }
-.wwd-card:hover .wwd-more svg { transform: translateX(4px); }
 
 /* Scroll-in: heading rises 12px, cards follow 80ms apart */
 [data-reveal] .wwd-head, [data-reveal] .wwd-card { opacity: 0; }
@@ -599,15 +597,18 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .ind-swoosh { position: absolute; left: 0; bottom: 0; width: min(46%, 640px); height: 170px; transform: scaleX(-1); pointer-events: none; }
 @media (max-width: 520px) { .ind-sec { padding-bottom: 88px; } .ind-swoosh { width: 75%; height: 100px; } }
 
-/* Contact banner button: Stripe-style arrow. On hover a short line slides in
-   behind the chevron, pushing it forward, and the label darkens. */
-.cta .btn { gap: 9px; transition: color .2s ease, background-color .2s ease, transform .15s; }
-.hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; }
+/* Stripe-style buttons, site-wide.
+   - Every button arrow is a chevron that grows a short tail and nudges forward on hover.
+   - Filled maroon buttons: white text stays white, background darkens slightly.
+   - Outline and white buttons: stay white; maroon text (and border) turn dark navy. */
+.btn { gap: 9px; }
+.btn:hover { transform: none; }
+.hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; flex: none; }
 .hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
 .hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
-.cta .btn:hover .ha-line, .cta .btn:focus-visible .ha-line { opacity: 1; }
-.cta .btn:hover .ha-tip, .cta .btn:focus-visible .ha-tip { transform: translateX(3px); }
-.cta .btn-white:hover, .cta .btn-white:focus-visible { color: var(--navy); }
-/* Keep the button itself the same color on hover */
-.cta .btn-white:hover { background: #fff; }
-.cta .btn-primary:hover { background: var(--maroon); }
+.btn:hover .ha-line, .btn:focus-visible .ha-line, .wwd-card:hover .ha-line, .wwd-card:focus-visible .ha-line { opacity: 1; }
+.btn:hover .ha-tip, .btn:focus-visible .ha-tip, .wwd-card:hover .ha-tip, .wwd-card:focus-visible .ha-tip { transform: translateX(3px); }
+.btn-outline:hover, .btn-outline:focus-visible { background: #fff; color: var(--navy); border-color: var(--navy); }
+.btn-white:hover, .btn-white:focus-visible { background: #fff; color: var(--navy); }
+.wwd-more { transition: color .15s ease; }
+.wwd-card:hover .wwd-more { color: var(--maroon-dark); }
