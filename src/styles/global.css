@@ -608,7 +608,7 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 
 /* Contact banner button only: Stripe-style arrow. On hover a short line slides
    in behind the chevron and pushes it forward; the label darkens to navy. */
-.cta .btn, .hh .btn-primary { gap: 9px; }
+.cta .btn, .hh .btn-primary, .nav-cta { gap: 9px; }
 .hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; flex: none; }
 .hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
 .hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
