@@ -1,5 +1,5 @@
 ---
-import HoverArrow from "./HoverArrow.astro";
+import Icon from "./Icon.astro";
 interface Props { title: string; text?: string; button?: string; light?: boolean }
 const { title, text, button = "Get in Touch", light = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL;
         <h2>{title}</h2>
         {text && <p>{text}</p>}
       </div>
-      <a class:list={["btn", light ? "btn-primary" : "btn-white"]} href={`${base}contact/`}>{button} <HoverArrow /></a>
+      <a class:list={["btn", light ? "btn-primary" : "btn-white"]} href={`${base}contact/`}>{button} <Icon name="arrow" size={18} /></a>
     </div>
   </div>
 </section>

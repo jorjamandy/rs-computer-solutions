@@ -612,3 +612,8 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .btn-white:hover, .btn-white:focus-visible { background: #fff; color: var(--navy); }
 .wwd-more { transition: color .15s ease; }
 .wwd-card:hover .wwd-more { color: var(--maroon-dark); }
+
+/* Contact banner button: plain and standard (static arrow, gentle tint on hover) */
+.cta .btn { gap: 8px; }
+.cta .btn-white:hover, .cta .btn-white:focus-visible { background: #f2f6fa; color: var(--maroon); }
+.cta .btn-primary:hover, .cta .btn-primary:focus-visible { background: var(--maroon-dark); color: #fff; }
