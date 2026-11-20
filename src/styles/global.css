@@ -605,11 +605,11 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 /* A ring only: the mask cuts the middle out so the button itself stays untouched */
 .cta .btn::before {
   content: ""; position: absolute; inset: -3px; border-radius: 15px; padding: 2px; pointer-events: none;
-  background: conic-gradient(from var(--cta-angle), var(--maroon), var(--powder), #fff, var(--powder), var(--maroon));
+  background: conic-gradient(from var(--cta-angle), rgba(255,255,255,.2), var(--powder), #fff, rgba(255,255,255,.2) 70%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
   opacity: 0; transition: opacity .35s ease;
 }
-.cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: .75; animation: cta-spin 4.5s linear infinite; }
+.cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: .55; animation: cta-spin 6s linear infinite; }
 @keyframes cta-spin { to { --cta-angle: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .cta .btn:hover::before, .cta .btn:focus-visible::before { animation: none; } }
