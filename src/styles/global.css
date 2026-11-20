@@ -608,11 +608,11 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 
 /* Contact banner button only: Stripe-style arrow. On hover a short line slides
    in behind the chevron and pushes it forward; the label darkens to navy. */
-.cta .btn { gap: 9px; }
-.cta .hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; flex: none; }
-.cta .hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
-.cta .hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
-.cta .btn:hover .ha-line, .cta .btn:focus-visible .ha-line { opacity: 1; }
-.cta .btn:hover .ha-tip, .cta .btn:focus-visible .ha-tip { transform: translateX(3px); }
+.cta .btn, .hh .btn-primary { gap: 9px; }
+.hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; flex: none; }
+.hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
+.hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
+.btn:hover .ha-line, .btn:focus-visible .ha-line { opacity: 1; }
+.btn:hover .ha-tip, .btn:focus-visible .ha-tip { transform: translateX(3px); }
 .cta .btn-white:hover, .cta .btn-white:focus-visible { background: #fff; color: var(--navy); }
 .cta .btn-primary:hover, .cta .btn-primary:focus-visible { background: var(--maroon-dark); color: #fff; }
