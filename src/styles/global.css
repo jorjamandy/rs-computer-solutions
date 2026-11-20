@@ -597,19 +597,12 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .ind-swoosh { position: absolute; left: 0; bottom: 0; width: min(46%, 640px); height: 170px; transform: scaleX(-1); pointer-events: none; }
 @media (max-width: 520px) { .ind-sec { padding-bottom: 88px; } .ind-swoosh { width: 75%; height: 100px; } }
 
-/* Stripe-style buttons, site-wide.
-   - Every button arrow is a chevron that grows a short tail and nudges forward on hover.
-   - Filled maroon buttons: white text stays white, background darkens slightly.
-   - Outline and white buttons: stay white; maroon text (and border) turn dark navy. */
-.btn { gap: 9px; }
+/* Buttons, site-wide: plain and standard. Static arrow; on hover filled
+   buttons darken slightly and outline/white buttons take a light tint. */
+.btn { gap: 8px; }
 .btn:hover { transform: none; }
-.hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; flex: none; }
-.hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
-.hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
-.btn:hover .ha-line, .btn:focus-visible .ha-line, .wwd-card:hover .ha-line, .wwd-card:focus-visible .ha-line { opacity: 1; }
-.btn:hover .ha-tip, .btn:focus-visible .ha-tip, .wwd-card:hover .ha-tip, .wwd-card:focus-visible .ha-tip { transform: translateX(3px); }
-.btn-outline:hover, .btn-outline:focus-visible { background: #fff; color: var(--navy); border-color: var(--navy); }
-.btn-white:hover, .btn-white:focus-visible { background: #fff; color: var(--navy); }
+.btn-outline:hover, .btn-outline:focus-visible { background: #fbf3f5; color: var(--maroon); border-color: var(--maroon); }
+.btn-white:hover, .btn-white:focus-visible { background: #f2f6fa; color: var(--maroon); }
 .wwd-more { transition: color .15s ease; }
 .wwd-card:hover .wwd-more { color: var(--maroon-dark); }
 
