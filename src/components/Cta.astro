@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 interface Props { title: string; text?: string; button?: string; light?: boolean }
-const { title, text, button = "Get in Touch", light = false } = Astro.props;
+const { title, text, button = "Let's Talk", light = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 <section class="cta-wrap">
