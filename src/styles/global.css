@@ -613,3 +613,6 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: .55; animation: cta-spin 6s linear infinite; }
 @keyframes cta-spin { to { --cta-angle: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .cta .btn:hover::before, .cta .btn:focus-visible::before { animation: none; } }
+/* Keep the button itself white on hover; only the thin border shows */
+.cta .btn-white:hover { background: #fff; }
+.cta .btn-primary:hover { background: var(--maroon); }
