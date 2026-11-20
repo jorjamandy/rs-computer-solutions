@@ -599,20 +599,15 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .ind-swoosh { position: absolute; left: 0; bottom: 0; width: min(46%, 640px); height: 170px; transform: scaleX(-1); pointer-events: none; }
 @media (max-width: 520px) { .ind-sec { padding-bottom: 88px; } .ind-swoosh { width: 75%; height: 100px; } }
 
-/* Contact banner button: animated maroon / powder-blue / white gradient border on hover */
-@property --cta-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
-.cta .btn { position: relative; }
-/* A ring only: the mask cuts the middle out so the button itself stays untouched */
-.cta .btn::before {
-  content: ""; position: absolute; inset: -3px; border-radius: 15px; padding: 2px; pointer-events: none;
-  background: conic-gradient(from var(--cta-angle), rgba(255,255,255,.2), var(--powder), #fff, rgba(255,255,255,.2) 70%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude;
-  opacity: 0; transition: opacity .35s ease;
-}
-.cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: .55; animation: cta-spin 6s linear infinite; }
-@keyframes cta-spin { to { --cta-angle: 360deg; } }
-@media (prefers-reduced-motion: reduce) { .cta .btn:hover::before, .cta .btn:focus-visible::before { animation: none; } }
-/* Keep the button itself white on hover; only the thin border shows */
+/* Contact banner button: Stripe-style arrow. On hover a short line slides in
+   behind the chevron, pushing it forward, and the label darkens. */
+.cta .btn { gap: 9px; transition: color .2s ease, background-color .2s ease, transform .15s; }
+.hover-arrow { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; margin-left: 1px; }
+.hover-arrow .ha-line { opacity: 0; transition: opacity .15s cubic-bezier(.215, .61, .355, 1); }
+.hover-arrow .ha-tip { transition: transform .15s cubic-bezier(.215, .61, .355, 1); }
+.cta .btn:hover .ha-line, .cta .btn:focus-visible .ha-line { opacity: 1; }
+.cta .btn:hover .ha-tip, .cta .btn:focus-visible .ha-tip { transform: translateX(3px); }
+.cta .btn-white:hover, .cta .btn-white:focus-visible { color: var(--navy); }
+/* Keep the button itself the same color on hover */
 .cta .btn-white:hover { background: #fff; }
 .cta .btn-primary:hover { background: var(--maroon); }
