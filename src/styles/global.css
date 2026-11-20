@@ -604,12 +604,12 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .cta .btn { position: relative; }
 /* A ring only: the mask cuts the middle out so the button itself stays untouched */
 .cta .btn::before {
-  content: ""; position: absolute; inset: -5px; border-radius: 17px; padding: 4px; pointer-events: none;
+  content: ""; position: absolute; inset: -3px; border-radius: 15px; padding: 2px; pointer-events: none;
   background: conic-gradient(from var(--cta-angle), var(--maroon), var(--powder), #fff, var(--powder), var(--maroon));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
-  opacity: 0; transition: opacity .25s ease;
+  opacity: 0; transition: opacity .35s ease;
 }
-.cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: 1; animation: cta-spin 2.4s linear infinite; }
+.cta .btn:hover::before, .cta .btn:focus-visible::before { opacity: .75; animation: cta-spin 4.5s linear infinite; }
 @keyframes cta-spin { to { --cta-angle: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .cta .btn:hover::before, .cta .btn:focus-visible::before { animation: none; } }
