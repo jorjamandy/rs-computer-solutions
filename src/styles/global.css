@@ -264,7 +264,7 @@ a.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -14px rgba(1
 
 /* Quick stats band */
 .stats { background: var(--navy); color: #fff; position: relative; }
-.stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, var(--maroon) 0 50%, var(--powder) 50% 100%); }
+.stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--maroon); }
 .stats-grid { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); }
 .stat { padding: 38px 20px 42px; text-align: center; }
 .stat + .stat { border-left: 1px solid rgba(255,255,255,.14); }
@@ -394,7 +394,7 @@ a.ind-card:hover .inline-link { text-decoration: underline; }
 .hh-wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(70px, 11vw, 175px); z-index: 3; pointer-events: none; }
 
 .hh-stats { position: relative; background: var(--navy); color: #fff; }
-.hh-stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: linear-gradient(90deg, var(--maroon) 0 50%, var(--powder) 50% 100%); }
+.hh-stats::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: var(--maroon); }
 .hh-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 0; }
 .hh-stat { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 30px 16px 36px; }
 .hh-stat + .hh-stat { border-left: 1px solid rgba(255,255,255,.18); }
